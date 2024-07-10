@@ -2,19 +2,19 @@
 import type { Icon } from "@/config/landing.interface";
 import CheckIcon from "@/icons/commons/CheckIcon.astro";
 import ConfigIcon from "@/icons/commons/ConfigIcon.astro";
-import DevIcon from "@/icons/commons/DevIcon.astro";
+import ProxyIcon from "@/icons/commons/ProxyIcon.astro";
 import FileIcon from "@/icons/commons/FileIcon.astro";
-import PlanetIcon from "@/icons/commons/PlanetIcon.astro";
+import UrlIcon from "@/icons/commons/UrlIcon.astro";
 import FacebookIcon from "@/icons/socials/FacebookIcon.astro";
 import GithubIcon from "@/icons/socials/GithubIcon.astro";
 import InstagramIcon from "@/icons/socials/InstagramIcon.astro";
 import TwitterIcon from "@/icons/socials/TwitterIcon.astro";
-import NetlifyIcon from "@/icons/techs/NetlifyIcon.astro";
-import ReactIcon from "@/icons/techs/ReactIcon.astro";
-import SolidIcon from "@/icons/techs/SolidIcon.astro";
-import SvelteIcon from "@/icons/techs/SvelteIcon.astro";
-import VercelIcon from "@/icons/techs/VercelIcon.astro";
-import VueIcon from "@/icons/techs/VueIcon.astro";
+import TypescriptIcon from "@/icons/techs/TypescriptIcon.astro";
+import JavaIcon from "@/icons/techs/JavaIcon.astro";
+import GoIcon from "@/icons/techs/GoIcon.astro";
+import PythonIcon from "@/icons/techs/PythonIcon.astro";
+import RustIcon from "@/icons/techs/RustIcon.astro";
+import PhpIcon from "@/icons/techs/PhpIcon.astro";
 
 interface Props {
   icon: Icon;
@@ -25,20 +25,20 @@ const { icon, class: className } = Astro.props;
 
 const icons = [
   ConfigIcon,
-  DevIcon,
+  ProxyIcon,
   FileIcon,
-  PlanetIcon,
+  UrlIcon,
   CheckIcon,
   FacebookIcon,
   GithubIcon,
   InstagramIcon,
   TwitterIcon,
-  ReactIcon,
-  SvelteIcon,
-  VueIcon,
-  NetlifyIcon,
-  SolidIcon,
-  VercelIcon,
+  TypescriptIcon,
+  PythonIcon,
+  PhpIcon,
+  JavaIcon,
+  GoIcon,
+  RustIcon,
 ];
 
 let figures: Record<string, (_props: Record<string, unknown>) => unknown> = {};

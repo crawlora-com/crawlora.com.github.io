@@ -126,9 +126,9 @@ export type Icon =
   | "GithubIcon"
   | "TwitterIcon"
   | "FacebookIcon"
-  | "ReactIcon"
-  | "SvelteIcon"
-  | "SolidIcon"
-  | "VueIcon"
-  | "VercelIcon"
-  | "NetlifyIcon";
+  | "TypescriptIcon"
+  | "PythonIcon"
+  | "JavaIcon"
+  | "GoIcon"
+  | "PhpIcon"
+  | "RustIcon";
