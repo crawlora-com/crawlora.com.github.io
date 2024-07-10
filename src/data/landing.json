@@ -122,27 +122,10 @@
           "amount": "Free"
         },
         "features": [
-          "feature 1",
-          "feature 2",
-          "feature 3",
-          "feature 4",
-          "feature 5"
-        ],
-        "cta": "Get started"
-      },
-      {
-        "title": "Professional",
-        "description": "Relevant for multiple users, extended & premium support.",
-        "price": {
-          "amount": "$29",
-          "period": "/month"
-        },
-        "features": [
-          "feature 1",
-          "feature 2",
-          "feature 3",
-          "feature 4",
-          "feature 5"
+          "Email Support",
+          "Api access",
+          "Plugin",
+		  "30k monthly requests"
         ],
         "cta": "Get started"
       },
@@ -150,17 +133,16 @@
         "title": "Enterprise",
         "description": "Best for large scale uses and extended redistribution rights.",
         "price": {
-          "amount": "$59",
+          "amount": "Lets Talk",
           "period": "/month"
         },
         "features": [
-          "feature 1",
-          "feature 2",
-          "feature 3",
-          "feature 4",
-          "feature 5"
+		  "Premium Email Support",
+		  "api access",
+          "unlimited requests",
+          "fast and reliable web proxy"
         ],
-        "cta": "Get started"
+        "cta": "Get enterprise"
       }
     ]
   },
