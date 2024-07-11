@@ -1,114 +1,108 @@
 {
   "meta": {
-    "title": "Luna Landing your perfect landing page",
+    "title": "DataMiner landing page",
     "description": "Landing page template",
     "lang": "en",
     "charset": "UTF-8",
     "ldJson": {
       "@context": "http://schema.org",
       "@type": "Organization",
-      "name": "Luna Landing",
+      "name": "DataMiner",
       "description": "Fictitious company that seeks to elevate and simplify the lives of web developers.",
-      "url": "https://luna-landing-rust.vercel.app/",
+      "url": "https://dataminer.site/",
       "logo": "./public/favicon.svg",
       "contactPoint": {
         "@type": "ContactPoint",
-        "email": "luna-landing@luna.com",
+        "email": "support@dataminer.site",
         "contactType": "Client Service"
       },
-      "sameAs": [
-        "https://www.twitter.com/yourpage",
-        "https://www.instagram.com/yourpage",
-        "https://www.linkedin.com/company/yourpage"
-      ]
+      "sameAs": []
     }
   },
   "headerData": {
-    "logo": "Luna Landing",
+    "logo": "DataMiner",
     "links": [
-      { "label": "About", "href": "#" },
-      { "label": "Services", "href": "#" },
-      { "label": "Prices", "href": "#" },
-      { "label": "FAQs", "href": "#" },
-      { "label": "Blog", "href": "#" }
+      { "label": "About", "href": "#brands" },
+      { "label": "Services", "href": "#services-section" },
+      { "label": "Prices", "href": "#price-section" },
+      { "label": "Api Doc", "href": "https://apidoc.dataminer.site" },
+      { "label": "Get started", "href": "https://dash.dataminer.site" }
     ]
   },
   "heroData": {
-    "title": "Open Your Mind to the Universe: Welcome to",
-    "subTitle": "Discover the Beauty of the Cosmos: Explore the Infinite Wonders of Space with Us",
-    "primaryCta": "Github Repo",
+    "title": "Unearth Insights with Ease: Welcome to",
+    "subTitle": "your gateway to effortless data extraction and powerful insights.",
+    "primaryCta": "Get started",
     "secondaryCta": "See our pricing",
-    "highlightedTitle": "Luna Landing"
+    "highlightedTitle": "DataMiner"
   },
   "servicesData": {
-    "title": "Everything you need to build a website",
+    "title": "Everything you need to scrape data",
     "services": [
       {
-        "title": "Professional Templates",
-        "icon": "DevIcon",
-        "description": "Our templates are crafted by experienced web designers, ensuring a modern and polished look for your site. From typography to element design, every detail is carefully considered to convey a professional image."
+        "title": "Proxy-Based Scraping",
+        "icon": "ProxyIcon",
+        "description": "Enhance your data scraping with proxies to maintain anonymity and avoid IP bans. Key features include IP rotation, anonymity, speed, efficiency, and overcoming geo-restrictions. Our solution ensures secure and efficient data collection from any website."
       },
       {
-        "title": "Integrated Accessibility",
-        "icon": "PlanetIcon",
-        "description": "We care about web accessibility and have integrated features to ensure your site is accessible to all users, including those with visual or motor disabilities. Our templates comply with WCAG accessibility standards to provide an inclusive experience for everyone."
-      },
-      {
-        "title": "SEO-Optimized",
-        "icon": "FileIcon",
-        "description": "We understand the importance of your site being visible in search engines. That's why our templates are optimized for SEO, meaning they are structured and coded to be easily indexed by Google and other search engines, helping to improve your ranking in search results."
-      },
-      {
-        "title": "Easy Set up",
-        "icon": "ConfigIcon",
-        "description": "With our templates, you don't need to be a web development expert to have an impressive site. They are easy to set up and customize, with intuitive options that allow you to change colors, fonts, page layout, and more with just a few clicks. Make your site stand out hassle-free!"
+        "title": "Using Urls",
+        "icon": "UrlIcon",
+        "description": "We utilize advanced techniques to scrape data from web pages using URLs. Our service ensures accurate and efficient data collection, enabling you to gather valuable information seamlessly from the web."
       }
     ]
   },
   "adventajesData": {
-    "title": "    Unlock the Power of Luna Landing: Discover the Key Benefits",
+    "title": "    Unlock the Power of DataMiner: Discover the Key Benefits",
     "adventajes": [
       {
-        "title": "Take Your Website to Perfection",
-        "description": "Our intuitive customization options empower you to create a website that stands out and resonates with your audience like never before. Say goodbye to cookie-cutter designs and hello to a website that truly reflects your vision and personality.",
-        "img": "template.webp",
-        "imageAlt": "this is an image about the template service adventajes",
-        "checks": ["Colors", "Fonts", "Layout"]
+        "title": "Use Your Custom Plugin",
+        "description": "Our intuitive customization options empower you to scrap the data of website that stands out and resonates with your audience like never before. Say goodbye to normal scrapper and hello to DataMiner that truly reflects your vision and personality.",
+        "img": "plugin.webp",
+        "imageAlt": "this is an image about the plugin service adventajes",
+        "checks": ["Custom Plugin", "Data scraping"]
       },
       {
-        "title": "Reach the Top of Search Rankings",
-        "description": "Elevate your online visibility with our SEO-optimized template. Built with search engine algorithms in mind, our template is designed to help your website climb to the top of search engine results pages (SERPs). From optimized meta tags and clean HTML structure to mobile responsiveness and fast loading times, every aspect of our template is geared towards maximizing your website's search engine performance. Increase your organic traffic, attract more visitors, and grow your online presence with ease.",
-        "img": "seo.webp",
-        "imageAlt": "this is an image about the SEO adventajes",
-        "checks": ["Search Visibility", "Organic Traffic", "Online Credibility"]
+        "title": "Scrap Data From Specific Region",
+        "description": "DataMiner is revolutionizing the way you gather insights by offering unparalleled precision and flexibility in data extraction. One of its standout features is the ability to crawl data from specific regions, ensuring you get the most relevant and accurate information tailored to your needs.Whether you're looking to analyze market trends, monitor competitors, or gather localized data, DataMiner empowers you to specify the exact region you want to target. This means you can scrape data from websites hosted in different parts of the world, capturing region-specific details such as prices, availability, and localized content.With DataMiner, you can effortlessly extract and analyze data from any location, giving you the power to make informed decisions based on the most precise and up-to-date information available. Experience the future of data extraction with DataMiner, where your insights are only a click away",
+        "img": "scrap.webp",
+        "imageAlt": "this is an image about the scraping adventajes",
+        "checks": [
+          "Region-specific",
+          "Fast and reliable proxy",
+          "Url based scraping"
+        ]
       }
     ]
   },
   "brandsData": {
-    "title": "Integration with Leading Technologies",
-    "description": "Effortlessly integrate with leading technologies. Our platform seamlessly supports industry-standard tools and frameworks, enabling you to stay ahead of the curve and maximize productivity. Explore endless possibilities with our comprehensive compatibility features",
+    "title": "Scrap Data With Your Custom Plugins",
+    "description": "Tailor Your Data Collection: With DataMiner's custom plugin feature, effortlessly create personalized scraping tools tailored to your unique needs,Integrate your custom plugins seamlessly into DataMiner, enhancing efficiency and expanding possibilities.",
     "brands": [
-      { "label": "React", "icon": "ReactIcon", "href": "https://react.dev/" },
-      { "label": "Vue", "icon": "VueIcon", "href": "https://vuejs.org/" },
       {
-        "label": "Svelte",
-        "icon": "SvelteIcon",
-        "href": "https://svelte.dev/"
+        "label": "Typescript",
+        "icon": "TypescriptIcon",
+        "href": "https://www.typescriptlang.org/"
       },
       {
-        "label": "Solid",
-        "icon": "SolidIcon",
-        "href": "https://www.solidjs.com/"
+        "label": "Java",
+        "icon": "JavaIcon",
+        "href": "https://www.java.com/en/"
+      },
+      { "label": "Php", "icon": "PhpIcon", "href": "https://www.php.net/" },
+      {
+        "label": "Python",
+        "icon": "PythonIcon",
+        "href": "https://www.python.org/"
       },
       {
-        "label": "Vercel",
-        "icon": "VercelIcon",
-        "href": "https://vercel.com/"
+        "label": "Go",
+        "icon": "GoIcon",
+        "href": "https://go.dev/"
       },
       {
-        "label": "Netlify",
-        "icon": "NetlifyIcon",
-        "href": "https://www.netlify.com/"
+        "label": "Rust",
+        "icon": "RustIcon",
+        "href": "https://www.rust-lang.org/"
       }
     ]
   },
@@ -125,8 +119,9 @@
           "Email Support",
           "Api access",
           "Plugin",
-		  "30k monthly requests"
+          "30k monthly requests"
         ],
+		"href": "https://dash.dataminer.site",
         "cta": "Get started"
       },
       {
@@ -137,30 +132,25 @@
           "period": "/month"
         },
         "features": [
-		  "Premium Email Support",
-		  "api access",
+          "Premium Email Support",
+          "api access",
           "unlimited requests",
           "fast and reliable web proxy"
         ],
+		"href": "https://form.jotform.com/241921441318047",
         "cta": "Get enterprise"
       }
     ]
   },
   "footerData": {
-    "logo": "Luna Landing",
-    "description": "Discover the Beauty of the Cosmos: Explore the Infinite Wonders of Space with Us",
+    "logo": "DataMiner",
+    "description": "Unlock the power of advanced data extraction and analysis with our powerful, flexible, efficient, and extensible data extraction from URLs.",
     "links": [
-      { "label": "About", "href": "/" },
-      { "label": "Services", "href": "/" },
-      { "label": "Blog", "href": "/" },
-      { "label": "FAQs", "href": "/" },
-      { "label": "Contact", "href": "/" }
+	{ "label": "About", "href": "#brands" },
+	{ "label": "Services", "href": "#services-section" },
+	{ "label": "Api Doc", "href": "https://apidoc.dataminer.site" },
+	{ "label": "Contact", "href": "https://form.jotform.com/241921518978468" }
     ],
-    "socials": [
-      { "icon": "FacebookIcon", "href": "/" },
-      { "icon": "InstagramIcon", "href": "/" },
-      { "icon": "TwitterIcon", "href": "/" },
-      { "icon": "GithubIcon", "href": "/" }
-    ]
+    "socials": []
   }
 }

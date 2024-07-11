@@ -12,7 +12,7 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<section class="mt-48">
+<section class="mt-48" id="price-section">
   <SectionTitle>
     {data.title}
   </SectionTitle>
@@ -53,7 +53,7 @@ const { data } = Astro.props;
               as="a"
               class="bg-primary text-white w-72"
               type="button"
-              href="#"
+              href={tier.href}
             >
               {tier.cta}
             </Action>

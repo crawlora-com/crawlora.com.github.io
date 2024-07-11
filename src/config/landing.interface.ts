@@ -86,6 +86,7 @@ export interface Tier {
   price: Price;
   features: string[];
   cta: string;
+  href: string;
 }
 
 export interface Price {
@@ -126,9 +127,9 @@ export type Icon =
   | "GithubIcon"
   | "TwitterIcon"
   | "FacebookIcon"
-  | "ReactIcon"
-  | "SvelteIcon"
-  | "SolidIcon"
-  | "VueIcon"
-  | "VercelIcon"
-  | "NetlifyIcon";
+  | "TypescriptIcon"
+  | "PythonIcon"
+  | "JavaIcon"
+  | "GoIcon"
+  | "PhpIcon"
+  | "RustIcon";
