@@ -9,34 +9,30 @@
       "@type": "Organization",
       "name": "DataMiner",
       "description": "Fictitious company that seeks to elevate and simplify the lives of web developers.",
-      "url": "https://luna-landing-rust.vercel.app/",
+      "url": "https://dataminer.site/",
       "logo": "./public/favicon.svg",
       "contactPoint": {
         "@type": "ContactPoint",
-        "email": "luna-landing@luna.com",
+        "email": "support@dataminer.site",
         "contactType": "Client Service"
       },
-      "sameAs": [
-        "https://www.twitter.com/yourpage",
-        "https://www.instagram.com/yourpage",
-        "https://www.linkedin.com/company/yourpage"
-      ]
+      "sameAs": []
     }
   },
   "headerData": {
     "logo": "DataMiner",
     "links": [
-      { "label": "About", "href": "#" },
-      { "label": "Services", "href": "#" },
-      { "label": "Prices", "href": "#" },
-      { "label": "FAQs", "href": "#" },
-      { "label": "Blog", "href": "#" }
+      { "label": "About", "href": "#brands" },
+      { "label": "Services", "href": "#services-section" },
+      { "label": "Prices", "href": "#price-section" },
+      { "label": "Api Doc", "href": "https://apidoc.dataminer.site" },
+      { "label": "Get started", "href": "https://dash.dataminer.site" }
     ]
   },
   "heroData": {
     "title": "Unearth Insights with Ease: Welcome to",
     "subTitle": "your gateway to effortless data extraction and powerful insights.",
-    "primaryCta": "Github Repo",
+    "primaryCta": "Get started",
     "secondaryCta": "See our pricing",
     "highlightedTitle": "DataMiner"
   },
@@ -125,6 +121,7 @@
           "Plugin",
           "30k monthly requests"
         ],
+		"href": "https://dash.dataminer.site",
         "cta": "Get started"
       },
       {
@@ -140,6 +137,7 @@
           "unlimited requests",
           "fast and reliable web proxy"
         ],
+		"href": "https://form.jotform.com/241921441318047",
         "cta": "Get enterprise"
       }
     ]
@@ -148,17 +146,11 @@
     "logo": "DataMiner",
     "description": "Unlock the power of advanced data extraction and analysis with our powerful, flexible, efficient, and extensible data extraction from URLs.",
     "links": [
-      { "label": "About", "href": "/" },
-      { "label": "Services", "href": "/" },
-      { "label": "Blog", "href": "/" },
-      { "label": "FAQs", "href": "/" },
-      { "label": "Contact", "href": "/" }
+	{ "label": "About", "href": "#brands" },
+	{ "label": "Services", "href": "#services-section" },
+	{ "label": "Api Doc", "href": "https://apidoc.dataminer.site" },
+	{ "label": "Contact", "href": "https://form.jotform.com/241921518978468" }
     ],
-    "socials": [
-      { "icon": "FacebookIcon", "href": "/" },
-      { "icon": "InstagramIcon", "href": "/" },
-      { "icon": "TwitterIcon", "href": "/" },
-      { "icon": "GithubIcon", "href": "/" }
-    ]
+    "socials": []
   }
 }
