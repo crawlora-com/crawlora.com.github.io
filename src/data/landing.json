@@ -26,7 +26,7 @@
       { "label": "Services", "href": "#services-section" },
       { "label": "Prices", "href": "#price-section" },
       { "label": "Api Doc", "href": "https://apidoc.dataminer.site" },
-      { "label": "Get started", "href": "https://dash.dataminer.site" }
+      { "label": "Get started", "href": "https://app.dataminer.site" }
     ]
   },
   "heroData": {
@@ -121,7 +121,7 @@
           "Plugin",
           "30k monthly requests"
         ],
-		"href": "https://dash.dataminer.site",
+		"href": "https://app.dataminer.site",
         "cta": "Get started"
       },
       {
