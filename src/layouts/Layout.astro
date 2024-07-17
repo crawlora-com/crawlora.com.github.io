@@ -24,7 +24,17 @@ const ldJson = JSON.stringify(meta.ldJson);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={import.meta.env.SITE} />
-    <script type="application/ld+json" set:html={ldJson} />
+    <script is:inline type="application/ld+json" set:html={ldJson} />
+<!-- Google tag (gtag.js) -->
+	<script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-92TTLFTB46"></script>
+		<script type="text/partytown">
+			window.dataLayer = window.dataLayer || [];
+			// eslint-disable-next-line no-undef
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-92TTLFTB46');
+		</script>
   </head>
   <body class="bg-white">
     <Background />
