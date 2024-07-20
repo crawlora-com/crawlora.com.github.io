@@ -26,7 +26,8 @@
       { "label": "Services", "href": "#services-section" },
       { "label": "Prices", "href": "#price-section" },
       { "label": "Api Doc", "href": "https://apidoc.dataminer.site" },
-      { "label": "Get started", "href": "https://app.dataminer.site" }
+      { "label": "Get started", "href": "https://app.dataminer.site" },
+	  { "label": "Status", "href": "https://stats.uptimerobot.com/qS7t2qxRk2" }
     ]
   },
   "heroData": {
