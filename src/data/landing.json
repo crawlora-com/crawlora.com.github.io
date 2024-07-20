@@ -145,7 +145,8 @@
       { "label": "About", "href": "#brands" },
       { "label": "Services", "href": "#services-section" },
       { "label": "Api Doc", "href": "https://apidoc.dataminer.site" },
-      { "label": "Contact", "href": "https://form.jotform.com/241921518978468" }
+      { "label": "Contact", "href": "https://form.jotform.com/241921518978468" },
+      { "label": "Status", "href": "https://stats.uptimerobot.com/qS7t2qxRk2" }
     ],
     "socials": []
   }
