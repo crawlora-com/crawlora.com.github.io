@@ -25,6 +25,7 @@
       { "label": "About", "href": "#brands" },
       { "label": "Services", "href": "#services-section" },
       { "label": "Prices", "href": "#price-section" },
+      { "label": "Blogs", "href": "https://blog.dataminer.site" },
       { "label": "Api Doc", "href": "https://apidoc.dataminer.site" },
       { "label": "Get started", "href": "https://app.dataminer.site" }
     ]
@@ -144,6 +145,7 @@
     "links": [
       { "label": "About", "href": "#brands" },
       { "label": "Services", "href": "#services-section" },
+	  { "label": "Blogs", "href": "https://blog.dataminer.site" },
       { "label": "Api Doc", "href": "https://apidoc.dataminer.site" },
       { "label": "Contact", "href": "https://form.jotform.com/241921518978468" },
       { "label": "Status", "href": "https://stats.uptimerobot.com/qS7t2qxRk2" }
