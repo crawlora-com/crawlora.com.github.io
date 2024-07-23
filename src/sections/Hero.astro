@@ -14,57 +14,200 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<section id="hero-section" class="flex justify-center mt-48 h-screen">
-  <div class="md:w-1/2">
-    <h1 class="text-4xl text-center font-semibold md:text-6xl">
-      {data.title}
-      <span class="text-primary"> {data.highlightedTitle} </span>
-    </h1>
-    <h2 class="mt-10 text-lg text-center opacity-80 md:text-2xl">
-      {data.subTitle}
-    </h2>
-    <div class="flex justify-evenly mt-10">
-      <Action
-        as="a"
-        type="button"
-        class="bg-black text-white"
-        href="https://app.dataminer.site"
-        target="_blank"
-      >
-        {data.primaryCta}
-      </Action>
-      <Action
-        as="a"
-        class="bg-transparent text-black border border-black"
-        type="button"
-        href="#price-section"
-      >
-        {data.secondaryCta}
-      </Action>
-    </div>
-    <div class="flex justify-center">
-      <Action
-        as="a"
-        class="flex justify-center items-center animate-bounce border-2 border-transparent bg-primary text-white rounded-full w-14 h-14 mt-32 hover:bg-white hover:text-primary hover:border-primary transition"
-        href="#services-section"
-        title="arrow down icon"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="w-8 h-8"
+<section id="hero-section" class="mt-48 h-screen">
+  <div class="flex justify-between items-center">
+    <div class="md:w-1/2">
+      <h1 class="text-4xl text-center font-semibold md:text-6xl">
+        {data.title}
+        <span class="text-primary"> {data.highlightedTitle} </span>
+      </h1>
+      <h2 class="mt-10 text-lg text-center opacity-80 md:text-2xl">
+        {data.subTitle}
+      </h2>
+      <div class="flex justify-center mt-10">
+        <Action
+          as="a"
+          type="button"
+          class="bg-black text-white"
+          href="https://app.dataminer.site"
+          target="_blank"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"></path>
-        </svg>
-      </Action>
+          {data.primaryCta}
+        </Action>
+        <Action
+          as="a"
+          class="bg-transparent text-black ml-6 border border-black"
+          type="button"
+          href="#price-section"
+        >
+          {data.secondaryCta}
+        </Action>
+      </div>
+    </div>
+    <div class="border border-gray-950 rounded-xl md:w-1/2">
+      <div class="bg-gray-950 rounded-xl">
+        <ul class="flex items-center border-b border-white p-4">
+          <li
+            class="text-white mx-2 rounded-full tab-item active"
+            data-tab="tab1"
+          >
+            SQL
+          </li>
+          <li class="text-white mx-2 rounded-full tab-item" data-tab="tab2">
+            Python
+          </li>
+          <li class="text-white mx-2 rounded-full tab-item" data-tab="tab3">
+            R
+          </li>
+          <li class="text-white mx-2 rounded-full tab-item" data-tab="tab4">
+            Java
+          </li>
+          <li class="text-white mx-2 rounded-full tab-item" data-tab="tab5">
+            Node.js
+          </li>
+        </ul>
+        <div class="tab-content p-4 bg-gray-950 rounded-xl">
+          <div id="tab1" class="tab-pane active">
+            <p class="text-white" x-show="activeTab === 1">
+              <span class="text-gray-600"
+                >-- Get the top-3 busiest train stations
+              </span>
+              <br /> SELECT station_name, count(*) AS num_services <br /> FROM train_services
+              <br /> GROUP BY ALL <br /> ORDER BY num_services DESC <br /> LIMIT
+              3;
+            </p>
+          </div>
+          <div id="tab2" class="tab-pane">
+            <p class="text-white" x-show="activeTab === 2">
+              <span class="text-gray-600">
+                # Get the top-3 busiest train stations
+              </span><br />
+              import duckdb <br /> duckdb.sql(""" <br /> SELECT station, count(*)
+              AS num_services <br /> FROM train_services <br /> GROUP BY ALL <br
+              /> ORDER BY num_services DESC <br /> LIMIT 3;<br /> """)
+            </p>
+          </div>
+          <div id="tab3" class="tab-pane">
+            <p class="text-white" x-show="activeTab === 3">
+              <span class="text-gray-600">
+                # Find the largest sepals & petals in the Iris data set
+              </span><br />
+
+              library(duckdb) <br />
+              {`con <- dbConnect(duckdb())`}
+              <br /> duckdb_register(con, "iris", iris) <br /> query {`<- r'(`}
+              <br /> SELECT count(*) AS num_observations,<br /> max("Sepal.Width")
+              AS max_width,<br /> max("Petal.Length") AS max_petal_length<br /> FROM
+              iris<br /> WHERE "Sepal.Length" {`>`} 5 <br /> GROUP BY ALL )'<br
+              />
+              dbGetQuery(con, query)
+            </p>
+          </div>
+          <div id="tab4" class="tab-pane">
+            <p class="text-white" x-show="activeTab === 4">
+              <span class="text-gray-600">
+                // Get a list of train stations by traffic
+              </span><br />
+              Connection conn =<br />
+              DriverManager.getConnection("jdbc:duckdb:");<br />
+              Statement stmt = conn.createStatement();<br />
+              ResultSet rs = stmt.executeQuery(<br />
+              "SELECT station_name, count(*) AS num_services\n" + <br />
+              "FROM train_services\n" + <br />
+              "GROUP BY ALL\n" + <br />
+              "ORDER BY num_services DESC;");<br />
+
+              {
+                `while (rs.next()) {
+		System.out.println(rs.getString(1));
+		System.out.println(rs.getInt(2));
+	}`
+              }
+            </p>
+          </div>
+          <div id="tab5" class="tab-pane">
+            <p class="text-white" x-show="activeTab === 5">
+              <span class="text-gray-600">
+                // Get the top-3 busiest train stations in May
+              </span><br />
+              const duckdb = require('duckdb');<br />
+              const db = new duckdb.Database(':memory:');<br />
+              db.all(<br />
+              'SELECT station_name, count(*) AS num_services<br />
+              FROM 'http://blobs.duckdb.org/train_services.parquet'<br />
+              WHERE monthname(date) = 'May'<br />
+              GROUP BY ALL<br />
+              ORDER BY num_services DESC<br />
+              LIMIT 3;',<br />
+              {`(err, res) => {`}<br />
+              if (err) {`{`}
+              <br />
+              console.log("Error", err);
+              {`}`} else {`{`}
+              <br />
+              console.table(res);<br />
+              {`}`}
+              {`}`}
+              {`)`};
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
+  <div class="flex justify-center">
+    <Action
+      as="a"
+      class="flex justify-center items-center animate-bounce border-2 border-transparent bg-primary text-white rounded-full w-14 h-14 mt-32 hover:bg-white hover:text-primary hover:border-primary transition"
+      href="#services-section"
+      title="arrow down icon"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-8 h-8"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"></path>
+      </svg>
+    </Action>
+  </div>
+
+  <script>
+    const tabItems = document.querySelectorAll(".tab-item");
+    const tabPanes = document.querySelectorAll(".tab-pane");
+
+    tabItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        const tabId = item.getAttribute("data-tab");
+        activateTab(tabId);
+      });
+    });
+
+    function activateTab(tabId: string | null) {
+      tabItems.forEach((item) => {
+        item.classList.remove("active");
+      });
+      tabPanes.forEach((pane) => {
+        pane.classList.remove("active");
+      });
+
+      const activeTab = document.querySelector(`[data-tab="${tabId}"]`);
+      if (activeTab) {
+        activeTab.classList.add("active");
+        const activePane = document.querySelector(`#${tabId}`);
+        if (activePane) {
+          activePane.classList.add("active");
+        }
+      }
+    }
+  </script>
 </section>
 
 <style>
@@ -75,6 +218,33 @@ const { data } = Astro.props;
     to {
       opacity: 1;
     }
+  }
+
+  .tab-item {
+    background-color: #555;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  .tab-item.active {
+    background-color: rgb(209 213 219);
+    color: #000;
+    font-weight: 500;
+  }
+
+  .tab-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tab-pane {
+    display: none;
+  }
+
+  .tab-pane.active {
+    display: block;
   }
 
   #hero-section {
