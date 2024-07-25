@@ -31,7 +31,7 @@
     ]
   },
   "heroData": {
-    "title": "Effortless Data Extraction: Welcome to DataMiner",
+    "title": "Effortless Data Extraction: Welcome to",
     "subTitle": "One-Click Website Data Scraper",
     "primaryCta": "Get started",
     "secondaryCta": "See our pricing",
@@ -145,9 +145,12 @@
     "links": [
       { "label": "About", "href": "#brands" },
       { "label": "Services", "href": "#services-section" },
-	  { "label": "Blogs", "href": "https://blog.dataminer.site" },
+      { "label": "Blogs", "href": "https://blog.dataminer.site" },
       { "label": "Api Doc", "href": "https://apidoc.dataminer.site" },
-      { "label": "Contact", "href": "https://form.jotform.com/241921518978468" },
+      {
+        "label": "Contact",
+        "href": "https://form.jotform.com/241921518978468"
+      },
       { "label": "Status", "href": "https://stats.uptimerobot.com/qS7t2qxRk2" }
     ],
     "socials": []

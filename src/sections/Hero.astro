@@ -21,17 +21,21 @@ const { data } = Astro.props;
     ></script>
   </head>
   <body>
-    <section id="hero-section" class="mt-48 h-screen">
-      <div class="hero-section flex justify-between items-center">
-        <div class="hero-section-content md:w-1/2 mr-4">
-          <h1 class="text-4xl text-center font-semibold md:text-6xl">
+    <section id="hero-section" class="mt-24 lg:mt-48 h-full">
+      <div
+        class="hero-section flex justify-between items-center flex-col xl:flex-row"
+      >
+        <div class="hero-section-content w-full xl:w-1/2 mr-0 lg:mr-4">
+          <h1
+            class="text-2xl sm:text-3xl text-center font-semibold md:text-6xl"
+          >
             {data.title}
             <span class="text-primary"> {data.highlightedTitle} </span>
           </h1>
           <h2 class="mt-10 text-lg text-center opacity-80 md:text-2xl">
             {data.subTitle}
           </h2>
-          <div class="hero-button flex justify-center mt-10">
+          <div class="hero-button flex justify-center mt-10 mb-6 xl:mb-0">
             <Action
               as="a"
               type="button"
@@ -43,7 +47,7 @@ const { data } = Astro.props;
             </Action>
             <Action
               as="a"
-              class="bg-transparent text-black ml-6 border border-black"
+              class="bg-transparent text-black ml-2 md:ml-6 border border-black"
               type="button"
               href="#price-section"
             >
@@ -51,39 +55,43 @@ const { data } = Astro.props;
             </Action>
           </div>
         </div>
-        <div class="hero-section-language border border-gray-950 rounded-xl">
+        <div
+          class="hero-section-language border border-gray-950 rounded-xl w-full xl:w-auto"
+        >
           <div class="bg-gray-950 rounded-xl">
-            <ul class="flex items-center border-b border-white p-4">
+            <ul
+              class="flex items-center border-b border-white p-2 sm:p-4 justify-evenly md:justify-start"
+            >
               <li
-                class="text-white mx-2 rounded-full tab-item active"
+                class="text-white mx-1 mr-[6px] sm:mr-[10px] sm:mx-2 text-xs sm:text-[16px] rounded-full tab-item p-2 sm:py-[10px] sm:px-[20px] active"
                 data-tab="tab1"
                 data-lang="sql"
               >
                 SQL
               </li>
               <li
-                class="text-white mx-2 rounded-full tab-item"
+                class="text-white mx-1 mr-[6px] sm:mr-[10px] sm:mx-2 text-xs sm:text-[16px] rounded-full tab-item p-2 sm:py-[10px] sm:px-[20px]"
                 data-tab="tab2"
                 data-lang="python"
               >
                 Python
               </li>
               <li
-                class="text-white mx-2 rounded-full tab-item"
+                class="text-white mx-1 mr-[6px] sm:mr-[10px] sm:mx-2 text-xs sm:text-[16px] rounded-full tab-item py-1 px-2 sm:py-[10px] sm:px-[20px]"
                 data-tab="tab3"
                 data-lang="r"
               >
                 R
               </li>
               <li
-                class="text-white mx-2 rounded-full tab-item"
+                class="text-white mx-1 mr-[6px] sm:mr-[10px] sm:mx-2 text-xs sm:text-[16px] rounded-full tab-item p-2 sm:py-[10px] sm:px-[20px]"
                 data-tab="tab4"
                 data-lang="java"
               >
                 Java
               </li>
               <li
-                class="text-white mx-2 rounded-full tab-item"
+                class="text-white mx-1 mr-[6px] sm:mr-[10px] sm:mx-2 text-xs sm:text-[16px] rounded-full tab-item p-2 sm:py-[10px] sm:px-[20px]"
                 data-tab="tab5"
                 data-lang="nodejs"
               >
@@ -92,26 +100,26 @@ const { data } = Astro.props;
             </ul>
             <div class="tab-content p-4 bg-gray-950 rounded-xl">
               <div id="tab1" class="tab-pane active">
-                <div id="editor-tab1" style="height: 400px; width: 100%;"></div>
+                <div id="editor-tab1" style="height: 300px; width: 100%;"></div>
               </div>
               <div id="tab2" class="tab-pane">
-                <div id="editor-tab2" style="height: 400px; width: 100%;"></div>
+                <div id="editor-tab2" style="height: 300px; width: 100%;"></div>
               </div>
               <div id="tab3" class="tab-pane">
-                <div id="editor-tab3" style="height: 400px; width: 100%;"></div>
+                <div id="editor-tab3" style="height: 300px; width: 100%;"></div>
               </div>
               <div id="tab4" class="tab-pane">
-                <div id="editor-tab4" style="height: 400px; width: 100%;"></div>
+                <div id="editor-tab4" style="height: 300px; width: 100%;"></div>
               </div>
               <div id="tab5" class="tab-pane">
-                <div id="editor-tab5" style="height: 400px; width: 100%;"></div>
+                <div id="editor-tab5" style="height: 300px; width: 100%;"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="flex justify-center">
+      <div class="flex justify-center mb-6">
         <Action
           as="a"
           class="flex justify-center items-center animate-bounce border-2 border-transparent bg-primary text-white rounded-full w-14 h-14 mt-32 hover:bg-white hover:text-primary hover:border-primary transition"
@@ -306,9 +314,7 @@ const { data } = Astro.props;
     .tab-item {
       background-color: #555;
       color: #fff;
-      padding: 10px 20px;
       cursor: pointer;
-      margin-right: 10px;
     }
 
     .tab-item.active {
@@ -334,20 +340,9 @@ const { data } = Astro.props;
       opacity: 0;
       animation: fadeIn 0.8s ease-in-out forwards;
     }
-    @media screen and (max-width: 1100px) {
-      #hero-section {
-        height: 100%;
-      }
-      .hero-section {
-        flex-direction: column;
-      }
-      .hero-section-content,
-      .monaco-editor,
-      .hero-section-language {
+    @media screen and (max-width: 768px) {
+      .overflow-guard {
         width: 100%;
-      }
-      .hero-button {
-        margin-bottom: 24px;
       }
     }
   </style>
