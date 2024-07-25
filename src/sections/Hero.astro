@@ -65,9 +65,9 @@ const { data } = Astro.props;
               <li
                 class="text-white mx-1 mr-[6px] sm:mr-[10px] sm:mx-2 text-xs sm:text-[16px] rounded-full tab-item p-2 sm:py-[10px] sm:px-[20px] active"
                 data-tab="tab1"
-                data-lang="sql"
+                data-lang="typescript"
               >
-                SQL
+                Typescript
               </li>
               <li
                 class="text-white mx-1 mr-[6px] sm:mr-[10px] sm:mx-2 text-xs sm:text-[16px] rounded-full tab-item p-2 sm:py-[10px] sm:px-[20px]"
@@ -79,9 +79,9 @@ const { data } = Astro.props;
               <li
                 class="text-white mx-1 mr-[6px] sm:mr-[10px] sm:mx-2 text-xs sm:text-[16px] rounded-full tab-item py-1 px-2 sm:py-[10px] sm:px-[20px]"
                 data-tab="tab3"
-                data-lang="r"
+                data-lang="php"
               >
-                R
+                php
               </li>
               <li
                 class="text-white mx-1 mr-[6px] sm:mr-[10px] sm:mx-2 text-xs sm:text-[16px] rounded-full tab-item p-2 sm:py-[10px] sm:px-[20px]"
@@ -93,9 +93,8 @@ const { data } = Astro.props;
               <li
                 class="text-white mx-1 mr-[6px] sm:mr-[10px] sm:mx-2 text-xs sm:text-[16px] rounded-full tab-item p-2 sm:py-[10px] sm:px-[20px]"
                 data-tab="tab5"
-                data-lang="nodejs"
-              >
-                Node.js
+                data-lang="javascript"
+              > javascript
               </li>
             </ul>
             <div class="tab-content p-4 bg-gray-950 rounded-xl">
@@ -156,69 +155,116 @@ const { data } = Astro.props;
         require(["vs/editor/editor.main"], () => {
           const editors = {};
           const codeSamples = {
-            sql: `-- Get the top-3 busiest train stations
-    SELECT station_name, count(*) AS num_services
-    FROM train_services
-    GROUP BY ALL
-    ORDER BY num_services DESC
-    LIMIT 3;`,
-            python: `# Get the top-3 busiest train stations
-    import duckdb
-    duckdb.sql("""
-        SELECT station, count(*) AS num_services
-        FROM train_services
-        GROUP BY ALL
-        ORDER BY num_services DESC
-        LIMIT 3;
-        """)`,
-            r: `# Find the largest sepals & petals in the Iris data set
-    library(duckdb)
+            typescript: `import axios from 'axios';
 
-    con <- dbConnect(duckdb())
-    duckdb_register(con, "iris", iris)
+const data = JSON.stringify({
+  url: "https://dataminer.site",
+  callbackUrl: "<string>",
+  plugin: "<string>"
+});
 
-    query <- r'(
-    SELECT count(*) AS num_observations,
-    max("Sepal.Width") AS max_width,
-    max("Petal.Length") AS max_petal_length
-    FROM iris
-    WHERE "Sepal.Length" > 5
-    GROUP BY ALL
-    )'
+axios.post('https://api.dataminer.site/api/v1/requests', data, {
+  headers: { 
+    'Content-Type': 'application/json',
+    'x-api-key': '{{apiKey}}'
+  },
+  maxBodyLength: Infinity
+})
+`,
+            python: `import requests
+import json
 
-    dbGetQuery(con, query)`,
-            java: `// Get a list of train stations by traffic
-    Connection conn =
-        DriverManager.getConnection("jdbc:duckdb:");
-    Statement stmt = conn.createStatement();
-    ResultSet rs = stmt.executeQuery(
-        "SELECT station_name, count(*) AS num_services\n" +
-        "FROM train_services\n" +
-        "GROUP BY ALL\n" +
-        "ORDER BY num_services DESC;");
+data = {
+    "url": "https://dataminer.site",
+    "callbackUrl": "<string>",
+    "plugin": "<string>"
+}
 
-    while (rs.next()) {
-        System.out.println(rs.getString(1));
-        System.out.println(rs.getInt(2));
-    }`,
-            nodejs: `// Get the top-3 busiest train stations in May
-    const duckdb = require('duckdb');
-    const db = new duckdb.Database(':memory:');
-    db.all(
-      ${`SELECT station_name, count(*) AS num_services
-        FROM 'http://blobs.duckdb.org/train_services.parquet'
-        WHERE monthname(date) = 'May'
-        GROUP BY ALL
-        ORDER BY num_services DESC
-        LIMIT 3;`},
-      (err, res) => {
-        if (err) {
-          console.log("Error", err);
-        } else {
-          console.table(res);
+headers = {
+    'Content-Type': 'application/json',
+    'x-api-key': '{{apiKey}}'
+}
+
+requests.post('https://api.dataminer.site/api/v1/requests', headers=headers, data=json.dumps(data))
+`,
+            php: `<?php
+
+$data = json_encode([
+    "url" => "https://dataminer.site",
+    "callbackUrl" => "<string>",
+    "plugin" => "<string>"
+]);
+
+$apiKey = "{{apiKey}}";
+
+$ch = curl_init('https://api.dataminer.site/api/v1/requests');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Content-Type: application/json',
+    'x-api-key: ' . $apiKey
+]);
+
+$response = curl_exec($ch);
+
+if (curl_errno($ch)) {
+    echo 'Error:' . curl_error($ch);
+} else {
+    echo $response;
+}
+
+curl_close($ch);
+?>
+`,
+            java: `import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            String apiKey = "{{apiKey}}";
+            String data = '{"url":"https://dataminer.site","callbackUrl":"<string>","plugin":"<string>"}";
+            URL url = new URL("https://api.dataminer.site/api/v1/requests");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Type", "application/json");
+            conn.setRequestProperty("x-api-key", apiKey);
+            conn.setDoOutput(true);
+            
+            try (OutputStream os = conn.getOutputStream()) {
+                os.write(data.getBytes(StandardCharsets.UTF_8));
+            }
+
+            int responseCode = conn.getResponseCode();
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                System.out.println(new String(conn.getInputStream().readAllBytes(), StandardCharsets.UTF_8));
+            } else {
+                System.err.println(new String(conn.getErrorStream().readAllBytes(), StandardCharsets.UTF_8));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-      }
-    );`,
+    }
+}
+`,
+            javascript: `const axios = require('axios');
+
+const data = JSON.stringify({
+  url: "https://dataminer.site",
+  callbackUrl: "<string>",
+  plugin: "<string>"
+});
+
+axios.post('https://api.dataminer.site/api/v1/requests', data, {
+  headers: { 
+    'Content-Type': 'application/json',
+    'x-api-key': '{{apiKey}}'
+  },
+  maxBodyLength: Infinity
+})`,
           };
 
           function createEditor(containerId, language, value) {
