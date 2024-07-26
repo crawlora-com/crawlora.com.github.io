@@ -12,29 +12,25 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<section class="mt-10 lg:mt-48" id="price-section">
+<section class="mt-48" id="price-section">
   <SectionTitle>
     {data.title}
   </SectionTitle>
   <div
-    class="my-10 lg:my-20 flex justify-center gap-y-6 lg:gap-y-10 gap-x-2 lg:gap-x-5 place-items-center flex-col md:flex-row"
+    class="my-20 grid grid-cols-1 md:grid-cols-3 xl:grid-cols-3 gap-y-10 place-items-center"
   >
     {
       data.tiers.map((tier) => (
         <Card>
           <header class="flex flex-col justify-center gap-y-3">
-            <h3 class="text-2xl lg:text-4xl text-center font-semibold 2xl:text-3xl">
-              {tier.title}
-            </h3>
-            <p class="text-base sm:text-lg lg:text-xl text-center opacity-90 px-2">
-              {tier.description}
-            </p>
+            <h3 class="text-4xl text-center font-semibold">{tier.title}</h3>
+            <p class="text-xl text-center opacity-90">{tier.description}</p>
           </header>
           <section class="flex justify-center">
-            <h4 class="text-2xl lg:text-3xl font-semibold">
+            <h4 class="text-6xl font-semibold">
               {tier.price.amount}
               {tier.price.period && (
-                <span class="font-normal text-lg lg:text-xl opacity-85">
+                <span class="font-normal text-xl opacity-85">
                   {tier.price.period}
                 </span>
               )}
@@ -43,11 +39,11 @@ const { data } = Astro.props;
           <section class="flex justify-start">
             <ul class="flex flex-col gap-y-4 text-lg">
               {tier.features.map((feature) => (
-                <li class="flex flex-row px-3 gap-x-1">
+                <li class="flex flex-row px-7 gap-x-1">
                   <span>
                     <Icon class="w-6 h-auto text-primary" icon="CheckIcon" />
                   </span>
-                  <p class="text-base sm:text-lg">{feature}</p>
+                  <p class="text-center">{feature}</p>
                 </li>
               ))}
             </ul>
@@ -55,7 +51,7 @@ const { data } = Astro.props;
           <footer class="flex justify-center">
             <Action
               as="a"
-              class="bg-primary text-white w-full md:w-72"
+              class="bg-primary text-white w-72"
               type="button"
               href={tier.href}
             >

@@ -14,382 +14,71 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<html>
-  <head>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"
-    ></script>
-  </head>
-  <body>
-    <section id="hero-section" class="mt-24 lg:mt-48 h-full">
-      <div
-        class="hero-section flex justify-between items-center flex-col xl:flex-row"
+<section id="hero-section" class="flex justify-center mt-48 h-screen">
+  <div class="md:w-1/2">
+    <h1 class="text-4xl text-center font-semibold md:text-6xl">
+      {data.title}
+      <span class="text-primary"> {data.highlightedTitle} </span>
+    </h1>
+    <h2 class="mt-10 text-lg text-center opacity-80 md:text-2xl">
+      {data.subTitle}
+    </h2>
+    <div class="flex justify-evenly mt-10">
+      <Action
+        as="a"
+        type="button"
+        class="bg-black text-white"
+        href="https://app.dataminer.site"
+        target="_blank"
       >
-        <div class="hero-section-content w-full xl:w-1/2 mr-0 lg:mr-4">
-          <h1
-            class="text-2xl sm:text-3xl text-center font-semibold md:text-6xl"
-          >
-            {data.title}
-            <span class="text-primary"> {data.highlightedTitle} </span>
-          </h1>
-          <h2 class="mt-10 text-lg text-center opacity-80 md:text-2xl">
-            {data.subTitle}
-          </h2>
-          <div class="hero-button flex justify-center mt-10 mb-6 xl:mb-0">
-            <Action
-              as="a"
-              type="button"
-              class="bg-black text-white"
-              href="https://app.dataminer.site"
-              target="_blank"
-            >
-              {data.primaryCta}
-            </Action>
-            <Action
-              as="a"
-              class="bg-transparent text-black ml-2 md:ml-6 border border-black"
-              type="button"
-              href="#price-section"
-            >
-              {data.secondaryCta}
-            </Action>
-          </div>
-        </div>
-        <div
-          class="hero-section-language border border-gray-950 rounded-xl w-full xl:w-auto"
+        {data.primaryCta}
+      </Action>
+      <Action
+        as="a"
+        class="bg-transparent text-black border border-black"
+        type="button"
+        href="#price-section"
+      >
+        {data.secondaryCta}
+      </Action>
+    </div>
+    <div class="flex justify-center">
+      <Action
+        as="a"
+        class="flex justify-center items-center animate-bounce border-2 border-transparent bg-primary text-white rounded-full w-14 h-14 mt-32 hover:bg-white hover:text-primary hover:border-primary transition"
+        href="#services-section"
+        title="arrow down icon"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-8 h-8"
         >
-          <div class="bg-gray-950 rounded-xl">
-            <ul
-              class="flex items-center border-b border-white p-2 sm:p-4 justify-evenly md:justify-start"
-            >
-              <li
-                class="text-white mx-1 mr-[6px] sm:mr-[10px] sm:mx-2 text-xs sm:text-[16px] rounded-full tab-item p-2 sm:py-[10px] sm:px-[20px] active"
-                data-tab="tab1"
-                data-lang="typescript"
-              >
-                Typescript
-              </li>
-              <li
-                class="text-white mx-1 mr-[6px] sm:mr-[10px] sm:mx-2 text-xs sm:text-[16px] rounded-full tab-item p-2 sm:py-[10px] sm:px-[20px]"
-                data-tab="tab2"
-                data-lang="python"
-              >
-                Python
-              </li>
-              <li
-                class="text-white mx-1 mr-[6px] sm:mr-[10px] sm:mx-2 text-xs sm:text-[16px] rounded-full tab-item py-1 px-2 sm:py-[10px] sm:px-[20px]"
-                data-tab="tab3"
-                data-lang="php"
-              >
-                php
-              </li>
-              <li
-                class="text-white mx-1 mr-[6px] sm:mr-[10px] sm:mx-2 text-xs sm:text-[16px] rounded-full tab-item p-2 sm:py-[10px] sm:px-[20px]"
-                data-tab="tab4"
-                data-lang="java"
-              >
-                Java
-              </li>
-              <li
-                class="text-white mx-1 mr-[6px] sm:mr-[10px] sm:mx-2 text-xs sm:text-[16px] rounded-full tab-item p-2 sm:py-[10px] sm:px-[20px]"
-                data-tab="tab5"
-                data-lang="javascript"
-              > javascript
-              </li>
-            </ul>
-            <div class="tab-content p-4 bg-gray-950 rounded-xl">
-              <div id="tab1" class="tab-pane active">
-                <div id="editor-tab1" style="height: 300px; width: 100%;"></div>
-              </div>
-              <div id="tab2" class="tab-pane">
-                <div id="editor-tab2" style="height: 300px; width: 100%;"></div>
-              </div>
-              <div id="tab3" class="tab-pane">
-                <div id="editor-tab3" style="height: 300px; width: 100%;"></div>
-              </div>
-              <div id="tab4" class="tab-pane">
-                <div id="editor-tab4" style="height: 300px; width: 100%;"></div>
-              </div>
-              <div id="tab5" class="tab-pane">
-                <div id="editor-tab5" style="height: 300px; width: 100%;"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"></path>
+        </svg>
+      </Action>
+    </div>
+  </div>
+</section>
 
-      <div class="flex justify-center mb-6">
-        <Action
-          as="a"
-          class="flex justify-center items-center animate-bounce border-2 border-transparent bg-primary text-white rounded-full w-14 h-14 mt-32 hover:bg-white hover:text-primary hover:border-primary transition"
-          href="#services-section"
-          title="arrow down icon"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-8 h-8"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"></path>
-          </svg>
-        </Action>
-      </div>
-    </section>
-  </body>
-
-  <script type="module">
-    document.addEventListener("DOMContentLoaded", () => {
-      const loadMonaco = () => {
-        require.config({
-          paths: {
-            vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.33.0/min/vs",
-          },
-        });
-
-        require(["vs/editor/editor.main"], () => {
-          const editors = {};
-          const codeSamples = {
-            typescript: `import axios from 'axios';
-
-const data = JSON.stringify({
-  url: "https://dataminer.site",
-  callbackUrl: "<string>",
-  plugin: "<string>"
-});
-
-axios.post('https://api.dataminer.site/api/v1/requests', data, {
-  headers: { 
-    'Content-Type': 'application/json',
-    'x-api-key': '{{apiKey}}'
-  },
-  maxBodyLength: Infinity
-})
-`,
-            python: `import requests
-import json
-
-data = {
-    "url": "https://dataminer.site",
-    "callbackUrl": "<string>",
-    "plugin": "<string>"
-}
-
-headers = {
-    'Content-Type': 'application/json',
-    'x-api-key': '{{apiKey}}'
-}
-
-requests.post('https://api.dataminer.site/api/v1/requests', headers=headers, data=json.dumps(data))
-`,
-            php: `<?php
-
-$data = json_encode([
-    "url" => "https://dataminer.site",
-    "callbackUrl" => "<string>",
-    "plugin" => "<string>"
-]);
-
-$apiKey = "{{apiKey}}";
-
-$ch = curl_init('https://api.dataminer.site/api/v1/requests');
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    'Content-Type: application/json',
-    'x-api-key: ' . $apiKey
-]);
-
-$response = curl_exec($ch);
-
-if (curl_errno($ch)) {
-    echo 'Error:' . curl_error($ch);
-} else {
-    echo $response;
-}
-
-curl_close($ch);
-?>
-`,
-            java: `import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
-
-public class Main {
-    public static void main(String[] args) {
-        try {
-            String apiKey = "{{apiKey}}";
-            String data = '{"url":"https://dataminer.site","callbackUrl":"<string>","plugin":"<string>"}";
-            URL url = new URL("https://api.dataminer.site/api/v1/requests");
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("POST");
-            conn.setRequestProperty("Content-Type", "application/json");
-            conn.setRequestProperty("x-api-key", apiKey);
-            conn.setDoOutput(true);
-            
-            try (OutputStream os = conn.getOutputStream()) {
-                os.write(data.getBytes(StandardCharsets.UTF_8));
-            }
-
-            int responseCode = conn.getResponseCode();
-            if (responseCode == HttpURLConnection.HTTP_OK) {
-                System.out.println(new String(conn.getInputStream().readAllBytes(), StandardCharsets.UTF_8));
-            } else {
-                System.err.println(new String(conn.getErrorStream().readAllBytes(), StandardCharsets.UTF_8));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-}
-`,
-            javascript: `const axios = require('axios');
-
-const data = JSON.stringify({
-  url: "https://dataminer.site",
-  callbackUrl: "<string>",
-  plugin: "<string>"
-});
-
-axios.post('https://api.dataminer.site/api/v1/requests', data, {
-  headers: { 
-    'Content-Type': 'application/json',
-    'x-api-key': '{{apiKey}}'
-  },
-  maxBodyLength: Infinity
-})`,
-          };
-
-          function createEditor(containerId, language, value) {
-            const container = document.getElementById(containerId);
-            if (container) {
-              if (editors[containerId]) {
-                editors[containerId].dispose();
-              }
-              // eslint-disable-next-line no-undef
-              editors[containerId] = monaco.editor.create(container, {
-                value: value || "",
-                language: language || "plaintext",
-                readOnly: true,
-                theme: "vs-dark",
-              });
-            }
-          }
-
-          function updateEditorContent() {
-            const activeTab = document.querySelector(".tab-item.active");
-            if (activeTab) {
-              const lang = activeTab.getAttribute("data-lang");
-              const tabId = activeTab.getAttribute("data-tab");
-              const editorContainerId = `editor-${tabId}`;
-              const code = codeSamples[lang];
-              createEditor(editorContainerId, lang, code);
-            }
-          }
-
-          document.querySelectorAll(".tab-item").forEach((item) => {
-            item.addEventListener("click", () => {
-              document
-                .querySelectorAll(".tab-item")
-                .forEach((tab) => tab.classList.remove("active"));
-              document
-                .querySelectorAll(".tab-pane")
-                .forEach((pane) => pane.classList.remove("active"));
-
-              item.classList.add("active");
-              const tabId = item.getAttribute("data-tab");
-              document.getElementById(tabId).classList.add("active");
-
-              // Ensure the editor container ID is correctly referenced
-              const editorContainerId = `editor-${tabId}`;
-              if (!editors[editorContainerId]) {
-                // Initialize editor if not already done
-                createEditor(
-                  editorContainerId,
-                  item.getAttribute("data-lang"),
-                  codeSamples[item.getAttribute("data-lang")],
-                );
-              } else {
-                // Update editor content if already initialized
-                updateEditorContent();
-              }
-            });
-          });
-
-          // Initialize editor for the first tab on page load
-          const firstTab = document.querySelector(".tab-item.active");
-          if (firstTab) {
-            const firstTabId = firstTab.getAttribute("data-tab");
-            const firstLang = firstTab.getAttribute("data-lang");
-            const editorContainerId = `editor-${firstTabId}`;
-            createEditor(editorContainerId, firstLang, codeSamples[firstLang]);
-          }
-        });
-      };
-
-      if (typeof require === "undefined") {
-        const script = document.createElement("script");
-        script.type = "text/javascript";
-        script.src =
-          "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js";
-        script.onload = loadMonaco;
-        document.head.appendChild(script);
-      } else {
-        loadMonaco();
-      }
-    });
-  </script>
-
-  <style>
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-    .tab-item {
-      background-color: #555;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    .tab-item.active {
-      background-color: rgb(29 78 216);
-      color: #fff;
-      font-weight: 500;
-    }
-
-    .tab-content {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .tab-pane {
-      display: none;
-    }
-
-    .tab-pane.active {
-      display: block;
-    }
-
-    #hero-section {
+<style>
+  @keyframes fadeIn {
+    from {
       opacity: 0;
-      animation: fadeIn 0.8s ease-in-out forwards;
     }
-    @media screen and (max-width: 768px) {
-      .overflow-guard {
-        width: 100%;
-      }
+    to {
+      opacity: 1;
     }
-  </style>
-</html>
+  }
+
+  #hero-section {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in-out forwards;
+  }
+</style>

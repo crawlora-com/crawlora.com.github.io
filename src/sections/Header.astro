@@ -15,15 +15,12 @@ const { data } = Astro.props;
 >
   <nav aria-label="Main Navigation" class="flex flex-row items-center w-3/4">
     <div class="text-nowrap">
-      <Action as="a" class="text-xl font-bold mr-4" href="#">{data.logo}</Action
-      >
+      <Action as="a" class="text-xl" href="#">{data.logo}</Action>
     </div>
-    <ul
-      class="flex flex-row w-full justify-center gap-x-5 lg:gap-x-8 xl:gap-x-14"
-    >
+    <ul class="flex flex-row w-full justify-center gap-x-14">
       {
         data.links.map((item) => (
-          <li class="text-base lg:text-lg hover:scale-110 hover:opacity-80">
+          <li class="text-lg hover:scale-110 hover:opacity-80">
             <Action as="a" href={item.href}>
               {item.label}
             </Action>

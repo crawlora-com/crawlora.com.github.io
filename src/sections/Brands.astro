@@ -1,6 +1,7 @@
 ---
 import Action from "@/components/Action.astro";
 import Icon from "@/components/Icon.astro";
+import SectionTitle from "@/components/SectionTitle.astro";
 import type { BrandsData, Icon as IconType } from "@/config/landing.interface";
 
 interface Props {
@@ -11,19 +12,19 @@ const { data } = Astro.props;
 ---
 
 <section
-  id="brands"
-  class="flex flex-col justify-between gap-y-10 md:gap-y-0 md:gap-x-7 lg:flex-row mb-20 w-full"
+ id="brands"
+  class="flex flex-col justify-between gap-y-10 md:gap-y-0 md:gap-x-7 md:flex-row mb-20 w-full"
 >
-  <div class="w-11/12 flex flex-col gap-y-2 md:gap-y-6 mb-6 lg:mb-0">
-    <h3 class="text-xl md:text-2xl font-bold xl:text-4xl mb-4 md:mb-0">
+  <div class="w-11/12 flex flex-col gap-y-6">
+    <SectionTitle>
       {data.title}
-    </h3>
-    <p class="text-base sm:text-lg text-start md:text-xl">
+    </SectionTitle>
+    <p class="text-lg text-center md:text-start md:text-xl">
       {data.description}
     </p>
   </div>
   <div
-    class="grid grid-cols-3 lg:grid-cols-2 gap-y-8 w-full justify-items-center"
+    class="grid grid-cols-2 md:grid-cols-3 gap-y-8 w-full justify-items-center"
   >
     {
       data.brands.map((brand) => (
