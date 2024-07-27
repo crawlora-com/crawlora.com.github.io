@@ -1,0 +1,49 @@
+@keyframes fadeIn {
+	from {
+	  opacity: 0;
+	}
+	to {
+	  opacity: 1;
+	}
+  }
+
+  code {
+	width: 600px;
+	height: 200px;
+	display: block;
+  }
+
+  .tab-item {
+	background-color: #555;
+	color: #fff;
+	cursor: pointer;
+  }
+
+  .tab-item.active {
+	background-color: rgb(29 78 216);
+	color: #fff;
+	font-weight: 500;
+  }
+
+  .tab-content {
+	display: flex;
+	flex-direction: column;
+  }
+
+  .tab-pane {
+	display: none;
+  }
+
+  .tab-pane.active {
+	display: block;
+  }
+
+  #hero-section {
+	opacity: 0;
+	animation: fadeIn 0.8s ease-in-out forwards;
+  }
+  @media screen and (max-width: 768px) {
+	.overflow-guard {
+	  width: 100%;
+	}
+  }
