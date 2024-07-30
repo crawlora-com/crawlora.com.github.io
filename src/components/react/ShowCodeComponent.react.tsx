@@ -14,7 +14,7 @@ export const ShowCodeComponentReact = () => {
             {codes.map((val, index) => (
               <>
                 <li
-                  key={val.name}
+                  key={val.name + index}
                   onClick={() => setShowCode({ ...val })}
                   className={`text-white mx-1 mr-[6px] sm:mr-[10px] sm:mx-2 text-xs sm:text-[16px] rounded-full tab-item p-2 sm:py-[10px] sm:px-[20px] ${showCode.name === val.name ? "active" : ""}`}
                   data-tab={`tab${index + 1}`}
