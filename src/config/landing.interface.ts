@@ -96,6 +96,7 @@ export interface Price {
 
 export interface Meta {
   title: string;
+  shortname: string;
   description: string;
   lang: string;
   charset: string;

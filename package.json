@@ -26,7 +26,8 @@
     "react-code-blocks": "^0.1.6",
     "react-dom": "^18.3.1",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "vite-plugin-pwa": "^0.20.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

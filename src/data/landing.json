@@ -3,6 +3,7 @@
     "title": "One-Click Website Data Scraper | DataMiner",
     "description": "Effortlessly scrape data from any website with DataMiner. AI-powered, perfect for tech & startups. Get started now!",
     "lang": "en",
+	"shortname": "dataminer.site",
     "charset": "UTF-8",
 	"landing_page_image": "/landing_page.webp",
     "ldJson": {
@@ -11,7 +12,7 @@
       "name": "DataMiner",
       "description": "DataMiner simplifies web scraping for tech companies and startups with AI-powered data extraction.",
       "url": "https://dataminer.site",
-      "logo": "/favicon.svg",
+      "logo": "/favicon.ico",
       "contactPoint": {
         "@type": "ContactPoint",
         "email": "support@dataminer.site",
