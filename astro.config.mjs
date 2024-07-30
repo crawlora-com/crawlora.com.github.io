@@ -1,10 +1,10 @@
 import partytown from '@astrojs/partytown';
+import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
+import compress from 'astro-compress';
 import robotsTxt from "astro-robots-txt";
 import { defineConfig } from "astro/config";
-
-import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,5 +13,5 @@ export default defineConfig({
     config: {
       forward: ["dataLayer.push"]
     }
-  }), react()]
+  }), react(), compress(),]
 });
