@@ -99,6 +99,7 @@ export interface Meta {
   description: string;
   lang: string;
   charset: string;
+  landing_page_image: string;
   ldJson: LdJson;
 }
 

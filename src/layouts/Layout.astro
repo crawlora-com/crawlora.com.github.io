@@ -2,6 +2,7 @@
 import Background from "@/components/Background.astro";
 import type { Meta } from "@/config/landing.interface";
 import "@fontsource-variable/rubik";
+import { SEO } from "astro-seo";
 
 interface Props {
   meta: Meta;
@@ -19,40 +20,76 @@ const ldJson = JSON.stringify(meta.ldJson);
 >
   <head>
     <meta charset={meta.charset ?? "UTF-8"} />
-    <title>{meta.title}</title>
-    <meta name="description" content={meta.description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <SEO
+      title={meta.title}
+      description={meta.description}
+      charset={meta.charset ?? "UTF-8"}
+      openGraph={{
+        basic: {
+          title: meta.title,
+          type: "website",
+          url: meta.ldJson.url,
+          image: meta.ldJson.url + meta.landing_page_image,
+        },
+      }}
+      twitter={{
+        title: meta.title,
+        creator: "@dharm_endrasoni",
+		description: meta.description,
+		image: meta.ldJson.url + meta.landing_page_image,
+      }}
+      extend={{
+        // extending the default link tags
+        link: [{ rel: "icon", href: meta.ldJson.url + meta.ldJson.logo }],
+        // extending the default meta tags
+        meta: [
+          {
+            name: "twitter:image",
+            content: meta.ldJson.url + meta.landing_page_image,
+          },
+          { name: "twitter:title", content: meta.title },
+          { name: "twitter:description", content: meta.description },
+        ],
+      }}
+    />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={import.meta.env.SITE} />
     <script is:inline type="application/ld+json" set:html={ldJson} />
-<!-- Google tag (gtag.js) -->
-	<script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-92TTLFTB46"></script>
-		<script type="text/partytown">
-			window.dataLayer = window.dataLayer || [];
-			// eslint-disable-next-line no-undef
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script
+      is:inline
+      type="text/partytown"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-92TTLFTB46"></script>
+    <script is:inline type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      // eslint-disable-next-line no-undef
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-			gtag('config', 'G-92TTLFTB46');
-		</script>
+      gtag("config", "G-92TTLFTB46");
+    </script>
   </head>
   <body class="bg-white">
     <Background />
     <slot />
+    <style is:global>
+      body {
+        font-family:
+          "Rubik Variable",
+          Menlo,
+          Monaco,
+          Lucida Console,
+          Liberation Mono,
+          DejaVu Sans Mono,
+          Bitstream Vera Sans Mono,
+          Courier New,
+          monospace;
+      }
+    </style>
   </body>
 </html>
-
-<style is:global>
-  body {
-    font-family:
-      "Rubik Variable",
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
-  }
-</style>
