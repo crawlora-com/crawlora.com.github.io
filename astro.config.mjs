@@ -34,7 +34,7 @@ export default defineConfig({
 			})
 		]
 	},
-	site: import.meta.env.DEV ? "http://localhost:4321" : "https://dataminer.site/",
+	site: import.meta.env.DEV ? "http://localhost:4321" : "https://crawlora.com/",
 	integrations: [tailwind(), sitemap(), robotsTxt(), partytown({
 		config: {
 			forward: ["dataLayer.push"]

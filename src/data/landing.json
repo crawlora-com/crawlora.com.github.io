@@ -1,35 +1,35 @@
 {
   "meta": {
-    "title": "One-Click Website Data Scraper | DataMiner",
-    "description": "Effortlessly scrape data from any website with DataMiner. AI-powered, perfect for tech & startups. Get started now!",
+    "title": "One-Click Website Data Scraper | Crawlora",
+    "description": "Effortlessly scrape data from any website with Crawlora. AI-powered, perfect for tech & startups. Get started now!",
     "lang": "en",
-	"shortname": "dataminer.site",
+	"shortname": "crawlora.com",
     "charset": "UTF-8",
 	"landing_page_image": "/landing_page.webp",
     "ldJson": {
       "@context": "http://schema.org",
       "@type": "Organization",
-      "name": "DataMiner",
-      "description": "DataMiner simplifies web scraping for tech companies and startups with AI-powered data extraction.",
-      "url": "https://dataminer.site",
+      "name": "Crawlora",
+      "description": "Crawlora simplifies web scraping for tech companies and startups with AI-powered data extraction.",
+      "url": "https://crawlora.com",
       "logo": "/favicon.ico",
       "contactPoint": {
         "@type": "ContactPoint",
-        "email": "support@dataminer.site",
+        "email": "support@crawlora.com",
         "contactType": "Client Service"
       },
       "sameAs": []
     }
   },
   "headerData": {
-    "logo": "DataMiner",
+    "logo": "Crawlora",
     "links": [
       { "label": "About", "href": "#brands" },
       { "label": "Services", "href": "#services-section" },
       { "label": "Prices", "href": "#price-section" },
-      { "label": "Blogs", "href": "https://blog.dataminer.site" },
-      { "label": "Api Doc", "href": "https://apidoc.dataminer.site" },
-      { "label": "Get started", "href": "https://app.dataminer.site" }
+      { "label": "Blogs", "href": "https://blog.crawlora.com" },
+      { "label": "Api Doc", "href": "https://apidoc.crawlora.com" },
+      { "label": "Get started", "href": "https://app.crawlora.com" }
     ]
   },
   "heroData": {
@@ -37,7 +37,7 @@
     "subTitle": "One-Click Website Data Scraper",
     "primaryCta": "Get started",
     "secondaryCta": "See our pricing",
-    "highlightedTitle": "DataMiner"
+    "highlightedTitle": "Crawlora"
   },
   "servicesData": {
     "title": "Everything you need for easy data scraping",
@@ -55,27 +55,27 @@
     ]
   },
   "adventajesData": {
-    "title": "Unlock the Power of DataMiner: Key Benefits",
+    "title": "Unlock the Power of Crawlora: Key Benefits",
     "adventajes": [
       {
         "title": "Custom Plugin Support",
         "description": "Create personalized scraping tools with our intuitive customization options. No coding experience required!",
         "img": "plugin.webp",
-        "imageAlt": "DataMiner custom plugin service",
+        "imageAlt": "Crawlora custom plugin service",
         "checks": ["Customizable", "Data scraping"]
       },
       {
         "title": "Region-Specific Scraping",
         "description": "Target specific regions to gather the most relevant data for your needs. Analyze market trends, monitor competitors, or gather localized information.",
         "img": "scrap.webp",
-        "imageAlt": "DataMiner region-specific scraping",
+        "imageAlt": "Crawlora region-specific scraping",
         "checks": ["Region-specific", "Fast and reliable proxy"]
       }
     ]
   },
   "brandsData": {
     "title": "Scrap Data With Your Custom Plugins",
-    "description": "Tailor Your Data Collection: With DataMiner's custom plugin feature, effortlessly create personalized scraping tools tailored to your unique needs,Integrate your custom plugins seamlessly into DataMiner, enhancing efficiency and expanding possibilities.",
+    "description": "Tailor Your Data Collection: With Crawlora's custom plugin feature, effortlessly create personalized scraping tools tailored to your unique needs,Integrate your custom plugins seamlessly into Crawlora, enhancing efficiency and expanding possibilities.",
     "brands": [
       {
         "label": "Typescript",
@@ -120,7 +120,7 @@
           "Plugin",
           "30k monthly requests"
         ],
-        "href": "https://app.dataminer.site",
+        "href": "https://app.crawlora.com",
         "cta": "Get started"
       },
       {
@@ -142,13 +142,13 @@
     ]
   },
   "footerData": {
-    "logo": "DataMiner",
+    "logo": "Crawlora",
     "description": "Unlock the power of advanced data extraction and analysis with our powerful, flexible, efficient, and extensible data extraction from URLs.",
     "links": [
       { "label": "About", "href": "#brands" },
       { "label": "Services", "href": "#services-section" },
-      { "label": "Blogs", "href": "https://blog.dataminer.site" },
-      { "label": "Api Doc", "href": "https://apidoc.dataminer.site" },
+      { "label": "Blogs", "href": "https://blog.crawlora.com" },
+      { "label": "Api Doc", "href": "https://apidoc.crawlora.com" },
       {
         "label": "Contact",
         "href": "https://form.jotform.com/241921518978468"

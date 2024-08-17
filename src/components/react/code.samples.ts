@@ -8,11 +8,11 @@ export const codes: CodeTypes[] = [
   {
     name: "shell",
 	isDefault: true,
-    value: `curl -X POST 'https://api.dataminer.site/api/v1/requests' \\
+    value: `curl -X POST 'https://api.crawlora.com/api/v1/requests' \\
 	-H 'Content-Type: application/json' \\
 	-H 'x-api-key: {{apiKey}}' \\
 	--data-raw \\
-		'{"url":"https://dataminer.site","callbackUrl":"<string>","plugin":"<string>"}'`,
+		'{"url":"https://crawlora.com","callbackUrl":"<string>","plugin":"<string>"}'`,
   },
   {
     name: "javascript",
@@ -21,13 +21,13 @@ export const codes: CodeTypes[] = [
 
 const options = {
   method: 'POST',
-  url: 'https://api.dataminer.site/api/v1/requests',
+  url: 'https://api.crawlora.com/api/v1/requests',
   headers: {
     'Content-Type': 'application/json',
     'x-api-key': '{{apiKey}}'
   },
   data: {
-    url: 'https://dataminer.site',
+    url: 'https://crawlora.com',
     callbackUrl: '<string>',
     plugin: '<string>'
   }
@@ -42,7 +42,7 @@ axios.request(options)`,
 import json
 
 data = {
-    "url": "https://dataminer.site",
+    "url": "https://crawlora.com",
     "callbackUrl": "<string>",
     "plugin": "<string>"
 }
@@ -52,7 +52,7 @@ headers = {
     'x-api-key': '{{apiKey}}'
 }
 
-requests.post('https://api.dataminer.site/api/v1/requests', headers=headers, data=json.dumps(data))
+requests.post('https://api.crawlora.com/api/v1/requests', headers=headers, data=json.dumps(data))
 `,
   },
   {
@@ -61,14 +61,14 @@ requests.post('https://api.dataminer.site/api/v1/requests', headers=headers, dat
     value: `<?php
 
 $data = json_encode([
-    "url" => "https://dataminer.site",
+    "url" => "https://crawlora.com",
     "callbackUrl" => "<string>",
     "plugin" => "<string>"
 ]);
 
 $apiKey = "{{apiKey}}";
 
-$ch = curl_init('https://api.dataminer.site/api/v1/requests');
+$ch = curl_init('https://api.crawlora.com/api/v1/requests');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
@@ -101,8 +101,8 @@ public class Main {
     public static void main(String[] args) {
         try {
             String apiKey = "{{apiKey}}";
-            String data = '{"url":"https://dataminer.site","callbackUrl":"<string>","plugin":"<string>"}";
-            URL url = new URL("https://api.dataminer.site/api/v1/requests");
+            String data = '{"url":"https://crawlora.com","callbackUrl":"<string>","plugin":"<string>"}";
+            URL url = new URL("https://api.crawlora.com/api/v1/requests");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("POST");
             conn.setRequestProperty("Content-Type", "application/json");
