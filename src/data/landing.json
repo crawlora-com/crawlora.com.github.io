@@ -24,12 +24,12 @@
   "headerData": {
     "logo": "Crawlora",
     "links": [
-      { "label": "About", "href": "#brands" },
-      { "label": "Services", "href": "#services-section" },
-      { "label": "Prices", "href": "#price-section" },
-      { "label": "Docs", "href": "https://docs.crawlora.com" },
-      { "label": "Api Doc", "href": "https://apidoc.crawlora.com" },
-      { "label": "Get started", "href": "https://app.crawlora.com" }
+      { "label": "About", "href": "#brands?cta=main_header" },
+      { "label": "Services", "href": "#services-section?cta=main_header" },
+      { "label": "Prices", "href": "#price-section?cta=main_header" },
+      { "label": "Docs", "href": "https://docs.crawlora.com?cta=main_header" },
+      { "label": "Api Doc", "href": "https://apidoc.crawlora.com?cta=main_header" },
+      { "label": "Get started", "href": "https://app.crawlora.com?cta=main_header" }
     ]
   },
   "heroData": {
@@ -120,7 +120,7 @@
           "Plugin",
           "30k monthly requests"
         ],
-        "href": "https://app.crawlora.com",
+        "href": "https://app.crawlora.com?cta=main_starter",
         "cta": "Get started"
       },
       {
@@ -136,7 +136,7 @@
           "unlimited requests",
           "fast and reliable web proxy"
         ],
-        "href": "https://form.jotform.com/241921441318047",
+        "href": "https://form.jotform.com/241921441318047?cta=main_starter",
         "cta": "Get enterprise"
       }
     ]
@@ -145,15 +145,15 @@
     "logo": "Crawlora",
     "description": "Unlock the power of advanced data extraction and analysis with our powerful, flexible, efficient, and extensible data extraction from URLs.",
     "links": [
-      { "label": "About", "href": "#brands" },
-      { "label": "Services", "href": "#services-section" },
-      { "label": "Docs", "href": "https://docs.crawlora.com" },
-      { "label": "Api Doc", "href": "https://apidoc.crawlora.com" },
+      { "label": "About", "href": "#brands?cta=main_footer" },
+      { "label": "Services", "href": "#services-section?cta=main_footer" },
+      { "label": "Docs", "href": "https://docs.crawlora.com?cta=main_footer" },
+      { "label": "Api Doc", "href": "https://apidoc.crawlora.com?cta=main_footer" },
       {
         "label": "Contact",
-        "href": "https://form.jotform.com/241921518978468"
+        "href": "https://form.jotform.com/241921518978468?cta=main_footer"
       },
-      { "label": "Status", "href": "https://stats.uptimerobot.com/qS7t2qxRk2" }
+      { "label": "Status", "href": "https://stats.uptimerobot.com/qS7t2qxRk2?cta=main_footer" }
     ],
     "socials": []
   }
