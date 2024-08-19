@@ -27,7 +27,7 @@
       { "label": "About", "href": "#brands" },
       { "label": "Services", "href": "#services-section" },
       { "label": "Prices", "href": "#price-section" },
-      { "label": "Blogs", "href": "https://blog.crawlora.com" },
+      { "label": "Docs", "href": "https://docs.crawlora.com" },
       { "label": "Api Doc", "href": "https://apidoc.crawlora.com" },
       { "label": "Get started", "href": "https://app.crawlora.com" }
     ]
@@ -147,7 +147,7 @@
     "links": [
       { "label": "About", "href": "#brands" },
       { "label": "Services", "href": "#services-section" },
-      { "label": "Blogs", "href": "https://blog.crawlora.com" },
+      { "label": "Docs", "href": "https://docs.crawlora.com" },
       { "label": "Api Doc", "href": "https://apidoc.crawlora.com" },
       {
         "label": "Contact",
