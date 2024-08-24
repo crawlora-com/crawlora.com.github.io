@@ -153,7 +153,7 @@
         "label": "Contact",
         "href": "https://form.jotform.com/241921518978468?cta=main_footer"
       },
-      { "label": "Status", "href": "https://stats.uptimerobot.com/qS7t2qxRk2?cta=main_footer" }
+      { "label": "Status", "href": "https://status.crawlora.com/status/production" }
     ],
     "socials": []
   }
