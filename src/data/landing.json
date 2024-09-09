@@ -1,176 +1,222 @@
 {
-  "meta": {
-    "title": "One-Click Website Data Scraper | Crawlora",
-    "description": "Effortlessly scrape data from any website with Crawlora. AI-powered, perfect for tech & startups. Get started now!",
-    "lang": "en",
-	"shortname": "crawlora.com",
-    "charset": "UTF-8",
-	"landing_page_image": "/landing_page.webp",
-    "ldJson": {
-      "@context": "http://schema.org",
-      "@type": "Organization",
-      "name": "Crawlora",
-      "description": "Crawlora simplifies web scraping for tech companies and startups with AI-powered data extraction.",
-      "url": "https://crawlora.com",
-      "logo": "/favicon.ico",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "support@crawlora.com",
-        "contactType": "Client Service"
-      },
-      "sameAs": []
-    }
-  },
-  "headerData": {
-    "logo": "Crawlora",
-    "links": [
-      { "label": "About", "href": "#brands" },
-      { "label": "Services", "href": "#services-section" },
-      { "label": "Pricing", "href": "#price-section" },
-      { "label": "Docs", "href": "https://docs.crawlora.com?cta=main_header" },
-      { "label": "Api Doc", "href": "https://apidoc.crawlora.com?cta=main_header" },
-      { "label": "Get started", "href": "https://app.crawlora.com?cta=main_header" }
-    ]
-  },
-  "heroData": {
-    "title": "Effortless Data Extraction: Welcome to",
-    "subTitle": "One-Click Website Data Scraper",
-    "primaryCta": "Get started",
-    "secondaryCta": "See our pricing",
-    "highlightedTitle": "Crawlora"
-  },
-  "servicesData": {
-    "title": "Everything you need for easy data scraping",
-    "services": [
-      {
-        "title": "Proxy-Based Scraping",
-        "icon": "ProxyIcon",
-        "description": "Scrape anonymously and avoid IP bans with our secure proxy network. Features include IP rotation, speed, and overcoming geo-restrictions."
-      },
-      {
-        "title": "URL-Based Scraping",
-        "icon": "UrlIcon",
-        "description": "Extract data from any web page using URLs. Our service ensures accurate and efficient data collection."
-      }
-    ]
-  },
-  "adventajesData": {
-    "title": "Unlock the Power of Crawlora: Key Benefits",
-    "adventajes": [
-      {
-        "title": "Custom Plugin Support",
-        "description": "Create personalized scraping tools with our intuitive customization options. No coding experience required!",
-        "img": "plugin.webp",
-        "imageAlt": "Crawlora custom plugin service",
-        "checks": ["Customizable", "Data scraping"]
-      },
-      {
-        "title": "Region-Specific Scraping",
-        "description": "Target specific regions to gather the most relevant data for your needs. Analyze market trends, monitor competitors, or gather localized information.",
-        "img": "scrap.webp",
-        "imageAlt": "Crawlora region-specific scraping",
-        "checks": ["Region-specific", "Fast and reliable proxy"]
-      }
-    ]
-  },
-  "brandsData": {
-    "title": "Scrap Data With Your Custom Plugins",
-    "description": "Tailor Your Data Collection: With Crawlora's custom plugin feature, effortlessly create personalized scraping tools tailored to your unique needs,Integrate your custom plugins seamlessly into Crawlora, enhancing efficiency and expanding possibilities.",
-    "brands": [
-      {
-        "label": "Typescript",
-        "icon": "TypescriptIcon",
-        "href": "https://www.typescriptlang.org/"
-      },
-      {
-        "label": "Java",
-        "icon": "JavaIcon",
-        "href": "https://www.java.com/en/"
-      },
-      { "label": "Php", "icon": "PhpIcon", "href": "https://www.php.net/" },
-      {
-        "label": "Python",
-        "icon": "PythonIcon",
-        "href": "https://www.python.org/"
-      },
-      {
-        "label": "Go",
-        "icon": "GoIcon",
-        "href": "https://go.dev/"
-      },
-      {
-        "label": "Rust",
-        "icon": "RustIcon",
-        "href": "https://www.rust-lang.org/"
-      }
-    ]
-  },
-  "pricingData": {
-    "title": "Our Pricing",
-    "tiers": [
-      {
-        "title": "Starter",
-        "description": "Best option for personal use & for your next project.",
-        "price": {
-          "amount": "Free"
-        },
-        "features": [
-          "Email Support",
-          "Api access",
-          "Plugin",
-          "30k monthly requests"
-        ],
-        "href": "https://app.crawlora.com?cta=main_starter",
-        "cta": "Get Started"
-      },
-	   {
-        "title": "Premium",
-        "description": "Best for large scale uses and extended redistribution rights.",
-        "price": {
-          "amount": "999$",
-          "period": "/month"
-        },
-        "features": [
-          "Premium Email Support",
-          "api access",
-          "unlimited requests",
-          "fast and reliable web proxy"
-        ],
-        "href": "https://form.jotform.com/241921441318047?cta=main_starter",
-        "cta": "Get Premium"
-      },
-      {
-        "title": "Enterprise",
-        "description": "Best for large scale uses and extended redistribution rights.",
-        "price": {
-          "amount": "Lets Talk",
-          "period": "/month"
-        },
-        "features": [
-          "Premium Email Support",
-          "api access",
-          "unlimited requests",
-          "fast and reliable web proxy"
-        ],
-        "href": "https://form.jotform.com/241921441318047?cta=main_starter",
-        "cta": "Get Enterprise"
-      }
-    ]
-  },
-  "footerData": {
-    "logo": "Crawlora",
-    "description": "Unlock the power of advanced data extraction and analysis with our powerful, flexible, efficient, and extensible data extraction from URLs.",
-    "links": [
-      { "label": "About", "href": "#brands" },
-      { "label": "Services", "href": "#services-section" },
-      { "label": "Docs", "href": "https://docs.crawlora.com?cta=main_footer" },
-      { "label": "Api Doc", "href": "https://apidoc.crawlora.com?cta=main_footer" },
-      {
-        "label": "Contact",
-        "href": "https://form.jotform.com/241921518978468?cta=main_footer"
-      },
-      { "label": "Status", "href": "https://stats.uptimerobot.com/qS7t2qxRk2?cta=main_footer" }
-    ],
-    "socials": []
-  }
+	"backend": {
+		"url": "https://api.crawlora.com"
+	},
+	"meta": {
+		"title": "One-Click Website Data Scraper | Crawlora",
+		"description": "Effortlessly scrape data from any website with Crawlora. AI-powered, perfect for tech & startups. Get started now!",
+		"lang": "en",
+		"shortname": "crawlora.com",
+		"charset": "UTF-8",
+		"landing_page_image": "/landing_page.webp",
+		"ldJson": {
+			"@context": "http://schema.org",
+			"@type": "Organization",
+			"name": "Crawlora",
+			"description": "Crawlora simplifies web scraping for tech companies and startups with AI-powered data extraction.",
+			"url": "https://crawlora.com",
+			"logo": "/favicon.ico",
+			"contactPoint": {
+				"@type": "ContactPoint",
+				"email": "support@crawlora.com",
+				"contactType": "Client Service"
+			},
+			"sameAs": []
+		}
+	},
+	"headerData": {
+		"logo": "Crawlora",
+		"links": [
+			{
+				"label": "About",
+				"href": "#brands"
+			},
+			{
+				"label": "Services",
+				"href": "#services-section"
+			},
+			{
+				"label": "Pricing",
+				"href": "#price-section"
+			},
+			{
+				"label": "Docs",
+				"href": "https://docs.crawlora.com?cta=main_header"
+			},
+			{
+				"label": "Api Doc",
+				"href": "https://apidoc.crawlora.com?cta=main_header"
+			},
+			{
+				"label": "Get started",
+				"href": "https://app.crawlora.com?cta=main_header"
+			}
+		]
+	},
+	"heroData": {
+		"title": "Effortless Data Extraction: Welcome to",
+		"subTitle": "One-Click Website Data Scraper",
+		"primaryCta": "Get started",
+		"secondaryCta": "See our pricing",
+		"highlightedTitle": "Crawlora"
+	},
+	"servicesData": {
+		"title": "Everything you need for easy data scraping",
+		"services": [
+			{
+				"title": "Proxy-Based Scraping",
+				"icon": "ProxyIcon",
+				"description": "Scrape anonymously and avoid IP bans with our secure proxy network. Features include IP rotation, speed, and overcoming geo-restrictions."
+			},
+			{
+				"title": "URL-Based Scraping",
+				"icon": "UrlIcon",
+				"description": "Extract data from any web page using URLs. Our service ensures accurate and efficient data collection."
+			}
+		]
+	},
+	"adventajesData": {
+		"title": "Unlock the Power of Crawlora: Key Benefits",
+		"adventajes": [
+			{
+				"title": "Custom Plugin Support",
+				"description": "Create personalized scraping tools with our intuitive customization options. No coding experience required!",
+				"img": "plugin.webp",
+				"imageAlt": "Crawlora custom plugin service",
+				"checks": [
+					"Customizable",
+					"Data scraping"
+				]
+			},
+			{
+				"title": "Region-Specific Scraping",
+				"description": "Target specific regions to gather the most relevant data for your needs. Analyze market trends, monitor competitors, or gather localized information.",
+				"img": "scrap.webp",
+				"imageAlt": "Crawlora region-specific scraping",
+				"checks": [
+					"Region-specific",
+					"Fast and reliable proxy"
+				]
+			}
+		]
+	},
+	"brandsData": {
+		"title": "Scrap Data With Your Custom Plugins",
+		"description": "Tailor Your Data Collection: With Crawlora's custom plugin feature, effortlessly create personalized scraping tools tailored to your unique needs,Integrate your custom plugins seamlessly into Crawlora, enhancing efficiency and expanding possibilities.",
+		"brands": [
+			{
+				"label": "Typescript",
+				"icon": "TypescriptIcon",
+				"href": "https://www.typescriptlang.org/"
+			},
+			{
+				"label": "Java",
+				"icon": "JavaIcon",
+				"href": "https://www.java.com/en/"
+			},
+			{
+				"label": "Php",
+				"icon": "PhpIcon",
+				"href": "https://www.php.net/"
+			},
+			{
+				"label": "Python",
+				"icon": "PythonIcon",
+				"href": "https://www.python.org/"
+			},
+			{
+				"label": "Go",
+				"icon": "GoIcon",
+				"href": "https://go.dev/"
+			},
+			{
+				"label": "Rust",
+				"icon": "RustIcon",
+				"href": "https://www.rust-lang.org/"
+			}
+		]
+	},
+	"pricingData": {
+		"title": "Our Pricing",
+		"tiers": [
+			{
+				"title": "Starter",
+				"description": "Best option for personal use & for your next project.",
+				"price": {
+					"amount": "Free"
+				},
+				"features": [
+					"Email Support",
+					"Api access",
+					"Plugin",
+					"30k monthly requests"
+				],
+				"href": "https://app.crawlora.com?cta=main_starter",
+				"cta": "Get Started"
+			},
+			{
+				"title": "Premium",
+				"description": "Best for large scale uses and extended redistribution rights.",
+				"price": {
+					"amount": "999$",
+					"period": "/month"
+				},
+				"features": [
+					"Premium Email Support",
+					"api access",
+					"unlimited requests",
+					"fast and reliable web proxy"
+				],
+				"href": "https://form.jotform.com/241921441318047?cta=main_starter",
+				"cta": "Get Premium"
+			},
+			{
+				"title": "Enterprise",
+				"description": "Best for large scale uses and extended redistribution rights.",
+				"price": {
+					"amount": "Lets Talk",
+					"period": "/month"
+				},
+				"features": [
+					"Premium Email Support",
+					"api access",
+					"unlimited requests",
+					"fast and reliable web proxy"
+				],
+				"href": "https://form.jotform.com/241921441318047?cta=main_starter",
+				"cta": "Get Enterprise"
+			}
+		]
+	},
+	"footerData": {
+		"logo": "Crawlora",
+		"description": "Unlock the power of advanced data extraction and analysis with our powerful, flexible, efficient, and extensible data extraction from URLs.",
+		"links": [
+			{
+				"label": "About",
+				"href": "#brands"
+			},
+			{
+				"label": "Services",
+				"href": "#services-section"
+			},
+			{
+				"label": "Docs",
+				"href": "https://docs.crawlora.com?cta=main_footer"
+			},
+			{
+				"label": "Api Doc",
+				"href": "https://apidoc.crawlora.com?cta=main_footer"
+			},
+			{
+				"label": "Contact",
+				"href": "https://form.jotform.com/241921518978468?cta=main_footer"
+			},
+			{
+				"label": "Status",
+				"href": "https://stats.uptimerobot.com/qS7t2qxRk2?cta=main_footer"
+			}
+		],
+		"socials": []
+	}
 }

@@ -30,31 +30,34 @@ const PricingPage = () => {
 
   useEffect(() => {
     const fetchLandingData = async () => {
-      const data = await getLandingData();
-      setLandingInfo(data);
+      try {
+        const data = await getLandingData();
+        setLandingInfo(data);
+      } catch (error) {
+        console.error("Error fetching landing data", error);
+      }
     };
     fetchLandingData();
   }, []);
 
   const getPricingDetails = useCallback(async () => {
+    if (!landingInfo) return;
+
     try {
       const { data } = await axios.get<z.infer<typeof ZApiResponseSchema>>(
-        `https://17d5-2401-4900-1c02-15e6-9afc-d0-b692-6bb3.ngrok-free.app/api/v1/pricing/plans?billingCycle=${billingCycle}`,
-        {
-          headers: {
-            "ngrok-skip-browser-warning": "1",
-          },
-        },
+        `${landingInfo.backend.url}/api/v1/pricing/plans?billingCycle=${billingCycle}`,
       );
       setPricingDetails(ZApiResponseSchema.parse(data)["data"]);
     } catch (err) {
-      console.error(err);
+      console.error("Error fetching pricing details:", err);
     }
-  }, [billingCycle]);
+  }, [billingCycle, landingInfo]);
 
   useEffect(() => {
-    getPricingDetails();
-  }, [getPricingDetails]);
+    if (landingInfo) {
+      getPricingDetails();
+    }
+  }, [getPricingDetails, landingInfo]);
 
   const getPlanByMinutes = (activeTier: number) => {
     if (activeTier === 850) {

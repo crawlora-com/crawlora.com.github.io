@@ -7,6 +7,11 @@ export interface LandingPageData {
   brandsData: BrandsData;
   pricingData: PricingData;
   footerData: FooterData;
+  backend: BackendData;
+}
+
+export interface BackendData {
+  url: string;
 }
 
 export interface HeaderData {
