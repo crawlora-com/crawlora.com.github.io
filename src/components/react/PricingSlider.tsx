@@ -1,122 +1,63 @@
 import { ZApiResponseSchema, ZPlanSchema } from "@/api/types/pricing";
+import type { LandingPageData } from "@/config/landing.interface";
+import { getLandingData } from "@/services/data.service";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import type { z } from "zod";
-interface PricingTier {
-  title: string;
-  basePrice: {
-    monthly: number;
-    annually: number;
-  };
-  features: string[];
-  href: string;
-  cta: string;
-}
-
-interface PricingData {
-  title: string;
-  tiers: PricingTier[];
-}
-
-const pricingData: PricingData = {
-  title: "Our Pricing",
-  tiers: [
-    {
-      title: "Starter",
-      basePrice: {
-        monthly: 0,
-        annually: 0,
-      },
-      features: ["Email Support", "API access", "Plugin"],
-      href: "https://crawlora.com?plan=starter",
-      cta: "Get Started",
-    },
-    {
-      title: "Premium",
-      basePrice: {
-        monthly: 999,
-        annually: 9990,
-      },
-      features: [
-        "Premium Email Support",
-        "API access",
-        "Unlimited seconds",
-        "Fast and reliable web proxy",
-      ],
-      href: "https://crawlora.com?plan=premium",
-      cta: "Get Premium",
-    },
-    {
-      title: "Enterprise",
-      basePrice: {
-        monthly: 0,
-        annually: 0,
-      },
-      features: [
-        "Premium Email Support",
-        "API access",
-        "Unlimited requests",
-        "Fast and reliable web proxy",
-      ],
-      href: "https://crawlora.com?plan=enterprise",
-      cta: "Get Enterprise",
-    },
-  ],
-};
 
 type BillingCycle = "monthly" | "annually";
 
 const PricingPage = () => {
   const [billingCycle, setBillingCycle] = useState<BillingCycle>("monthly");
-  const [activeUsers, setActiveUsers] = useState<number>(0);
-  console.log("activeUsers:", activeUsers);
-  const [hoverValue, setHoverValue] = useState<number>(0);
-  console.log("hoverValue:", hoverValue);
+  const [activeTier, setActiveTier] = useState<number>(0);
+  const [hoverValue, setHoverValue] = useState<number | null>(null);
   const [pricingDetails, setPricingDetails] = useState<
     z.infer<typeof ZApiResponseSchema>["data"]
   >([]);
-  //   const [loading, setLoading] = useState(true);
+  const [landingInfo, setLandingInfo] = useState<LandingPageData | null>(null);
 
-  console.log("pricingDetails:", pricingDetails);
   const milestones = [0, 850];
-  const handleCycleChange = (cycle: BillingCycle) => {
-    setBillingCycle(cycle);
-  };
-
-  const handleHover = (e: React.MouseEvent<HTMLInputElement>) => {
-    const value = Number(e.currentTarget.value);
-    setHoverValue(value);
-  };
-
-  const handleMouseLeave = () => {
-    setHoverValue(0);
+  const defaultPlan: z.infer<typeof ZPlanSchema> = {
+    id: "",
+    created_at: "",
+    title: "",
+    description: "",
+    amount: 0,
+    currency: "",
+    deleted_at: null,
+    planAccessRights: [],
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const currentPlan = "basic";
-        const { data } = await axios.get<z.infer<typeof ZApiResponseSchema>>(
-          `https://420b-2401-4900-1c02-15e6-cc6b-b377-c38d-be8.ngrok-free.app/api/v1/pricing/plans?billingCycle=${billingCycle}&currentPlan=${currentPlan}`,
-          {
-            headers: {
-              "ngrok-skip-browser-warning": "1",
-            },
-          },
-        );
-        setPricingDetails(ZApiResponseSchema.parse(data)["data"]);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        // setLoading(false);
-      }
+    const fetchLandingData = async () => {
+      const data = await getLandingData();
+      setLandingInfo(data);
     };
+    fetchLandingData();
+  }, []);
 
-    fetchData();
+  const getPricingDetails = useCallback(async () => {
+    try {
+      const { data } = await axios.get<z.infer<typeof ZApiResponseSchema>>(
+        `https://17d5-2401-4900-1c02-15e6-9afc-d0-b692-6bb3.ngrok-free.app/api/v1/pricing/plans?billingCycle=${billingCycle}`,
+        {
+          headers: {
+            "ngrok-skip-browser-warning": "1",
+          },
+        },
+      );
+      setPricingDetails(ZApiResponseSchema.parse(data)["data"]);
+    } catch (err) {
+      console.error(err);
+    }
   }, [billingCycle]);
 
-  const getPlanByMinutes = (activeUsers: number) => {
-    if (activeUsers === 850) {
+  useEffect(() => {
+    getPricingDetails();
+  }, [getPricingDetails]);
+
+  const getPlanByMinutes = (activeTier: number) => {
+    if (activeTier === 850) {
       return {
         id: "",
         created_at: "",
@@ -129,69 +70,56 @@ const PricingPage = () => {
       };
     }
 
-    const index = activeUsers / 50;
-    if (index < pricingDetails.length) {
-      return pricingDetails[index];
-    }
+    const index = activeTier / 50;
+    return pricingDetails[index] || defaultPlan;
   };
 
-  const defaultPlan: z.infer<typeof ZPlanSchema> = {
-    id: "",
-    created_at: "",
-    title: "",
-    description: "",
-    amount: 0,
-    currency: "",
-    deleted_at: null,
-    planAccessRights: [],
+  const handleHover = (e: React.MouseEvent<HTMLInputElement>) => {
+    setHoverValue(Number(e.currentTarget.value));
   };
 
-  const result = getPlanByMinutes(activeUsers) ?? defaultPlan;
+  const handleMouseLeave = () => setHoverValue(null);
+
+  const activePricingTier = getPlanByMinutes(activeTier);
 
   return (
     <div className="flex flex-col items-center p-10 mb-10 bg-gray-100">
-      <h1 className="text-4xl font-bold mb-10">{pricingData.title}</h1>
+      <h1 className="text-4xl font-bold mb-10">Our Pricing</h1>
+
       <div className="flex space-x-4 mb-8">
-        <button
-          className={`px-4 py-2 rounded ${
-            billingCycle === "monthly"
-              ? "bg-blue-600 text-white"
-              : "bg-gray-200 text-gray-600"
-          }`}
-          onClick={() => handleCycleChange("monthly")}
-        >
-          Monthly Billing
-        </button>
-        <button
-          className={`px-4 py-2 rounded ${
-            billingCycle === "annually"
-              ? "bg-blue-600 text-white"
-              : "bg-gray-200 text-gray-600"
-          }`}
-          onClick={() => handleCycleChange("annually")}
-        >
-          Annual Billing
-        </button>
+        {["monthly", "annually"].map((cycle) => (
+          <button
+            key={cycle}
+            className={`px-4 py-2 rounded ${
+              billingCycle === cycle
+                ? "bg-blue-600 text-white"
+                : "bg-gray-200 text-gray-600"
+            }`}
+            onClick={() => setBillingCycle(cycle as BillingCycle)}
+          >
+            {cycle.charAt(0).toUpperCase() + cycle.slice(1)} Billing
+          </button>
+        ))}
       </div>
 
       <div className="w-full max-w-lg mb-10 relative">
         <label className="block text-center text-lg font-medium mb-2">
           Total Seconds:{" "}
-          {result.planAccessRights[0]?.access?.seconds_limit || 0}
+          {activePricingTier.planAccessRights[0]?.access?.seconds_limit || 0}
         </label>
         <input
           type="range"
           min={milestones[0]}
           max={milestones[milestones.length - 1]}
           step={50}
-          value={activeUsers}
-          onChange={(e) => setActiveUsers(Number(e.target.value))}
+          value={activeTier}
+          onChange={(e) => setActiveTier(Number(e.target.value))}
           onMouseMove={handleHover}
           onMouseLeave={handleMouseLeave}
           className="w-full cursor-pointer appearance-none bg-gray-300 h-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           style={{
             background: `linear-gradient(to right, #3b82f6 ${
-              (activeUsers / 850) * 100
+              (activeTier / 850) * 100
             }%, #e5e7eb 0%)`,
           }}
         />
@@ -215,26 +143,27 @@ const PricingPage = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
-        <div className="bg-white rounded-lg shadow-lg p-6 text-center border-4 border-blue-600">
+        <div className="bg-white rounded-lg shadow-lg p-6 text-center border-4 border-blue-600 max-w-lg mx-auto break-words">
           <h2 className="text-2xl font-semibold mb-4">
-            {result?.title || "-"}
+            {activePricingTier?.title || "-"}
           </h2>
-          <p className="mb-6 text-gray-600"> {result?.description || "-"}</p>
+          <p className="mb-6 text-gray-600">
+            {activePricingTier?.description || "-"}
+          </p>
           <div className="text-3xl font-bold mb-4">
-            {result.currency}
-            {result.amount}
+            {activePricingTier.currency}
+            {activePricingTier.amount}
           </div>
           <ul className="text-gray-600 mb-6 space-y-2">
             <li>Email Support</li>
-            <li>API access</li>
+            <li>API Access</li>
             <li>Plugin</li>
           </ul>
-
           <a
-            href={`https://app.crawlora.com/en/login?current-plan=${result?.title}`}
+            href={`${landingInfo?.meta.ldJson.url}?current-plan=${activePricingTier?.title}`}
             className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300"
           >
-            {`Get ${result?.title}`}
+            {`Get ${activePricingTier?.title}`}
           </a>
         </div>
       </div>
