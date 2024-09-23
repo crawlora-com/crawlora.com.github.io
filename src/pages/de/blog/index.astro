@@ -11,11 +11,11 @@ import { SITE } from "@data/constants";
 // Get all blogs post in French and sort them based on publish date
 
 const frenchBlogEntries = await getCollection("blog", ({ id }) => {
-  return id.startsWith("fr/");
+  return id.startsWith("de/");
 });
 
 const frenchInsightsEntries = await getCollection("insights", ({ id }) => {
-  return id.startsWith("fr/");
+  return id.startsWith("de/");
 });
 
 const blogPosts: CollectionEntry<"blog">[] = frenchBlogEntries.sort(
@@ -40,22 +40,22 @@ const secondSubTitle: string =
 const pageTitle: string = `Blog | ${SITE.title}`;
 ---
 
-<MainLayout lang="fr"
+<MainLayout lang="de"
   title={pageTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://screwfast.uk/fr/blog",
-    "url": "https://screwfast.uk/fr/blog",
+    "@id": "https://screwfast.uk/de/blog",
+    "url": "https://screwfast.uk/de/blog",
     "name": "Blog | ScrewFast",
     "description": "Restez informé des dernières tendances et évolutions dans le secteur de la construction avec les analyses de l'équipe d'experts de ScrewFast.",
     "isPartOf": {
       "@type": "WebSite",
-      "url": "https://screwfast.uk/fr",
+      "url": "https://screwfast.uk/de",
       "name": "ScrewFast",
       "description": "ScrewFast propose des outils matériels de premier ordre et des services de construction experts pour répondre à tous vos besoins de projet."
     },
-    "inLanguage": "fr"
+    "inLanguage": "de"
   }}
 >
   <section
@@ -82,14 +82,14 @@ const pageTitle: string = `Blog | ${SITE.title}`;
   >
     <!--Blog posts grid-->
     <div class="grid gap-6 lg:grid-cols-2">
-      {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} blogLocale="fr"/>)}
+      {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} blogLocale="de"/>)}
     </div>
   </section>
   <!--Most recent blog post-->
   <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
-    <CardBlogRecent blogEntry={mostRecentPost} recentBlogLocale="fr" />
+    <CardBlogRecent blogEntry={mostRecentPost} recentBlogLocale="de" />
   </section>
   <!--Insights section-->
   <section
@@ -108,7 +108,7 @@ const pageTitle: string = `Blog | ${SITE.title}`;
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {
         insightPosts.map((insightEntry) => (
-          <CardInsight insightEntry={insightEntry} insightLocale="fr" />
+          <CardInsight insightEntry={insightEntry} insightLocale="de" />
         ))
       }
     </div>

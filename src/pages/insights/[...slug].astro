@@ -11,7 +11,7 @@ export async function getStaticPaths() {
     id.startsWith("en/")
   );
   return insightPosts.map((post) => {
-    const slugWithoutLang = post.slug.replace(/^en\//, ""); // Remove the "fr/" prefix
+    const slugWithoutLang = post.slug.replace(/^en\//, ""); // Remove the "de/" prefix
     return {
       params: { slug: slugWithoutLang },
       props: { post },

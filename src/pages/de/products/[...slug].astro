@@ -17,12 +17,12 @@ declare global {
 
 export async function getStaticPaths() {
   const productEntries = await getCollection("products", ({ id }) =>
-    id.startsWith("fr/")
+    id.startsWith("de/")
   );
   return productEntries.map((product) => {
-    const slugWithoutLang = product.slug.replace(/^fr\//, ""); // Remove the "fr/" prefix
+    const slugWithoutLang = product.slug.replace(/^fr\//, ""); // Remove the "de/" prefix
     return {
-      params: { lang: "fr", slug: slugWithoutLang },
+      params: { lang: "de", slug: slugWithoutLang },
       props: { product },
     };
   });
