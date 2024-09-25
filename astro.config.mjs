@@ -7,7 +7,7 @@ import starlight from "@astrojs/starlight";
 // https://astro.build/config
 export default defineConfig({
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
-  site: "https://crawlora.com",
+  site: "https://temp.crawlora.com",
   image: {
     domains: ["images.unsplash.com"],
   },
@@ -104,7 +104,7 @@ export default defineConfig({
       ],
     }),
     compressor({
-      gzip: false,
+      gzip: true,
       brotli: true,
     }),
   ],

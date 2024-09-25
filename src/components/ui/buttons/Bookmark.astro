@@ -17,7 +17,7 @@ import Icon from "@components/ui/icons/Icon.astro";
 
     constructor(private dataAttrValue: string) {
       this.bookmarkButton = document.querySelector(
-        `[data-bookmark-button="${dataAttrValue}"]`
+        `[data-bookmark-button="${this.dataAttrValue}"]`
       );
     }
 

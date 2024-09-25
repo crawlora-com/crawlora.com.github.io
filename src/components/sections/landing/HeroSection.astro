@@ -19,7 +19,8 @@ const {
   starCount,
   rating,
   reviews,
-  alt
+  alt,
+  src: _src
 } = Astro.props;
 
 // Define TypeScript interface for props
@@ -36,6 +37,7 @@ interface Props {
   rating?: string;
   reviews?: string;
   alt?: string;
+  src?: any
 }
 ---
 
