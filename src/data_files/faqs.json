@@ -1,29 +1,37 @@
 {
-  "subTitle": "Ask us anything about our brand and products, and get factual responses.",
+  "subTitle": "Inquire about our services and solutions, and receive accurate, data-driven answers.",
   "faqs": [
     {
-      "question": "What types of tools are included in the Starter Kit?",
-      "answer": "The Starter Kit features essential hand and power tools for diverse DIY projects, including hammers, drills, screwdrivers, and a variety of fasteners. It's a curated selection to help beginners and experienced DIYers alike tackle most home improvement tasks."
+      "question": "What is Crawlora, and how does it work?",
+      "answer": "Crawlora is a web crawling platform designed to efficiently extract data from websites. It works by sending bots to visit web pages, gather information, and organize it for easy analysis, helping businesses automate their data collection process."
     },
     {
-      "question": "Can I upgrade from the Starter Kit to the Professional Toolbox?",
-      "answer": "Absolutely! You can upgrade to the Professional Toolbox at any time to access a wider range of high-quality tools, enjoy priority customer support, and receive exclusive content. Contact our support team for a seamless transition."
+      "question": "What industries benefit from using Crawlora?",
+      "answer": "Crawlora is ideal for industries like e-commerce, marketing, data analytics, research, and finance, where large-scale web data extraction is essential for competitive analysis, price tracking, market research, and lead generation."
     },
     {
-      "question": "What discounts are available for bulk orders through the Professional Toolbox plan?",
-      "answer": "Professional Toolbox members are entitled to exclusive discounts on bulk orders, the percentage of which may vary depending on the order volume. Get in touch with us to discuss your needs, and we'll provide a tailored discount structure."
+      "question": "How does Crawlora handle website restrictions like CAPTCHA?",
+      "answer": "Crawlora employs advanced techniques such as proxy rotation, CAPTCHA bypass tools, and anti-bot avoidance strategies to ensure seamless crawling across websites, even those with strict restrictions in place."
     },
     {
-      "question": "What kind of customer support can I expect?",
-      "answer": "All our customers receive dedicated email support. With the Starter Kit, you'll receive our standard support, while the Professional Toolbox plan upgrades you to priority support, meaning faster response times and specialized assistance."
+      "question": "Is there a limit to how much data I can scrape with Crawlora?",
+      "answer": "Crawlora's pricing is usage-based, meaning your data extraction capabilities scale with your needs. There are no hard limits, but pricing adjusts based on the volume of data scraped. Larger projects may require custom solutions."
     },
     {
-      "question": "How current are the online resources and tutorials?",
-      "answer": "We regularly update our online resources and tutorials to reflect the latest trends in DIY and construction, as well as introductions to new tools and techniques. Our material aims to be comprehensive and user-friendly for all skill levels."
+      "question": "Does Crawlora comply with website scraping regulations?",
+      "answer": "Yes, Crawlora is committed to ethical and legal web scraping. We advise all users to respect website terms of service and only collect publicly available data. Our platform provides tools to ensure compliance with data privacy laws like GDPR."
     },
     {
-      "question": "Does ScrewFast offer services for large-scale construction projects?",
-      "answer": "Yes, our Enterprise Solutions are designed for larger companies requiring comprehensive services. We provide consultation, planning, and supply of high-grade tools and materials, as well as staffing solutions for substantial construction needs. Contact us for a customized quote."
+      "question": "What customer support options are available?",
+      "answer": "Crawlora offers dedicated email support for all customers. Premium users can access priority support with faster response times and advanced technical assistance for complex crawling and data extraction needs."
+    },
+    {
+      "question": "Can Crawlora integrate with other data analysis tools?",
+      "answer": "Absolutely! Crawlora can easily integrate with various data analysis platforms through APIs, making it simple to export and work with your extracted data in tools like Excel, Google Sheets, or custom software solutions."
+    },
+    {
+      "question": "How secure is the data I scrape with Crawlora?",
+      "answer": "Crawlora uses encryption and secure storage protocols to ensure that your scraped data is safe. We prioritize data privacy and follow best practices to safeguard any information collected and processed through our platform."
     }
-  ]
+]
 }

@@ -1,10 +1,11 @@
 ---
 // Import the necessary components
 import MainLayout from "@/layouts/MainLayout.astro";
-import ContactSection from "@components/sections/misc/ContactSection.astro";
+import FAQ from "@components/sections/misc/FAQ.astro";
+import faqs from "@data/faqs.json";
 import { SITE } from "@data/constants";
 
-const pageTitle: string = `Contact | ${SITE.title}`;
+const pageTitle: string = `FAQs | ${SITE.title}`;
 ---
 
 <!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->
@@ -15,7 +16,7 @@ const pageTitle: string = `Contact | ${SITE.title}`;
     "@type": "WebPage",
     "@id": "https://crawlora.com/contact",
     "url": "https://crawlora.com/contact",
-    "name": "Contact Us | Crawlora",
+    "name": "FAQs | Crawlora",
     "description":
       "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.",
     "isPartOf": {
@@ -28,5 +29,5 @@ const pageTitle: string = `Contact | ${SITE.title}`;
     "inLanguage": "en-US"
   }}
 >
-  <ContactSection />
+<FAQ title="Frequently<br />asked questions" faqs={faqs} />
 </MainLayout>

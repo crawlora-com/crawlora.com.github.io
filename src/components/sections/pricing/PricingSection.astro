@@ -28,7 +28,6 @@ export interface PricingSectionProps {
     title: string;
     subTitle: string;
     starterKit: Product;
-    professionalToolbox: Product;
   };
 }
 ---
@@ -47,99 +46,58 @@ export interface PricingSectionProps {
       {pricing.subTitle}
     </p>
   </div>
-  <!-- Contains two main product blocks -->
+
+
   <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-0">
-    <!-- Starter Kit product details -->
+   
     <div
-      class="w-full rounded-xl bg-gray-800 p-6 sm:w-1/2 sm:rounded-r-none sm:p-8 lg:w-1/3"
+    class="w-full rounded-xl bg-gradient-to-tr from-[#FF512F] to-[#F09819] p-6 shadow-xl sm:w-1/2 sm:p-8"
+  >
+    <div
+      class="mb-4 flex flex-col items-start justify-between gap-4 lg:flex-row"
     >
-      <div class="mb-4">
+      <div>
         <h3 class="text-2xl font-bold text-neutral-100 sm:text-3xl">
-          {pricing.starterKit.name}
+          {pricing?.starterKit?.name}
         </h3>
-        <p class="text-indigo-300">{pricing.starterKit.description}</p>
+        <p class="text-orange-200">{pricing?.starterKit?.description}</p>
       </div>
 
-      <div class="mb-4">
-        <span class="text-4xl font-bold text-neutral-200"
-          >{pricing.starterKit.price}</span
-        >
-        <span class="text-lg font-bold text-neutral-300"
-          >{pricing.starterKit.cents}</span
-        >
-        <span class="ms-3 text-sm text-indigo-200"
-          >{pricing.starterKit.billingFrequency}</span
-        >
-      </div>
-      <!-- Features list - automatically created by mapping over `features` array -->
-      <ul class="mb-6 space-y-2 text-neutral-300">
-        {
-          pricing.starterKit.features.map((feature: string) => (
-            <li class="flex items-center gap-1.5">
-              <Icon name="checkCircle" />
-
-              <span>{feature}</span>
-            </li>
-          ))
-        }
-      </ul>
-      <!-- CTA for purchasing the product -->
-      <a
-        href={pricing.starterKit.purchaseLink}
-        class="block rounded-lg bg-gray-500 px-8 py-3 text-center text-sm font-bold text-gray-100 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-600 focus-visible:ring active:text-gray-300 md:text-base"
-        >{pricing.starterKit.purchaseBtnTitle}</a
+      <span
+        class="order-first inline-block rounded-full bg-orange-200 bg-opacity-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-center text-orange-600 lg:order-none"
+        >{pricing.badge}</span
       >
     </div>
-    <!-- Professional Toolbox product details -->
-    <div
-      class="w-full rounded-xl bg-gradient-to-tr from-[#FF512F] to-[#F09819] p-6 shadow-xl sm:w-1/2 sm:p-8"
+
+    <div class="mb-4">
+      <span class="text-6xl font-bold text-neutral-100"
+        >{pricing?.starterKit?.price}</span
+      >
+      <span class="text-lg font-bold text-orange-100"
+        >{pricing?.starterKit?.cents}</span
+      >
+      <span class="ms-3 text-orange-200"
+        >{pricing?.starterKit?.billingFrequency}</span
+      >
+    </div>
+    <ul class="mb-6 space-y-2 text-orange-100">
+      {
+        pricing?.starterKit?.features.map((feature: string) => (
+          <li class="flex items-center gap-1.5">
+            <Icon name="checkCircle" />
+
+            <span>{feature}</span>
+          </li>
+        ))
+      }
+    </ul>
+    <a
+      href={pricing?.starterKit?.purchaseLink}
+      class="block rounded-lg bg-orange-200 bg-opacity-50 px-8 py-3 text-center text-sm font-bold text-neutral-100 outline-none ring-orange-300 transition duration-100 hover:bg-orange-300 hover:bg-opacity-50 focus-visible:ring active:bg-orange-400 md:text-base"
+      >{pricing?.starterKit?.purchaseBtnTitle}</a
     >
-      <div
-        class="mb-4 flex flex-col items-start justify-between gap-4 lg:flex-row"
-      >
-        <div>
-          <h3 class="text-2xl font-bold text-neutral-100 sm:text-3xl">
-            {pricing.professionalToolbox.name}
-          </h3>
-          <p class="text-orange-200">{pricing.professionalToolbox.description}</p>
-        </div>
+  </div>
 
-        <span
-          class="order-first inline-block rounded-full bg-orange-200 bg-opacity-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-center text-orange-600 lg:order-none"
-          >{pricing.badge}</span
-        >
-      </div>
-
-      <div class="mb-4">
-        <span class="text-6xl font-bold text-neutral-100"
-          >{pricing.professionalToolbox.price}</span
-        >
-        <span class="text-lg font-bold text-orange-100"
-          >{pricing.professionalToolbox.cents}</span
-        >
-        <span class="ms-3 text-orange-200"
-          >{pricing.professionalToolbox.billingFrequency}</span
-        >
-      </div>
-      <!-- Features list - automatically created by mapping over `features` array -->
-      <ul class="mb-6 space-y-2 text-orange-100">
-        {
-          pricing.professionalToolbox.features.map((feature: string) => (
-            <li class="flex items-center gap-1.5">
-              <Icon name="checkCircle" />
-
-              <span>{feature}</span>
-            </li>
-          ))
-        }
-      </ul>
-      <!-- CTA for purchasing the product -->
-      <a
-        href={pricing.professionalToolbox.purchaseLink}
-        class="block rounded-lg bg-orange-200 bg-opacity-50 px-8 py-3 text-center text-sm font-bold text-neutral-100 outline-none ring-orange-300 transition duration-100 hover:bg-orange-300 hover:bg-opacity-50 focus-visible:ring active:bg-orange-400 md:text-base"
-        >{pricing.professionalToolbox.purchaseBtnTitle}</a
-      >
-    </div>
   </div>
   <!-- Call to action for Enterprise Solutions -->
   <div class="mt-8 flex items-center justify-center gap-x-3 md:mt-12">
@@ -147,6 +105,6 @@ export interface PricingSectionProps {
       {pricing.thirdOption}
     </p>
 
-    <SecondaryCTA title={pricing.btnText} url="#" />
+    <SecondaryCTA title={pricing.btnText} url="https://form.jotform.com/241921441318047?cta=main_starter" />
   </div>
 </section>

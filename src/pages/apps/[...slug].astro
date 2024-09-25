@@ -17,7 +17,7 @@ declare global {
 // This gets the static paths for all the unique products
 
 export async function getStaticPaths() {
-  const productEntries = await getCollection("products", ({ id }) =>
+  const productEntries = await getCollection("apps", ({ id }) =>
     id.startsWith("en/")
   );
   return productEntries.map((product) => {

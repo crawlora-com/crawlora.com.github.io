@@ -54,7 +54,7 @@ const crafted: string = Astro.currentLocale === "de" ? "Fabriqué par" : "Crafte
         ))
       }
 
-      <div class="col-span-2">
+      <!-- <div class="col-span-2">
         <h3 class="font-bold text-neutral-800 dark:text-neutral-200">
           {sectionThreeTitle}
         </h3>
@@ -65,7 +65,7 @@ const crafted: string = Astro.currentLocale === "de" ? "Fabriqué par" : "Crafte
             {sectionThreeContent}
           </p>
         </form>
-      </div>
+      </div> -->
     </div>
 
     <div
@@ -73,21 +73,16 @@ const crafted: string = Astro.currentLocale === "de" ? "Fabriqué par" : "Crafte
     >
       <div class="flex items-center justify-between">
         <p class="text-sm text-neutral-600 dark:text-neutral-400">
-          © <span id="current-year"></span> {SITE.title}. {crafted}
-          <a
-            class="rounded-lg font-medium underline underline-offset-2 outline-none ring-zinc-500 transition duration-300 hover:text-neutral-700 hover:decoration-dashed focus:outline-none focus-visible:ring dark:ring-zinc-200 dark:hover:text-neutral-300"
-            href="https://sobstvennoai.dev"
-            target="_blank"
-            rel="noopener noreferrer">sobstvennoAI</a
-          >.
+          © <span id="current-year"></span> {SITE.title}.
         </p>
       </div>
 
       <!-- Social Brands -->
       <div>
-        <FooterSocialLink url={strings.socialLinks.facebook}
+        
+        <!-- <FooterSocialLink url={strings.socialLinks.facebook}
           ><Icon name="facebookFooter" />
-        </FooterSocialLink>
+        </FooterSocialLink> -->
 
         <FooterSocialLink url={strings.socialLinks.x}
           ><Icon name="xFooter" /></FooterSocialLink
@@ -97,9 +92,9 @@ const crafted: string = Astro.currentLocale === "de" ? "Fabriqué par" : "Crafte
           ><Icon name="githubFooter" />
         </FooterSocialLink>
 
-        <FooterSocialLink url={strings.socialLinks.google}
+        <!-- <FooterSocialLink url={strings.socialLinks.google}
           ><Icon name="googleFooter" />
-        </FooterSocialLink>
+        </FooterSocialLink> -->
 
         <FooterSocialLink url={strings.socialLinks.slack}
           ><Icon name="slackFooter" />
