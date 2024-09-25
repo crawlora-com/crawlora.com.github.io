@@ -15,13 +15,13 @@ importers:
         specifier: ^3.1.6
         version: 3.1.6
       '@astrojs/starlight':
-        specifier: ^0.27.1
-        version: 0.27.1(astro@4.15.9(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2))
+        specifier: ^0.28.2
+        version: 0.28.2(astro@4.15.9(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2))
       '@astrojs/starlight-tailwind':
         specifier: ^2.0.3
-        version: 2.0.3(@astrojs/starlight@0.27.1(astro@4.15.9(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2)))(@astrojs/tailwind@5.1.1(astro@4.15.9(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2))(tailwindcss@3.4.13))(tailwindcss@3.4.13)
+        version: 2.0.3(@astrojs/starlight@0.28.2(astro@4.15.9(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2)))(@astrojs/tailwind@5.1.1(astro@4.15.9(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2))(tailwindcss@3.4.13))(tailwindcss@3.4.13)
       '@astrojs/tailwind':
-        specifier: ^5.1.0
+        specifier: ^5.1.1
         version: 5.1.1(astro@4.15.9(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2))(tailwindcss@3.4.13)
       '@preline/accordion':
         specifier: ^2.4.1
@@ -42,7 +42,7 @@ importers:
         specifier: ^0.27.4
         version: 0.27.4
       astro:
-        specifier: ^4.15.6
+        specifier: ^4.15.8
         version: 4.15.9(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2)
       astro-compressor:
         specifier: ^0.4.1
@@ -75,14 +75,14 @@ importers:
         specifier: ^0.1.5
         version: 0.1.5
       tailwindcss:
-        specifier: ^3.4.11
+        specifier: ^3.4.12
         version: 3.4.13
     devDependencies:
       '@tailwindcss/forms':
         specifier: ^0.5.9
         version: 0.5.9(tailwindcss@3.4.13)
       astro-vtbot:
-        specifier: ^1.9.2
+        specifier: ^1.9.4
         version: 1.9.4
       prettier:
         specifier: ^3.3.3
@@ -154,10 +154,10 @@ packages:
       '@astrojs/tailwind': ^5.0.0
       tailwindcss: ^3.3.3
 
-  '@astrojs/starlight@0.27.1':
-    resolution: {integrity: sha512-L2hEgN/Tk7tfBDeaqUOgOpey5NcUL78FuQa06iNxyZ6RjyYyuXSniOoFxZYIo5PpY9O1dLdK22PkZyCDpO729g==}
+  '@astrojs/starlight@0.28.2':
+    resolution: {integrity: sha512-Q1/Ujl2EzWX71qwqdt/0KP3wOyX6Rvyzcep/zD3hRCtw/Vi2TReh4Q2wLwz7mnbuYU9H7YvBKYknbkmjC+K/0w==}
     peerDependencies:
-      astro: ^4.8.6
+      astro: ^4.14.0
 
   '@astrojs/tailwind@5.1.1':
     resolution: {integrity: sha512-LwurA10uIKcGRxQP2R81RvAnBT0WPKzBntXZBF4hrAefDgM5Uumn0nsGr6tdIjSARgYz4X+Cq/Vh78t3bql3yw==}
@@ -250,6 +250,10 @@ packages:
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
+
+  '@babel/runtime@7.25.6':
+    resolution: {integrity: sha512-VBj9MYyDb9tuLq7yzqjgzt6Q+IBQLrGZfdjOekyEirZPHxXWoTSGUTMrpsfi58Up73d13NfYLv8HT9vmznjzhQ==}
+    engines: {node: '>=6.9.0'}
 
   '@babel/template@7.25.0':
     resolution: {integrity: sha512-aOOgh1/5XzKvg1jvVz7AVrx2piJ2XBi227DHmbY6y+bM9H2FlN+IfecYu4Xl0cNiiVejlsCri89LUsbj8vJD9Q==}
@@ -1528,6 +1532,9 @@ packages:
     resolution: {integrity: sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA==}
     engines: {node: '>= 6'}
 
+  i18next@23.15.1:
+    resolution: {integrity: sha512-wB4abZ3uK7EWodYisHl/asf8UYEhrI/vj/8aoSsrj/ZDxj4/UXPOa1KvFt1Fq5hkUHquNqwFlDprmjZ8iySgYA==}
+
   ico-endec@0.1.6:
     resolution: {integrity: sha512-ZdLU38ZoED3g1j3iEyzcQj+wAkY2xfWNkymszfJPoxucIUhK7NayQ+/C4Kv0nDFMIsbtbEHldv3V8PU494/ueQ==}
 
@@ -2296,6 +2303,9 @@ packages:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
     engines: {node: '>=8.10.0'}
 
+  regenerator-runtime@0.14.1:
+    resolution: {integrity: sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==}
+
   regex@4.3.2:
     resolution: {integrity: sha512-kK/AA3A9K6q2js89+VMymcboLOlF5lZRCYJv3gzszXFHBr6kO6qLGzbm+UIugBEV8SMMKCTR59txoY6ctRHYVw==}
 
@@ -3039,13 +3049,13 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 3.23.8
 
-  '@astrojs/starlight-tailwind@2.0.3(@astrojs/starlight@0.27.1(astro@4.15.9(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2)))(@astrojs/tailwind@5.1.1(astro@4.15.9(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2))(tailwindcss@3.4.13))(tailwindcss@3.4.13)':
+  '@astrojs/starlight-tailwind@2.0.3(@astrojs/starlight@0.28.2(astro@4.15.9(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2)))(@astrojs/tailwind@5.1.1(astro@4.15.9(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2))(tailwindcss@3.4.13))(tailwindcss@3.4.13)':
     dependencies:
-      '@astrojs/starlight': 0.27.1(astro@4.15.9(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2))
+      '@astrojs/starlight': 0.28.2(astro@4.15.9(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2))
       '@astrojs/tailwind': 5.1.1(astro@4.15.9(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2))(tailwindcss@3.4.13)
       tailwindcss: 3.4.13
 
-  '@astrojs/starlight@0.27.1(astro@4.15.9(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2))':
+  '@astrojs/starlight@0.28.2(astro@4.15.9(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2))':
     dependencies:
       '@astrojs/mdx': 3.1.7(astro@4.15.9(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2))
       '@astrojs/sitemap': 3.1.6
@@ -3059,6 +3069,7 @@ snapshots:
       hast-util-select: 6.0.2
       hast-util-to-string: 3.0.0
       hastscript: 9.0.0
+      i18next: 23.15.1
       mdast-util-directive: 3.0.0
       mdast-util-to-markdown: 2.1.0
       mdast-util-to-string: 4.0.0
@@ -3207,6 +3218,10 @@ snapshots:
       '@babel/types': 7.25.6
     transitivePeerDependencies:
       - supports-color
+
+  '@babel/runtime@7.25.6':
+    dependencies:
+      regenerator-runtime: 0.14.1
 
   '@babel/template@7.25.0':
     dependencies:
@@ -4664,6 +4679,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  i18next@23.15.1:
+    dependencies:
+      '@babel/runtime': 7.25.6
+
   ico-endec@0.1.6: {}
 
   ignore@5.3.2: {}
@@ -5609,6 +5628,8 @@ snapshots:
   readdirp@3.6.0:
     dependencies:
       picomatch: 2.3.1
+
+  regenerator-runtime@0.14.1: {}
 
   regex@4.3.2: {}
 
