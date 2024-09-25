@@ -29,7 +29,7 @@ export default defineConfig({
         defaultLocale: "en", // All urls that don't contain `fr` after `https://crawlora.com/` will be treated as default locale, i.e. `en`
         locales: {
           en: "en", // The `defaultLocale` value must present in `locales` keys
-          de: "de",
+          // de: "de",
         },
       },
     }),
@@ -46,7 +46,7 @@ export default defineConfig({
           label: "English",
           lang: "en",
         },
-        de: { label: "Deutsch", lang: "de" },
+        // de: { label: "Deutsch", lang: "de" },
       },
       // https://starlight.astro.build/guides/sidebar/
       sidebar: [
