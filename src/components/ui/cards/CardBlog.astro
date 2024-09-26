@@ -3,12 +3,16 @@
 import AvatarBlog from "@components/ui/avatars/AvatarBlog.astro";
 import { Image } from "astro:assets";
 import { formatDate } from "@utils/utils";
-import type { CollectionEntry } from "astro:content";
+// import type { CollectionEntry } from "astro:content";
+import { wpSDK } from "@api/wp/sdk"
 
 const { blogEntry, blogLocale = "" } = Astro.props;
 
+const getfeaturedImage = await wpSDK.media().id(blogEntry.featured_media).get()
+const getAuthor = await wpSDK.users().id(blogEntry.author).get()
+
 interface Props {
-  blogEntry: CollectionEntry<"blog">;
+  blogEntry: any;
   blogLocale?: string;
 }
 ---
@@ -30,8 +34,10 @@ interface Props {
   >
     <Image
       class="absolute start-0 top-0 size-full object-cover transition duration-500 group-hover:scale-110"
-      src={blogEntry.data.cardImage}
-      alt={blogEntry.data.cardImageAlt}
+      src={getfeaturedImage.guid.rendered}
+      height={getfeaturedImage.media_details.height}
+      width={getfeaturedImage.media_details.width}
+      alt={getfeaturedImage.alt_text}
       draggable={"false"}
       loading={"eager"}
       format={"avif"}
@@ -41,14 +47,14 @@ interface Props {
   <div class="absolute inset-x-0 top-0 z-10">
     <div class="flex h-full flex-col p-4 sm:p-6">
       <div class="flex items-center">
-        <AvatarBlog blogEntry={blogEntry} />
+        <AvatarBlog author={getAuthor} />
 
         <div class="ms-2.5 sm:ms-4">
           <h4 class="font-bold text-neutral-50">
-            {blogEntry.data.author}
+            {getAuthor.name}
           </h4>
           <p class="text-xs text-neutral-50/[.8]">
-            {formatDate(blogEntry.data.pubDate)}
+            {formatDate(blogEntry.date)}
           </p>
         </div>
       </div>
@@ -60,10 +66,11 @@ interface Props {
       <h3
         class="text-balance text-lg font-bold text-neutral-50 group-hover:text-neutral-50/[.8] sm:text-3xl"
       >
-        {blogEntry.data.title}
+        {blogEntry.title.rendered}
       </h3>
       <p class="mt-2 text-pretty text-neutral-50/[.8]">
-        {blogEntry.data.description}
+        <!-- {blogEntry.data.description} -->
+        <Fragment set:html={blogEntry.excerpt.rendered} />
       </p>
     </div>
   </div>

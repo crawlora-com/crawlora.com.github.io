@@ -25,6 +25,7 @@
     "@vercel/nft": "^0.27.4",
     "astro": "^4.15.8",
     "astro-compressor": "^0.4.1",
+    "axios": "^1.7.7",
     "clipboard": "^2.0.11",
     "globby": "^14.0.2",
     "gsap": "^3.12.5",
@@ -34,10 +35,12 @@
     "sharp": "^0.33.5",
     "sharp-ico": "^0.1.5",
     "tailwindcss": "^3.4.12",
-    "workbox-window": "^7.1.0"
+    "workbox-window": "^7.1.0",
+    "wpapi": "^1.2.2"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.9",
+    "@types/wpapi": "^1.1.4",
     "@vite-pwa/astro": "^0.4.3",
     "astro-vtbot": "^1.10.2",
     "prettier": "^3.3.3",
