@@ -14,7 +14,7 @@ import { SITE } from "@data/constants";
 
 // Fetching all the product related content and sorting it by main.id
 const product: CollectionEntry<"products">[] = (
-  await getCollection("products", ({ id }) => {
+  await getCollection("products", ({ id } : { id: string }) => {
     return id.startsWith("en/");
   })
 ).sort(

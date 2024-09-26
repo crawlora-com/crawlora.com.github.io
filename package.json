@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "prebuild": "rimraf .astro dist",
+    "prebuild": "rimraf .astro dist .trunk",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build && node process-html.mjs",

@@ -3,7 +3,7 @@
 import MainLayout from "@/layouts/MainLayout.astro";
 import ProductTabBtn from "@components/ui/buttons/ProductTabBtn.astro";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import { getCollection } from "astro:content";
 import { SITE } from "@data/constants";
 
@@ -17,10 +17,10 @@ declare global {
 // This gets the static paths for all the unique products
 
 export async function getStaticPaths() {
-  const productEntries = await getCollection("apps", ({ id }) =>
+  const productEntries = await getCollection("products", ({ id }: { id: string}) =>
     id.startsWith("en/")
   );
-  return productEntries.map((product) => {
+  return productEntries.map((product: { slug: string; }) => {
     const slugWithoutLang = product.slug.replace(/^en\//, ""); // Remove the "en/" prefix
     return {
       params: { slug: slugWithoutLang },
@@ -29,7 +29,9 @@ export async function getStaticPaths() {
   });
 }
 
-const { product } = Astro.props;
+const { product } = Astro.props as any;
+
+
 
 const pageTitle: string = `${product.data.title} | ${SITE.title}`;
 ---
@@ -82,7 +84,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
       role="tablist"
     >
       {
-        product.data.tabs.map((tab, index) => (
+        product.data.tabs.map((tab: { title: string; id: string; dataTab: string; }, index: number) => (
           <ProductTabBtn
             title={tab.title}
             id={tab.id}
@@ -118,7 +120,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
 
             <div class="space-y-6 lg:space-y-10">
               {
-                product.data.descriptionList.map((list) => (
+                product.data.descriptionList.map((list: { title: unknown; subTitle: unknown; }) => (
                   <div class="flex">
                     <div>
                       <h3 class="text-base font-bold text-neutral-800 dark:text-neutral-200 sm:text-lg">
@@ -141,7 +143,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
           <div class="grid w-full grid-cols-1 gap-x-16 md:grid-cols-2">
             <div class="max-w-md space-y-6">
               {
-                product.data.specificationsLeft.map((spec) => (
+                product.data.specificationsLeft.map((spec: { title: unknown; subTitle: unknown; }) => (
                   <div>
                     <h3 class="block font-bold text-neutral-800 dark:text-neutral-200">
                       {spec.title}
@@ -156,7 +158,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
             {
               product.data.specificationsRight ? (
                 <div class="mt-6 max-w-md space-y-6 md:ml-auto md:mt-0">
-                  {product.data.specificationsRight?.map((spec) => (
+                  {product.data.specificationsRight?.map((spec: { title: unknown; subTitle: unknown; }) => (
                     <div>
                       <h3 class="block font-bold text-neutral-800 dark:text-neutral-200">
                         {spec.title}
@@ -177,7 +179,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                             <thead>
                               <tr>
                                 {product.data.tableData?.[0].feature?.map(
-                                  (header) => (
+                                  (header: unknown) => (
                                     <th
                                       scope="col"
                                       class="px-6 py-3 text-start text-xs font-medium uppercase text-neutral-500 dark:text-neutral-500"
@@ -189,12 +191,12 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                               </tr>
                             </thead>
                             <tbody class="divide-y divide-neutral-300 dark:divide-neutral-700">
-                              {product.data.tableData?.map((row) =>
+                              {product.data.tableData?.map((row: { description: any[]; }) =>
                                 // Wrap each row's content in a separate <tr> element
-                                row.description.map((rowData) => (
+                                row.description.map((rowData: any[]) => (
                                   <tr>
                                     {/* Iterate through each cell value in the row's description array */}
-                                    {rowData.map((cellValue) => (
+                                    {rowData.map((cellValue: unknown) => (
                                       // Render each cell value in its own <td> element
                                       <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-neutral-600 dark:text-neutral-400">
                                         {cellValue}
