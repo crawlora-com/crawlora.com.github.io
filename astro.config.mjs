@@ -21,7 +21,7 @@ export default defineConfig({
     })
   ],
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
-  site: "https://temp.crawlora.com",
+  site: "https://crawlora.com",
   image: {
     domains: ["images.unsplash.com"],
   },
