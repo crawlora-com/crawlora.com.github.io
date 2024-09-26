@@ -1,11 +1,11 @@
-import ogImageSrc from "@images/social.png";
+import ogImageSrc from "@images/ogImage.png";
 
 export const SITE = {
-  title: "Crawlora",
-  tagline: "Find data from at scale",
+  title: "Crawlora: Find data at scale",
+  tagline: "Find data at scale",
   description: "Crawlora provides powerful web scraping solutions to quickly and efficiently gather data from websites. Streamline your data collection process with our easy-to-use tools.",
   description_short: "Efficient web scraping made simple with Crawlora’s robust data extraction tools.",
-  url: "https://Crawlora.com",
+  url: "https://crawlora.com",
   author: "Dharmendra Soni",
 };
 
@@ -33,7 +33,7 @@ export const OG = {
   locale: "en_US",
   type: "website",
   url: SITE.url,
-  title: `${SITE.title}: : Find data at scale`,
+  title: `${SITE.title}: Find data at scale`,
   description: SITE.description,
   image: ogImageSrc,
 };

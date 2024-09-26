@@ -3,9 +3,23 @@ import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 import starlight from "@astrojs/starlight";
+import AstroPWA from '@vite-pwa/astro';
+import { VitePWA } from 'vite-plugin-pwa';
+import partytown from '@astrojs/partytown';
 
 // https://astro.build/config
 export default defineConfig({
+  plugins: [
+    VitePWA({
+      /* other options */
+      /* enable sw on development */
+      devOptions: {
+        enabled: true,
+        navigateFallbackAllowlist: [/^index.html$/]
+        /* other options */
+      }
+    })
+  ],
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
   site: "https://temp.crawlora.com",
   image: {
@@ -107,6 +121,23 @@ export default defineConfig({
       gzip: true,
       brotli: true,
     }),
+    AstroPWA({
+      registerType: "autoUpdate",
+      minify: true,
+      workbox: {
+        maximumFileSizeToCacheInBytes: 9000000,
+        globDirectory: 'dist',
+        globPatterns: ['**/*.{js,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico}'],
+        // Don't fallback on document based (e.g. `/some-page`) requests
+        // This removes an errant console.log message from showing up.
+        navigateFallback: null
+    }
+    }),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"]
+      }
+    })
   ],
   output: "static",
   experimental: {

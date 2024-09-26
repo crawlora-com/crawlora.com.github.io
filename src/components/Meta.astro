@@ -3,6 +3,7 @@ import { getImage } from "astro:assets";
 import { OG, SEO, SITE } from "@data/constants";
 import faviconSvgSrc from "@images/icon.svg";
 import faviconSrc from "@images/icon.png";
+import AnalyticsScripts from "./AnalyticsScripts.astro";
 
 // Default properties for the Meta component. These values are used if props are not provided.
 // 'meta' sets a default description meta tag to describe the page content.
@@ -129,3 +130,5 @@ const appleTouchIcon = await getImage({
 <link href={appleTouchIcon.src} rel="shortcut icon" />
 <!-- Set theme color -->
 <meta name="theme-color" content="#facc15" />
+
+<AnalyticsScripts/>
