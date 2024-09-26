@@ -8,7 +8,6 @@ Welcome to the official repository of **Crawlora.com**! This landing page is bui
 - **Tailwind CSS**: For styling with utility-first CSS.
 - **TypeScript**: To add type safety and enhance development experience.
 - **Markdown**: For creating pages with dynamic content.
-- **[Add any other tech or tools used]**
 
 ## ✨ Features
 
@@ -40,6 +39,8 @@ cd crawlora-landing
 npm install
 # or
 yarn install
+# or 
+pnpm install
 ```
 
 ### Run the development server
@@ -48,6 +49,8 @@ yarn install
 npm run dev
 # or
 yarn dev
+# or
+pnpm run dev
 ```
 
 This will start the Astro development server. Visit [http://localhost:3000](http://localhost:3000) to view the project in your browser.
@@ -60,6 +63,8 @@ To build the project for production, run:
 npm run build
 # or
 yarn build
+# or
+pnpm run build
 ```
 
 The production-ready files will be output to the `dist/` directory.
