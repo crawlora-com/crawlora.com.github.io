@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 import SecondaryCTA from "@components/ui/buttons/SecondaryCTA.astro";
 import ReviewComponent from "@components/ui/blocks/ReviewComponent.astro";
-import HeroImage from "../../../images/banner-image.svg"
+import HeroImage from "@images/banner-image.png"
 
 // Define props from Astro
 const {
@@ -87,7 +87,7 @@ interface Props {
         class="h-full w-full scale-110 object-cover object-center"
         draggable={"false"}
         loading={"eager"}
-        format={"svg"}
+        format={"png"}
 	 />
 	}
     </div>
