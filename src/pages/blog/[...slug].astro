@@ -71,30 +71,7 @@ const pageTitle: string = `${post.title.rendered} | ${SITE.title}`;
         {post.title.rendered}
       </h2>
       <!--Blog post contents-->
-      <div class="mb-5 space-y-5 md:mb-8 md:space-y-8">
-        <!-- {
-          post.data.contents.map((content: string, index: any) =>
-            index === 1 ? (
-              <>
-                <p class="text-pretty text-lg text-neutral-700 dark:text-neutral-300">
-                  {content}
-                </p>
-                <Image
-                  class="w-full rounded-xl object-cover"
-                  src={post.data.cardImage}
-                  alt={post.data.cardImageAlt}
-                  draggable={"false"}
-                  format={"avif"}
-                />
-              </>
-            ) : (
-              <p class="text-pretty text-lg text-neutral-700 dark:text-neutral-300">
-                {content}
-              </p>
-            )
-          )
-        } -->
-
+      <div class="mb-5 space-y-5 md:mb-8 md:space-y-8 dark:text-neutral-200 md:text-3xl">
         <Fragment set:html={post.content.rendered} />
 
       </div>
