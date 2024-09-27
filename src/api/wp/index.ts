@@ -1,2 +1,6 @@
 export * from './ins'
 export * from './sdk'
+export * from './post'
+export * from './user'
+export * from './media'
+export * from './tags'

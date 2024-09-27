@@ -1,20 +1,21 @@
 ---
 // Import all required components and utilities
 import { Image } from "astro:assets";
-import type { CollectionEntry } from "astro:content";
 import AvatarBlogLarge from "@components/ui/avatars/AvatarBlogLarge.astro";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
-import { wpSDK } from "@/api/wp/sdk";
+import type { z } from "astro/zod";
+import { Media, User } from "@/api";
+import type { postSchema } from "@/api/wp/post/dto";
 
 const { blogEntry, recentBlogLocale = "" } = Astro.props;
 
 interface Props {
-  blogEntry: any;
+  blogEntry: z.infer<typeof postSchema>;
   recentBlogLocale?: string;
 }
 
-const getfeaturedImage = await wpSDK.media().id(blogEntry.featured_media).get()
-const getAuthor = await wpSDK.users().id(blogEntry.author).get()
+const getfeaturedImage = await Media.get(blogEntry.featured_media)
+const getAuthor = await User.get(blogEntry.author)
 
 ---
 

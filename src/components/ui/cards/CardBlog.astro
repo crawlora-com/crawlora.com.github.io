@@ -3,16 +3,17 @@
 import AvatarBlog from "@components/ui/avatars/AvatarBlog.astro";
 import { Image } from "astro:assets";
 import { formatDate } from "@utils/utils";
-// import type { CollectionEntry } from "astro:content";
-import { wpSDK } from "@api/wp/sdk"
+import type { z } from "astro/zod";
+import type { postSchema } from "@/api/wp/post/dto";
+import { Media, User } from "@/api";
 
 const { blogEntry, blogLocale = "" } = Astro.props;
 
-const getfeaturedImage = await wpSDK.media().id(blogEntry.featured_media).get()
-const getAuthor = await wpSDK.users().id(blogEntry.author).get()
+const getfeaturedImage = await Media.get(blogEntry.featured_media)
+const getAuthor = await User.get(blogEntry.author)
 
 interface Props {
-  blogEntry: any;
+  blogEntry: z.infer<typeof postSchema>;
   blogLocale?: string;
 }
 ---
@@ -54,7 +55,7 @@ interface Props {
             {getAuthor.name}
           </h4>
           <p class="text-xs text-neutral-50/[.8]">
-            {formatDate(blogEntry.date)}
+            {formatDate(new Date(blogEntry.date))}
           </p>
         </div>
       </div>
@@ -62,16 +63,23 @@ interface Props {
   </div>
   <!-- The container for the blog post's title and description -->
   <div class="absolute inset-x-0 bottom-0 z-10">
-    <div class="flex h-full flex-col p-4 sm:p-6">
+    <div class="flex h-full flex-col p-4 sm:p-6 text-white-small-desc">
       <h3
         class="text-balance text-lg font-bold text-neutral-50 group-hover:text-neutral-50/[.8] sm:text-3xl"
       >
         {blogEntry.title.rendered}
       </h3>
-      <p class="mt-2 text-pretty text-neutral-50/[.8]">
-        <!-- {blogEntry.data.description} -->
+      <p class="mt-2 text-pretty text-neutral-50/[.8]" style="">
+        
         <Fragment set:html={blogEntry.excerpt.rendered} />
       </p>
     </div>
   </div>
 </a>
+
+<style>
+.text-white-small-desc{
+  color: white;
+}
+
+</style>

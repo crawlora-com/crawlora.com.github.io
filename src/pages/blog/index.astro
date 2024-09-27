@@ -4,24 +4,16 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import CardBlog from "@components/ui/cards/CardBlog.astro";
 
 import { SITE } from "@data/constants";
-import { wpSDK } from "@api/wp/sdk"
 import CardBlogRecent from "@/components/ui/cards/CardBlogRecent.astro";
+import { POST_TYPES, Posts } from "@/api/wp/post";
 
 // Get all blogs post in English and sort them based on publish date
 
-const englishBlogEntries = await wpSDK.posts().get()
-
-// const englishInsightsEntries = await getCollection("insights", ({ id }) => {
-//   return id.startsWith("en/");
-// });
-
+const englishBlogEntries = await Posts.get(POST_TYPES.BLOGS)
 const blogPosts = englishBlogEntries.sort(
   (a: any, b: any) =>
     b.date_gmt.valueOf() - a.date_gmt.valueOf()
 );
-// Get all insights posts
-// const insightPosts: CollectionEntry<"insights">[] = englishInsightsEntries;
-
 // Separate the most recent post from others
 const mostRecentPost = blogPosts[0];
 const otherPosts = blogPosts.slice(1);
@@ -81,7 +73,7 @@ const pageTitle: string = `Blog | ${SITE.title}`;
   >
     <!--Blog posts grid-->
     <div class="grid gap-6 lg:grid-cols-2">
-      {otherPosts.map((blogEntry: any) => <CardBlog blogEntry={blogEntry} />)}
+      {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} />)}
     </div>
   </section>
   <!--Most recent blog post-->
@@ -91,27 +83,4 @@ const pageTitle: string = `Blog | ${SITE.title}`;
     <CardBlogRecent blogEntry={mostRecentPost} />
   </section>
 
-
-  <!--Insights section-->
-  <!-- <section
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
-    <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
-      <h2
-        class="text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
-      >
-        {secondTitle}
-      </h2>
-      <p class="mt-1 text-pretty text-neutral-600 dark:text-neutral-400">
-        {secondSubTitle}
-      </p>
-    </div>
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        insightPosts.map((insightEntry) => (
-          <CardInsight insightEntry={insightEntry} />
-        ))
-      }
-    </div>
-  </section> -->
 </MainLayout>
