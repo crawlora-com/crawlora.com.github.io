@@ -1,16 +1,22 @@
 ---
 // Import all required components and utilities
 import { Image } from "astro:assets";
-import type { CollectionEntry } from "astro:content";
 import AvatarBlogLarge from "@components/ui/avatars/AvatarBlogLarge.astro";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
+import type { z } from "astro/zod";
+import { Media, User } from "@/api";
+import type { postSchema } from "@/api/wp/post/dto";
 
 const { blogEntry, recentBlogLocale = "" } = Astro.props;
 
 interface Props {
-  blogEntry: CollectionEntry<"blog">;
+  blogEntry: z.infer<typeof postSchema>;
   recentBlogLocale?: string;
 }
+
+const getfeaturedImage = await Media.get(blogEntry.featured_media)
+const getAuthor = await User.get(blogEntry.author)
+
 ---
 
 <!-- Root container, which is divided into 2 grid column layout for larger screens -->
@@ -20,8 +26,10 @@ interface Props {
     <div class="relative rounded-lg pt-[50%] sm:pt-[100%]">
       <Image
         class="absolute start-0 top-0 size-full rounded-xl object-cover"
-        src={blogEntry.data.cardImage}
-        alt={blogEntry.data.cardImageAlt}
+        src={getfeaturedImage.guid.rendered}
+      height={getfeaturedImage.media_details.height}
+      width={getfeaturedImage.media_details.width}
+      alt={getfeaturedImage.alt_text}
         draggable={"false"}
         loading={"eager"}
         format={"avif"}
@@ -38,19 +46,20 @@ interface Props {
         class="outline-none ring-zinc-500 transition duration-300 hover:text-orange-400 focus-visible:ring dark:text-neutral-300 dark:ring-zinc-200 dark:hover:text-neutral-50 dark:focus:outline-none"
         href={recentBlogLocale && recentBlogLocale !== "en" ? `/${recentBlogLocale}/blog/${blogEntry.slug.replace(/^fr\//, '')}/` : `/blog/${blogEntry.slug.replace(/^en\//, '')}/`}
       >
-        {blogEntry.data.description}
+        <!-- {blogEntry.data.description} -->
+        <Fragment set:html={blogEntry.excerpt.rendered} />
       </a>
     </h2>
     <!-- Container for the author's avatar and metadata -->
     <div class="mt-6 flex items-center sm:mt-10">
-      <AvatarBlogLarge blogEntry={blogEntry} />
+      <AvatarBlogLarge author={getAuthor} />
 
       <div class="ms-3 sm:ms-4">
         <p class="font-bold text-neutral-800 dark:text-neutral-200 sm:mb-1">
-          {blogEntry.data.author}
+          {getAuthor.name}
         </p>
         <p class="text-xs text-neutral-500">
-          {blogEntry.data.role}
+          Writer
         </p>
       </div>
     </div>

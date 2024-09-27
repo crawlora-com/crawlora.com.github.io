@@ -2,12 +2,18 @@
 // Import necessary modules and utilities
 import { Image } from "astro:assets";
 import { formatDate } from "@utils/utils";
-import type { CollectionEntry } from "astro:content";
+import { Media } from "@/api";
+import type { z } from "astro:content";
+import type { mediaSchema } from "@/api/wp/media/dto";
 
 const { blogEntry, recentBlogLocale = "" } = Astro.props;
 
+// get featured media
+const getfeaturedImage = await Media.get(blogEntry.featured_media)
+
+
 interface Props {
-  blogEntry: CollectionEntry<"blog">;
+  blogEntry: z.infer<typeof mediaSchema>;
   recentBlogLocale?: string;
 }
 ---
@@ -22,8 +28,10 @@ interface Props {
   <div>
     <Image
       class="aspect-video rounded-xl"
-      src={blogEntry.data.cardImage}
-      alt={blogEntry.data.cardImageAlt}
+      src={getfeaturedImage.guid.rendered}
+      height={getfeaturedImage.media_details.height}
+      width={getfeaturedImage.media_details.width}
+      alt={getfeaturedImage.alt_text}
       draggable={"false"}
       format={"avif"}
     />
@@ -31,11 +39,11 @@ interface Props {
     <h3
       class="mt-2 text-balance text-lg font-medium text-neutral-800 group-hover:text-orange-400 dark:text-neutral-300 dark:group-hover:text-neutral-50"
     >
-      {blogEntry.data.title}
+      {blogEntry.title.rendered}
     </h3>
     <!-- The formatted publication date of the blog post -->
     <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-      {formatDate(blogEntry.data.pubDate)}
+      {formatDate(blogEntry.date)}
     </p>
   </div></a
 >
