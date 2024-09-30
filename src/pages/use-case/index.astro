@@ -1,0 +1,57 @@
+---
+const use_cases = [
+  {
+    title: "Ecommerce",
+    description: "Extract public data from any marketplace.",
+    api: "Scraper API",
+    learnMoreLink: "#",
+  },
+  {
+    title: "Market Research",
+    description: "Collect consumer and competitor data in autopilot.",
+    api: "Scraper API",
+    learnMoreLink: "#",
+  },
+  {
+    title: "SERP",
+    description: "Get structured and parsed search data.",
+    api: "Scraper API",
+    learnMoreLink: "#",
+  },
+  {
+    title: "Real Estate",
+    description: "Automate property listing data collection.",
+    api: "Scraper API",
+    learnMoreLink: "#",
+  },
+];
+---
+
+<section class='mb-20 bg-gray-100'>
+  <div class='container mx-auto px-4'>
+    <h2 class='mb-8 text-center text-3xl font-bold'>
+      Data Collection Use Cases
+    </h2>
+    <p class='mb-6 text-center'>
+      Data is just the first step – Here are a few ideas you can explore in your
+      business
+    </p>
+    <div class='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4'>
+      {
+        use_cases.map((useCase, index) => (
+          <div class='rounded-lg bg-white p-6 shadow-lg'>
+            <h3 class='mb-4 text-xl font-semibold'>{useCase.title}</h3>
+            <p class='mb-2'>{useCase.api}</p>
+            <p class='mb-4 text-gray-700'>{useCase.description}</p>
+            <a
+              href={useCase.learnMoreLink}
+              class='text-blue-500 hover:underline'
+            >
+              Learn more
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
