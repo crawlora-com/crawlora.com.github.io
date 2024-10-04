@@ -27,9 +27,9 @@ const getAuthor = await User.get(blogEntry.author)
       <Image
         class="absolute start-0 top-0 size-full rounded-xl object-cover"
         src={getfeaturedImage.guid.rendered}
-      height={getfeaturedImage.media_details.height}
-      width={getfeaturedImage.media_details.width}
-      alt={getfeaturedImage.alt_text}
+        height={getfeaturedImage.media_details.height / 3}
+        width={getfeaturedImage.media_details.width}
+        alt={getfeaturedImage.alt_text}
         draggable={"false"}
         loading={"eager"}
         format={"avif"}
@@ -46,8 +46,8 @@ const getAuthor = await User.get(blogEntry.author)
         class="outline-none ring-zinc-500 transition duration-300 hover:text-orange-400 focus-visible:ring dark:text-neutral-300 dark:ring-zinc-200 dark:hover:text-neutral-50 dark:focus:outline-none"
         href={recentBlogLocale && recentBlogLocale !== "en" ? `/${recentBlogLocale}/blog/${blogEntry.slug.replace(/^fr\//, '')}/` : `/blog/${blogEntry.slug.replace(/^en\//, '')}/`}
       >
-        <!-- {blogEntry.data.description} -->
-        <Fragment set:html={blogEntry.excerpt.rendered} />
+        {blogEntry.title.rendered}
+        <!-- <Fragment set:html={blogEntry.excerpt.rendered} /> -->
       </a>
     </h2>
     <!-- Container for the author's avatar and metadata -->

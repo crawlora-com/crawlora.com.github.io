@@ -99,7 +99,7 @@ export const mediaSchema = z.object({
   comment_status: z.string(),
   ping_status: z.string(),
   template: z.string(),
-  meta: z.array(z.any()), // Meta is an array, type can vary
+  meta: z.unknown(z.any()), // Meta is an array, type can vary
   class_list: z.array(z.string()), // Array of strings
   description: descriptionSchema, // Schema for "description"
   caption: descriptionSchema, // Schema for "caption"

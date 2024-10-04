@@ -28,6 +28,6 @@ export const tagSchema = z.object({
   name: z.string(),
   slug: z.string(),
   taxonomy: z.string(),
-  meta: z.array(z.any()), // Meta is an array, type can vary
+  meta: z.unknown(z.any()), // Meta is an array, type can vary
   _links: linksSchema, // Schema for "_links"
 });
