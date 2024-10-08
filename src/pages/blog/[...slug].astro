@@ -21,9 +21,9 @@ export async function getStaticPaths() {
       const getTags = post.tags ? await Tags.from(post.tags) : [];
       // get related posts
       const related = await Posts.getRelatedPosts(post.id);
-      const slugWithoutLang = post.slug.replace(/^en\//, ''); // Remove the "en/" prefix
+      // const slugWithoutLang = post.slug.replace(/^en\//, ''); // Remove the "en/" prefix
       return {
-        params: { slug: slugWithoutLang },
+        params: { slug: post.slug },
         props: {
           post: {
             ...post,
