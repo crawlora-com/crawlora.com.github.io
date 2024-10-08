@@ -1,0 +1,55 @@
+.blog-wrapper {
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .blog-wrapper p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .blog-wrapper h1,h2,h3,h4,h5,h6,strong {
+    font-family: 'Cardo', serif;
+    font-weight: 400;
+  }
+  
+  .blog-wrapper h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    
+  }
+
+  .blog-wrapper h2 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .blog-wrapper a {
+    color: #1972F5; 
+    position: relative;
+    margin-left: 30px;
+  }
+
+  .blog-wrapper a::before {
+    content: " →";
+    font-weight: bold;
+    margin-left: -10px;
+    position: absolute;
+    top: -9px;
+    left: -22px;
+    font-size: 30px;
+    cursor:text;
+  }
+
+  /* Additional styles for other elements */
+  .blog-wrapper ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .blog-wrapper li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
