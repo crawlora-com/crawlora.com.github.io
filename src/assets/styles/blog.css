@@ -1,6 +1,6 @@
 p {
-  margin: 0px !important;
-padding: 0 !important;
+  margin: 10px 0 !important;
+  padding: 0 !important;
 }
 
 ul,
@@ -10,6 +10,10 @@ ol li  {
   margin: 0 !important;
 }
 
+.blog-wrapper ol,ol li > span {
+  font-weight: 400 !important;
+}
+
 .blog-wrapper {
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
@@ -17,11 +21,16 @@ ol li  {
 
   .blog-wrapper p {
     font-family: 'Inter', sans-serif;
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-    margin-top: 10px !important;
-    margin-bottom: 10px !important;
+    font-size: 1rem;
   }
+
+
+  .blog-wrapper p > b {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.26rem;
+    
+  }
+
   
   .blog-wrapper h1,h2,h3,h4,h5,h6 {
     font-family: 'Cardo', serif;
@@ -44,22 +53,22 @@ ol li  {
   {
       font-weight: 400;
   }
-  .blog-wrapper h1
+  /* .blog-wrapper h1
   .blog-wrapper h2,
   .blog-wrapper h3,  .blog-wrapper h4,  .blog-wrapper h5,  .blog-wrapper h6  {
     font-size: 2rem;
-  }
+  } */
   
-  .blog-wrapper h1 {
+  /* .blog-wrapper h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     
-  }
+  } */
 
-  .blog-wrapper h2 {
+  /* .blog-wrapper h2 {
     font-size: 2rem;
     margin-bottom: 0.75rem;
-  }
+  } */
 
   .blog-wrapper a {
     color: #1972F5; 
@@ -72,7 +81,7 @@ ol li  {
     font-weight: bold;
     margin-left: -10px;
     position: absolute;
-    top: -9px;
+    top: -12px;
     left: -22px;
     font-size: 30px;
     cursor:text;
@@ -85,6 +94,12 @@ ol li  {
     margin-bottom: 0.5rem;
   }
 
+  .blog-wrapper ol {
+    list-style-type: decimal;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
   .blog-wrapper ul li {
     padding: 0.5rem 0;
   }
@@ -92,11 +107,144 @@ ol li  {
     margin-top: 20px !important; 
   }
 
-  .blog-wrapper li,
+  .blog-wrapper li > b {
+    font-size: 1.26rem;
+  }
   .blog-wrapper li > span,
   .blog-wrapper li > p
    {
-    font-weight: bold !important;
+    font-weight: normal !important;
     margin-bottom: 0.5rem;
     font-size: 1rem;
   }
+
+  .blog-wrapper ol > li,
+  .blog-wrapper ol > li > span,
+  .blog-wrapper ol > li > p
+   {
+    font-weight: normal !important;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+
+  /* code formatting*/
+
+  .blog-wrapper pre {
+        background-color: #282c34; 
+        border: 1px solid #ccc; 
+        border-radius: 5px; 
+        padding: 15px; 
+        overflow: auto; 
+        max-height: 400px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        color: #f8f8f2; 
+        font-family: 'Courier New', Courier, monospace; 
+        font-size: 14px; 
+        line-height: 1.5; 
+}
+
+.blog-wrapper code {
+  color: #66d9ef; 
+  padding: 2px 4px; 
+  border-radius: 3px; 
+}
+
+.blog-wrapper code > h1{
+  font-size: 1.125rem;
+  font-family: 'Courier New', Courier, monospace; /* Monospace font */
+  color: #66d9ef; /* Code text color */
+}
+
+/*Table formatting*/
+
+.blog-wrapper table {
+  width: 100%; 
+  border-collapse: collapse; 
+  margin-top: 15px; 
+  border: 1px solid grey;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.blog-wrapper th, td {
+  border: 1px solid #ddd; 
+  padding: 10px; 
+  text-align: left; 
+  font-size: 1.2rem;
+}
+
+.blog-wrapper tbody,tr,td{
+  font-size: 1rem;
+}
+
+.blog-wrapper th {
+  background-color: #f5f5f5; 
+}
+
+.blog-wrapper tr:nth-child(even) {
+  background-color: #f2f2f2; 
+}
+
+.blog-wrapper tr:hover {
+  background-color: #e9ecef; 
+}
+
+
+/* Button Formatting */
+
+
+.blog-wrapper button{
+  background-color: #fa5a15; /* Primary color */
+        color: white; /* Text color */
+        border: none; /* No border */
+        border-radius: 5px; /* Rounded corners */
+        padding: 10px 20px; /* Padding */
+        font-size: 16px; /* Font size */
+        cursor: pointer; /* Pointer cursor on hover */
+        transition: background-color 0.3s ease; /* Smooth background change */
+        box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2); /* Box shadow */
+}
+
+
+/* Form style */
+
+form {
+  max-width: 600px; 
+  margin: 20px auto; 
+  padding: 20px; 
+  background-color: #fefce899; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+
+form label {
+  display: block; 
+  margin-bottom: 5px; 
+  font-weight: bold; 
+}
+
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+  width: 100%; 
+  padding: 10px; 
+  margin-bottom: 15px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  font-size: 16px; 
+  transition: border-color 0.3s; 
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form textarea:focus {
+  border-color: #fa5a15; 
+  outline: none;
+  box-shadow: none;
+}
+
+form textarea {
+  resize: vertical; 
+  min-height: 100px; 
+}
