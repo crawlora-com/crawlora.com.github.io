@@ -86,12 +86,12 @@ const pageTitle: string = `Products | ${SITE.title}`;
     inLanguage: 'en-US',
   }}
 >
-  <div
+  <!-- <div
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
-    <CardCommingSoon />
+  > -->
+  <CardCommingSoon />
 
-    <!-- <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
+  <!-- <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
       <div class="flex items-center gap-12">
         <h1
           class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
@@ -108,9 +108,9 @@ const pageTitle: string = `Products | ${SITE.title}`;
       </div>
       <PrimaryCTA title="Customer Stories" url="#testimonials" noArrow={true} />
     </div> -->
-    <!--Displaying products in alternating styles. Alternative product gets different card styling.-->
-    <!--Maps through all product entries and displays them with either CardSmall or CardWide based on their position.-->
-    <!-- <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+  <!--Displaying products in alternating styles. Alternative product gets different card styling.-->
+  <!--Maps through all product entries and displays them with either CardSmall or CardWide based on their position.-->
+  <!-- <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
       {
         product.map((product, index) => {
           const position = index % 4;
@@ -122,9 +122,9 @@ const pageTitle: string = `Products | ${SITE.title}`;
         })
       }
     </section> -->
-  </div>
-  <!--Features statistics section-->
-  <!-- <FeaturesStatsAlt
+</MainLayout>
+<!--Features statistics section-->
+<!-- <FeaturesStatsAlt
     title="Why Choose Crawlora?"
     subTitle="Transform your ideas into tangible results with Crawlora tools. Whether you're starting with a sketch on a napkin or diving into a comprehensive construction project, our tools are engineered to help you build with confidence."
     benefits={[
@@ -133,9 +133,8 @@ const pageTitle: string = `Products | ${SITE.title}`;
       "Customer support dedicated to your project's success.",
     ]}
   /> -->
-  <!--Testimonials section-->
-  <!-- <TestimonialsSectionAlt
+<!--Testimonials section-->
+<!-- <TestimonialsSectionAlt
     title="What Our Customers Say"
     testimonials={testimonials}
   /> -->
-</MainLayout>
