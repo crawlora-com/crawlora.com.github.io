@@ -1,3 +1,6 @@
+*{
+  line-height: 1.88;
+}
 p {
   margin: 10px 0 !important;
   padding: 0 !important;
@@ -81,7 +84,7 @@ ol li  {
     font-weight: bold;
     margin-left: -10px;
     position: absolute;
-    top: -12px;
+    top: -22px;
     left: -22px;
     font-size: 30px;
     cursor:text;
@@ -100,12 +103,9 @@ ol li  {
     margin-bottom: 0.5rem;
   }
 
-  .blog-wrapper ul li {
+  /* .blog-wrapper ul li {
     padding: 0.5rem 0;
-  }
-  .blog-wrapper p > b {
-    margin-top: 20px !important; 
-  }
+  } */
 
   .blog-wrapper li > b {
     font-size: 1.26rem;
