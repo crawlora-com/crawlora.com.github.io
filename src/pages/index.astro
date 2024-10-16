@@ -1,31 +1,30 @@
 ---
 // Import the necessary components
-import MainLayout from "@/layouts/MainLayout.astro";
-import HeroSection from "@components/sections/landing/HeroSection.astro";
-import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
-import ClientsSection from "@components/sections/landing/ClientsSection.astro";
-import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
-import FeaturesNavs from "@components/sections/features/FeaturesNavs.astro";
-import TestimonialsSection from "@components/sections/testimonials/TestimonialsSection.astro";
-import PricingSection from "@components/sections/pricing/PricingSection.astro";
-import FAQ from "@components/sections/misc/FAQ.astro";
-import faqs from "@data/faqs.json";
-import features from "@data/features.json";
-import pricing from "@data/pricing.json";
-import featureImage from "../images/examples/white.png";
+import MainLayout from '@/layouts/MainLayout.astro';
+import HeroSection from '@components/sections/landing/HeroSection.astro';
+import HeroSectionAlt from '@components/sections/landing/HeroSectionAlt.astro';
+import ClientsSection from '@components/sections/landing/ClientsSection.astro';
+import FeaturesGeneral from '@components/sections/features/FeaturesGeneral.astro';
+import FeaturesNavs from '@components/sections/features/FeaturesNavs.astro';
+import TestimonialsSection from '@components/sections/testimonials/TestimonialsSection.astro';
+import PricingSection from '@components/sections/pricing/PricingSection.astro';
+import FAQ from '@components/sections/misc/FAQ.astro';
+import faqs from '@data/faqs.json';
+import features from '@data/features.json';
+import pricing from '@data/pricing.json';
+import featureImage from '../images/examples/white.png';
 
 //
-import Insights from "../images/features/insights.png";
-import Intigration from "../images/features/intigration.png";
-import Scalable from "../images/features/scalable.png";
-import Scrapping from "../images/features/scalable.png";
-
+import Insights from '../images/features/insights.png';
+import Intigration from '../images/features/intigration.png';
+import Scalable from '../images/features/scalable.png';
+import Scrapping from '../images/features/scalable.png';
 
 const avatarSrcs: Array<string> = [
-  "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
-  "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
-  "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
-  "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+  'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80',
+  'https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80',
+  'https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80',
+  'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80',
 ];
 ---
 
@@ -37,7 +36,7 @@ const avatarSrcs: Array<string> = [
   /> -->
 
   <HeroSection
-    title=`Find data at scale with <span class="text-yellow-500 dark:text-yellow-400">Crawlora</span>`
+    title=`Boost Your Competitive Edge with Effective Web Scraping with <span class="text-yellow-500 dark:text-yellow-400">Crawlora</span>`
     subTitle="Efficient web scraping made simple with Crawlora’s robust data extraction tools."
     primaryBtn="Try for free"
     primaryBtnURL="https://app.crawlora.com?cta=homepage-start-exploring"
@@ -68,78 +67,77 @@ const avatarSrcs: Array<string> = [
     title=`Customize <span class="text-yellow-500 dark:text-yellow-400">Crawlora</span>'s offerings to perfectly suit your data needs.`
     tabs={[
       {
-        heading: "Custom Data finding Solutions",
+        heading: 'Custom Data finding Solutions',
         content:
           "Tailor Crawlora’s powerful crawl engine to meet your specific data needs, whether you're targeting niche data sources or large-scale extraction.",
-        svg: "checkCircle",
+        svg: 'checkCircle',
         src: Scrapping,
-        alt: "A data extraction process in progress, with code and charts on a monitor",
+        alt: 'A data extraction process in progress, with code and charts on a monitor',
         first: true,
       },
       {
-        heading: "Real-Time Insights",
+        heading: 'Real-Time Insights',
         content:
           "Gain actionable insights with Crawlora's real-time data processing, allowing you to make faster, smarter business decisions.",
-        svg: "checkCircle",
+        svg: 'checkCircle',
         src: Insights,
-        alt: "A live data dashboard displaying real-time analytics and charts",
+        alt: 'A live data dashboard displaying real-time analytics and charts',
         second: true,
       },
       {
-        heading: "Seamless Integration",
+        heading: 'Seamless Integration',
         content:
-          "Integrate Crawlora effortlessly with your existing tools and platforms to automate workflows and enhance your data pipeline.",
-        svg: "checkCircle",
+          'Integrate Crawlora effortlessly with your existing tools and platforms to automate workflows and enhance your data pipeline.',
+        svg: 'checkCircle',
         src: Intigration,
-        alt: "A visual representation of connected systems and APIs working together",
+        alt: 'A visual representation of connected systems and APIs working together',
       },
       {
-        heading: "Scalable Infrastructure",
+        heading: 'Scalable Infrastructure',
         content:
           "Leverage Crawlora's cloud-based infrastructure to scale your data collection as your business grows, without compromising on performance.",
-        svg: "checkCircle",
+        svg: 'checkCircle',
         src: Scalable,
-        alt: "A large cloud computing network with expanding nodes representing scalability",
+        alt: 'A large cloud computing network with expanding nodes representing scalability',
       },
     ]}
   />
 
   <TestimonialsSection
-  title="Accelerate Your Web Crawling Power"
-  subTitle="At Crawlora, we streamline your data extraction process with quick setup and cutting-edge technology. Experience speed and efficiency redefined."
-  testimonials={[
-    {
-      content:
-        "Crawlora transformed how we handle web data. The setup was seamless, and their support is exceptional. We've seen an exponential boost in our web scraping performance!",
-      author: "Jordan Lee",
-      role: "Head of Data Operations | DataScape Ltd.",
-      avatarSrc:
-        "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-    },
-  ]}
-  statistics={[
-    {
-      count: "900k+",
-      description:
-        "websites crawled with enhanced data extraction speeds",
-    },
-    {
-      count: "50%",
-      description:
-        "increase in data processing efficiency with Crawlora's tools",
-    },
-    {
-      count: "20%",
-      description:
-        "reduction in operational costs for large-scale web crawling",
-    },
-    {
-      count: "3x",
-      description: "faster extraction of actionable insights using our crawlers",
-    },
-  ]}
-/>
-
+    title="Trusted by Fast-Growing Businesses Worldwide"
+    subTitle="At Crawlora, we streamline your data extraction process with quick setup and cutting-edge technology. Experience speed and efficiency redefined."
+    testimonials={[
+      {
+        content:
+          "Crawlora transformed how we handle web data. The setup was seamless, and their support is exceptional. We've seen an exponential boost in our web scraping performance!",
+        author: 'Jordan Lee',
+        role: 'Head of Data Operations | DataScape Ltd.',
+        avatarSrc:
+          'https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80',
+      },
+    ]}
+    statistics={[
+      {
+        count: '900k+',
+        description: 'websites crawled with enhanced data extraction speeds',
+      },
+      {
+        count: '50%',
+        description:
+          "increase in data processing efficiency with Crawlora's tools",
+      },
+      {
+        count: '20%',
+        description:
+          'reduction in operational costs for large-scale web crawling',
+      },
+      {
+        count: '3x',
+        description:
+          'faster extraction of actionable insights using our crawlers',
+      },
+    ]}
+  />
 
   <PricingSection pricing={pricing} />
 

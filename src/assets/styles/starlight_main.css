@@ -45,6 +45,14 @@
     background-blend-mode: overlay;
 }
 
+.card-grid{
+    display: flex;
+    justify-content: center;
+}
+.title {
+    justify-content: center !important;
+}
+
 header {
     border: none !important;
     padding: 0 !important;
