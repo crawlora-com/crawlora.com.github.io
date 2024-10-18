@@ -1,13 +1,13 @@
 ---
 // Importing necessary components
-import Meta from "@components/Meta.astro";
-import Navbar from "@components/sections/navbar&footer/Navbar.astro";
-import FooterSection from "@components/sections/navbar&footer/FooterSection.astro";
-import { SITE } from "@data/constants";
+import Meta from '@components/Meta.astro';
+import Navbar from '@components/sections/navbar&footer/Navbar.astro';
+import FooterSection from '@components/sections/navbar&footer/FooterSection.astro';
+import { SITE } from '@data/constants';
 import { pwaInfo } from 'virtual:pwa-info';
 
 // Setting expected props
-const { title = SITE.title, meta, structuredData, lang = "en" } = Astro.props;
+const { title = SITE.title, meta, structuredData, lang = 'en' } = Astro.props;
 
 // Interface to type-check the properties
 interface Props {
@@ -29,23 +29,28 @@ We set the language of the page to English and add classes for scrollbar and scr
     <Meta meta={meta} structuredData={structuredData} />
     <!-- Define the title of the page -->
     <title>{title}</title>
+    <!-- Add Google Fonts link here -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cardo&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <script is:inline>
       // Script to handle dark mode. It will check if the theme is stored in localStorage or if dark theme is preferred by system settings
       if (
-        localStorage.getItem("hs_theme") === "dark" ||
-        (!("hs_theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
+        localStorage.getItem('hs_theme') === 'dark' ||
+        (!('hs_theme' in localStorage) &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches)
       ) {
-        document.documentElement.classList.add("dark");
+        document.documentElement.classList.add('dark');
       } else {
-        document.documentElement.classList.remove("dark");
+        document.documentElement.classList.remove('dark');
       }
     </script>
     <script>
-      import "@scripts/lenisSmoothScroll.js";
+      import '@scripts/lenisSmoothScroll.js';
     </script>
     <script src="/src/pwa.ts"></script>
-    { pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
+    {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
   </head>
   <body
     class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"

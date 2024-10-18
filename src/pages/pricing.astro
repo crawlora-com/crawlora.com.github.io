@@ -1,0 +1,156 @@
+---
+import { SITE } from "@/data_files/constants";
+import MainLayout from "@/layouts/MainLayout.astro";
+import SecondaryCTA from "@components/ui/buttons/SecondaryCTA.astro";
+import Icon from "@components/ui/icons/Icon.astro";
+
+type Product = {
+  name: string;
+  description: string;
+  price: string;
+  cents: string;
+  billingFrequency: string;
+  features: Array<string>;
+  purchaseBtnTitle: string;
+  purchaseLink: string;
+};
+
+export interface PricingSectionProps {
+  title: string;
+  subTitle: string;
+  badge: string;
+  thirdOption: string;
+  btnText: string;
+  pricing: {
+    title: string;
+    subTitle: string;
+    starterKit: Product;
+  };
+}
+
+const pricing = {
+  title: "Simple, Transparent Pricing",
+  subTitle:
+    "Boost efficiency with Crawlora's clear, performance-driven solutions.",
+  badge: "Best value",
+  thirdOption: "Enterprise Solutions?",
+  btnText: "Get a Custom Quote",
+
+  starterKit: {
+    name: "Usage Based",
+    description: "Only pay for what you use, nothing more.",
+    price: "0",
+    cents: ".01",
+    billingFrequency: "USD / seconds",
+    features: [
+      "Superior Support",
+      "Free 3k seconds",
+      "Access to guides & tutorials",
+      "Access to all the Plugins, Apps",
+    ],
+    purchaseBtnTitle: "App Login",
+    purchaseLink: "https://app.crawlora.com?cta=pricing-btn-homepage",
+  },
+};
+const pageTitle: string = `Pricing | ${SITE.title}`;
+---
+
+<MainLayout
+  title={pageTitle}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://crawlora.com/services",
+    url: "https://crawlora.com/services",
+    name: "Expert Consultation Services | Crawlora",
+    description:
+      "Uniting expertise with your vision, Crawlora provides exceptional service and comprehensive solutions in the hardware and construction industry, from consultation to project completion.",
+    isPartOf: {
+      "@type": "WebSite",
+      url: "https://crawlora.com",
+      name: "Crawlora",
+      description:
+        "Crawlora offers top-tier hardware tools and expert construction services to meet all your project needs.",
+    },
+    inLanguage: "en-US",
+  }}
+>
+  <section
+    class='mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full'
+  >
+    <div class='mx-auto mb-10 max-w-2xl text-center lg:mb-14'>
+      <h2
+        class='text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight'
+      >
+        {pricing.title}
+      </h2>
+      <p class='mt-1 text-pretty text-neutral-600 dark:text-neutral-400'>
+        {pricing.subTitle}
+      </p>
+    </div>
+
+    <div class='flex flex-wrap items-center justify-center gap-4 sm:gap-0'>
+      <div
+        class='dark:from-orange-700 w-full rounded-xl bg-gradient-to-tr from-[#FF512F] to-[#F09819] p-6 shadow-xl dark:to-orange-600 sm:w-1/2 sm:p-8'
+      >
+        <div
+          class='mb-4 flex flex-col items-start justify-between gap-4 lg:flex-row'
+        >
+          <div>
+            <h3 class='text-2xl font-bold text-neutral-100 sm:text-3xl'>
+              {pricing.starterKit.name}
+            </h3>
+            <p class='text-orange-200 dark:text-orange-100'>
+              {pricing.starterKit.description}
+            </p>
+          </div>
+
+          <span
+            class='order-first inline-block rounded-full bg-orange-200 bg-opacity-50 px-3 py-1 text-center text-xs font-bold uppercase tracking-wider text-orange-600 dark:bg-orange-500 dark:text-neutral-100 lg:order-none'
+            >{pricing.badge}</span
+          >
+        </div>
+
+        <div class='mb-4'>
+          <span class='text-6xl font-bold text-neutral-100'
+            >{pricing.starterKit.price}</span
+          >
+          <span class='text-lg font-bold text-orange-100 dark:text-orange-200'
+            >{pricing.starterKit.cents}</span
+          >
+          <span class='ms-3 text-orange-200 dark:text-orange-300'
+            >{pricing.starterKit.billingFrequency}</span
+          >
+        </div>
+
+        <ul class='mb-6 space-y-2 text-orange-100 dark:text-orange-200'>
+          {
+            pricing.starterKit.features.map((feature) => (
+              <li class='flex items-center gap-1.5'>
+                <Icon name='checkCircle' />
+                <span>{feature}</span>
+              </li>
+            ))
+          }
+        </ul>
+
+        <a
+          href={pricing.starterKit.purchaseLink}
+          class='dark:text-orange-50 block rounded-lg bg-orange-200 bg-opacity-50 px-8 py-3 text-center text-sm font-bold text-neutral-100 outline-none ring-orange-300 transition duration-100 hover:bg-orange-300 hover:bg-opacity-50 focus-visible:ring active:bg-orange-400 dark:bg-orange-600 md:text-base'
+        >
+          {pricing.starterKit.purchaseBtnTitle}
+        </a>
+      </div>
+    </div>
+
+    <div class='mt-8 flex items-center justify-center gap-x-3 md:mt-12'>
+      <p class='text-sm text-neutral-600 dark:text-neutral-400'>
+        {pricing.thirdOption}
+      </p>
+      <SecondaryCTA
+        title={pricing.btnText}
+        url='https://form.jotform.com/241921441318047?cta=main_starter'
+      />
+    </div>
+  </section>
+</MainLayout>
