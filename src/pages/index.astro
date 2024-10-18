@@ -8,6 +8,7 @@ import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro
 import FeaturesNavs from "@components/sections/features/FeaturesNavs.astro";
 import TestimonialsSection from "@components/sections/testimonials/TestimonialsSection.astro";
 import PricingSection from "@components/sections/pricing/PricingSection.astro";
+
 import FAQ from "@components/sections/misc/FAQ.astro";
 import faqs from "@data/faqs.json";
 import features from "@data/features.json";
@@ -19,13 +20,44 @@ import Insights from "../images/features/insights.png";
 import Intigration from "../images/features/intigration.png";
 import Scalable from "../images/features/scalable.png";
 import Scrapping from "../images/features/scalable.png";
-
+import UseCaseSection from "@/components/sections/use-case/useCaseSection.astro";
 
 const avatarSrcs: Array<string> = [
   "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+];
+
+const useCases = [
+  {
+    title: "Ecommerce",
+    description: "Extract public data from any marketplace.",
+    api: "Scraper API",
+    learnMoreLink: "#",
+    icon: "🛒",
+  },
+  {
+    title: "Market Research",
+    description: "Collect consumer and competitor data on autopilot.",
+    api: "Scraper API",
+    learnMoreLink: "#",
+    icon: "📊",
+  },
+  {
+    title: "SERP",
+    description: "Get structured and parsed search data.",
+    api: "Scraper API",
+    learnMoreLink: "#",
+    icon: "🔍",
+  },
+  {
+    title: "Real Estate",
+    description: "Automate property listing data collection.",
+    api: "Scraper API",
+    learnMoreLink: "#",
+    icon: "🏡",
+  },
 ];
 ---
 
@@ -38,29 +70,29 @@ const avatarSrcs: Array<string> = [
 
   <HeroSection
     title=`Find data at scale with <span class="text-yellow-500 dark:text-yellow-400">Crawlora</span>`
-    subTitle="Efficient web scraping made simple with Crawlora’s robust data extraction tools."
-    primaryBtn="Try for free"
-    primaryBtnURL="https://app.crawlora.com?cta=homepage-start-exploring"
-    secondaryBtn="Contact Sales Team"
-    secondaryBtnURL="https://form.jotform.com/241921441318047?cta=main_starter"
+    subTitle='Efficient web scraping made simple with Crawlora’s robust data extraction tools.'
+    primaryBtn='Try for free'
+    primaryBtnURL='https://app.crawlora.com?cta=homepage-start-exploring'
+    secondaryBtn='Contact Sales Team'
+    secondaryBtnURL='https://form.jotform.com/241921441318047?cta=main_starter'
     withReview={true}
     avatars={avatarSrcs}
     rating=`<span class="font-bold">4.8</span> / 5`
     starCount={4}
     reviews=`From Over <span class="font-bold">12.8k</span> Reviews`
-    alt="Crawlora: Advanced web crawling technology showcasing data extraction."
+    alt='Crawlora: Advanced web crawling technology showcasing data extraction.'
   />
 
   <ClientsSection
     title="Powering the world's top data-driven teams"
-    subTitle="Experience the reliability chosen by industry giants."
+    subTitle='Experience the reliability chosen by industry giants.'
   />
 
   <FeaturesGeneral
-    title="Meeting Industry Demands"
-    subTitle="Crawlora is designed to address the growing demand for scalable and efficient data scraping solutions. In an era where data drives decision-making, our platform provides businesses with the tools to extract large-scale information quickly and accurately. By integrating powerful automation and cloud capabilities, Crawlora ensures you stay ahead of industry trends, meeting the needs of businesses that rely on real-time data for competitive advantage."
+    title='Meeting Industry Demands'
+    subTitle='Crawlora is designed to address the growing demand for scalable and efficient data scraping solutions. In an era where data drives decision-making, our platform provides businesses with the tools to extract large-scale information quickly and accurately. By integrating powerful automation and cloud capabilities, Crawlora ensures you stay ahead of industry trends, meeting the needs of businesses that rely on real-time data for competitive advantage.'
     src={featureImage}
-    alt="crawlora in floating boxes"
+    alt='crawlora in floating boxes'
     features={features}
   />
 
@@ -105,49 +137,44 @@ const avatarSrcs: Array<string> = [
   />
 
   <TestimonialsSection
-  title="Accelerate Your Web Crawling Power"
-  subTitle="At Crawlora, we streamline your data extraction process with quick setup and cutting-edge technology. Experience speed and efficiency redefined."
-  testimonials={[
-    {
-      content:
-        "Crawlora transformed how we handle web data. The setup was seamless, and their support is exceptional. We've seen an exponential boost in our web scraping performance!",
-      author: "Jordan Lee",
-      role: "Head of Data Operations | DataScape Ltd.",
-      avatarSrc:
-        "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-    },
-  ]}
-  statistics={[
-    {
-      count: "900k+",
-      description:
-        "websites crawled with enhanced data extraction speeds",
-    },
-    {
-      count: "50%",
-      description:
-        "increase in data processing efficiency with Crawlora's tools",
-    },
-    {
-      count: "20%",
-      description:
-        "reduction in operational costs for large-scale web crawling",
-    },
-    {
-      count: "3x",
-      description: "faster extraction of actionable insights using our crawlers",
-    },
-  ]}
-/>
-
+    title='Accelerate Your Web Crawling Power'
+    subTitle='At Crawlora, we streamline your data extraction process with quick setup and cutting-edge technology. Experience speed and efficiency redefined.'
+    testimonials={[
+      {
+        content:
+          "Crawlora transformed how we handle web data. The setup was seamless, and their support is exceptional. We've seen an exponential boost in our web scraping performance!",
+        author: "Jordan Lee",
+        role: "Head of Data Operations | DataScape Ltd.",
+        avatarSrc:
+          "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+      },
+    ]}
+    statistics={[
+      {
+        count: "900k+",
+        description: "websites crawled with enhanced data extraction speeds",
+      },
+      {
+        count: "50%",
+        description:
+          "increase in data processing efficiency with Crawlora's tools",
+      },
+      {
+        count: "20%",
+        description:
+          "reduction in operational costs for large-scale web crawling",
+      },
+      {
+        count: "3x",
+        description:
+          "faster extraction of actionable insights using our crawlers",
+      },
+    ]}
+  />
 
   <PricingSection pricing={pricing} />
 
-  <FAQ title="Frequently<br />asked questions" faqs={faqs} />
+  <FAQ title='Frequently<br />asked questions' faqs={faqs} />
 
-  <HeroSectionAlt
-    title="Extract Data, Unlock Insights Together"
-    subTitle="Collaborate to discover new opportunities through data, turning information into innovative solutions for your business."
-    url="https://app.crawlora.com?cta=homepage-continue-page"
-  />
+  <UseCaseSection useCases={useCases} client:visible />
 </MainLayout>

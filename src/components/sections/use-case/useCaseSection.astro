@@ -1,0 +1,77 @@
+---
+const useCases = [
+  {
+    title: "Ecommerce",
+    description: "Extract public data from any marketplace.",
+    api: "Scraper API",
+    learnMoreLink: "#",
+    icon: "🛒", // Use actual SVG icons if preferred
+  },
+  {
+    title: "Market Research",
+    description: "Collect consumer and competitor data on autopilot.",
+    api: "Scraper API",
+    learnMoreLink: "#",
+    icon: "📊",
+  },
+  {
+    title: "SERP",
+    description: "Get structured and parsed search data.",
+    api: "Scraper API",
+    learnMoreLink: "#",
+    icon: "🔍",
+  },
+  {
+    title: "Real Estate",
+    description: "Automate property listing data collection.",
+    api: "Scraper API",
+    learnMoreLink: "#",
+    icon: "🏡",
+  },
+];
+---
+
+<section class='py-20 transition-colors duration-500'>
+  <div class='container mx-auto px-4'>
+    <h2
+      class='mb-4 text-center text-4xl font-bold text-gray-800 transition-colors duration-500 dark:text-gray-100'
+    >
+      Data Collection Use Cases
+    </h2>
+    <p
+      class='mb-10 text-center text-lg text-gray-600 transition-colors duration-500 dark:text-gray-300'
+    >
+      Data is just the first step – here are a few ideas you can explore in your
+      business.
+    </p>
+
+    <div class='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4'>
+      {
+        useCases.map((useCase) => (
+          <div class='transform rounded-lg bg-white p-6 shadow-lg transition-shadow duration-300 ease-in-out hover:-translate-y-1 hover:shadow-2xl dark:bg-white/[.075]'>
+            <div class='mb-4 flex items-center'>
+              <span class='text-4xl text-gray-700 transition-colors duration-500 dark:text-gray-200'>
+                {useCase.icon}
+              </span>
+              <h3 class='ml-2 text-xl font-semibold text-gray-800 transition-colors duration-500 dark:text-gray-100'>
+                {useCase.title}
+              </h3>
+            </div>
+            <p class='mb-2 text-sm text-gray-600 transition-colors duration-500 dark:text-gray-300'>
+              {useCase.api}
+            </p>
+            <p class='mb-4 text-gray-700 transition-colors duration-500 dark:text-gray-300'>
+              {useCase.description}
+            </p>
+            <a
+              href={useCase.learnMoreLink}
+              class='text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-500 font-semibold underline transition-colors duration-500 dark:text-gray-300'
+            >
+              Learn more
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
