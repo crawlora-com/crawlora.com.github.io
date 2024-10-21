@@ -66,8 +66,8 @@ importers:
         specifier: ^7.2.0
         version: 7.2.0
       lenis:
-        specifier: ^1.1.13
-        version: 1.1.13
+        specifier: ^1.1.14
+        version: 1.1.14
       preline:
         specifier: ^2.4.1
         version: 2.5.0
@@ -2623,15 +2623,15 @@ packages:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
     engines: {node: '>=6'}
 
-  lenis@1.1.13:
-    resolution: {integrity: sha512-iny+vWwUHcZGbJz+p2I75H1muLBRZqSG7t04jnhA+CWOQDFL1vt9bsZDwPPtYEmYVVvqAdo5MbXVFzNOlbgUkQ==}
+  lenis@1.1.14:
+    resolution: {integrity: sha512-dzIeiOCdBL/7Tjh6jU8iN5j1uu5R3PIQwRYipS4C8POPyTH1pHyux3HDyvcGuLqNNsEztZjkmwfPii2cPLXBbg==}
     peerDependencies:
       react: '>=17.0.0'
-      react-dom: '>=17.0.0'
+      vue: '>=3.0.0'
     peerDependenciesMeta:
       react:
         optional: true
-      react-dom:
+      vue:
         optional: true
 
   leven@3.1.0:
@@ -7189,7 +7189,7 @@ snapshots:
 
   kleur@4.1.5: {}
 
-  lenis@1.1.13:
+  lenis@1.1.14:
     dependencies:
       '@darkroom.engineering/tempus': 0.0.46
 
