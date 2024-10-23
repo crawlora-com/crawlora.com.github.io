@@ -2,36 +2,32 @@
   "subTitle": "Inquire about our services and solutions, and receive accurate, data-driven answers.",
   "faqs": [
     {
-      "question": "What is Crawlora, and how does it work?",
-      "answer": "Crawlora is a web crawling platform designed to efficiently extract data from websites. It works by sending bots to visit web pages, gather information, and organize it for easy analysis, helping businesses automate their data collection process."
+      "question": "What is Crawlora?",
+      "answer": "A platform called Crawlora facilitates the extraction, processing, as well as integration of data from multiple online sources for enterprises or businesses."
     },
     {
-      "question": "What industries benefit from using Crawlora?",
-      "answer": "Crawlora is ideal for industries like e-commerce, marketing, data analytics, research, and finance, where large-scale web data extraction is essential for competitive analysis, price tracking, market research, and lead generation."
+      "question": "What types of data can Crawlora extract?",
+      "answer": "Various data categories, such as text, photos, pricing, product details, social media data, and more, can be extracted by Crawlora."
     },
     {
-      "question": "How does Crawlora handle website restrictions like CAPTCHA?",
-      "answer": "Crawlora employs advanced techniques such as proxy rotation, CAPTCHA bypass tools, and anti-bot avoidance strategies to ensure seamless crawling across websites, even those with strict restrictions in place."
+      "question": "Is Crawlora easy to use?",
+      "answer": "Yes, Crawlora is simple to use. This is because of its user-friendly design as well as adaptable solutions. Further, even for people who don't have a lot of technical knowledge, it can be easily used."
     },
     {
-      "question": "Is there a limit to how much data I can scrape with Crawlora?",
-      "answer": "Crawlora's pricing is usage-based, meaning your data extraction capabilities scale with your needs. There are no hard limits, but pricing adjusts based on the volume of data scraped. Larger projects may require custom solutions."
+      "question": "How is data extracted by Crawlora?",
+      "answer": "Crawlora extracts data from internet sources using machine learning techniques as well as sophisticated web scraping algorithms."
     },
     {
-      "question": "Does Crawlora comply with website scraping regulations?",
-      "answer": "Yes, Crawlora is committed to ethical and legal web scraping. We advise all users to respect website terms of service and only collect publicly available data. Our platform provides tools to ensure compliance with data privacy laws like GDPR."
+      "question": "What are the prices for Crawlora?",
+      "answer": "Crawlora provides tailored pricing schemes according to certain company requirements. Get a quote from us."
     },
     {
-      "question": "What customer support options are available?",
-      "answer": "Crawlora offers dedicated email support for all customers. Premium users can access priority support with faster response times and advanced technical assistance for complex crawling and data extraction needs."
+      "question": "Is there a free trial available for Crawlora?",
+      "answer": "To test out Crawlora’s capabilities, we do provide a free trial."
     },
     {
-      "question": "Can Crawlora integrate with other data analysis tools?",
-      "answer": "Absolutely! Crawlora can easily integrate with various data analysis platforms through APIs, making it simple to export and work with your extracted data in tools like Excel, Google Sheets, or custom software solutions."
-    },
-    {
-      "question": "How secure is the data I scrape with Crawlora?",
-      "answer": "Crawlora uses encryption and secure storage protocols to ensure that your scraped data is safe. We prioritize data privacy and follow best practices to safeguard any information collected and processed through our platform."
+      "question": "Does Crawlora protect my data?",
+      "answer": "Indeed, Cdrawlora uses strong security features. These consist of access limits and data encryption."
     }
 ]
 }

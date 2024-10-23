@@ -1,11 +1,11 @@
 ---
 // Import the necessary dependencies
-import TabNav from "@components/ui/blocks/TabNav.astro";
-import TabContent from "@components/ui/blocks/TabContent.astro";
-import Icon from "@components/ui/icons/Icon.astro";
+import TabNav from '@components/ui/blocks/TabNav.astro';
+import TabContent from '@components/ui/blocks/TabContent.astro';
+import Icon from '@components/ui/icons/Icon.astro';
 
 // Define props from Astro
-const { title, tabs } = Astro.props;
+const { title, tabs, subTitle } = Astro.props;
 
 // Define TypeScript interface for tab object
 interface Tab {
@@ -21,6 +21,7 @@ interface Tab {
 // Define TypeScript interface for props
 interface Props {
   title?: string;
+  subTitle?: string;
   tabs: Tab[];
 }
 ---
@@ -40,6 +41,11 @@ interface Props {
           <!-- About Fragment: https://docs.astro.build/en/basics/astro-syntax/#fragments -->
           <Fragment set:html={title} />
         </h2>
+        <p
+          class="mt-2 text-pretty text-neutral-600 dark:text-neutral-400 md:mt-4"
+        >
+          {subTitle}
+        </p>
         <!-- Tab navigation - use the attribute 'first' in the first TabNav for the component to work -->
         <nav class="mt-5 grid gap-4 md:mt-10" aria-label="Tabs" role="tablist">
           {
@@ -92,5 +98,5 @@ interface Props {
 <!--Import the necessary Tabs plugin-->
 <!--https://preline.co/plugins/html/tabs.html-->
 <script>
-  import "@preline/tabs/index.js";
+  import '@preline/tabs/index.js';
 </script>
