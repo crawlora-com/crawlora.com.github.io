@@ -5,6 +5,9 @@
     "types": [
       "vite-plugin-pwa/client",
       "vite-plugin-pwa/info",
+      "swiper",
+      "tiny-slider",
+      "bootstrap"
     ],
     "paths": {
       "@/*": ["src/*"],
@@ -17,5 +20,9 @@
       "@styles/*": ["src/assets/styles/*"],
       "@utils/*": ["src/utils/*"]
     },
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/@types"  // Include your custom types directory
+    ]
   }
 }
