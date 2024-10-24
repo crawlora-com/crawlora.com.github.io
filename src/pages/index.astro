@@ -1,180 +1,1907 @@
 ---
-// Import the necessary components
-import MainLayout from '@/layouts/MainLayout.astro';
-import HeroSection from '@components/sections/landing/HeroSection.astro';
-import HeroSectionAlt from '@components/sections/landing/HeroSectionAlt.astro';
-import ClientsSection from '@components/sections/landing/ClientsSection.astro';
-import FeaturesGeneral from '@components/sections/features/FeaturesGeneral.astro';
-import FeaturesNavs from '@components/sections/features/FeaturesNavs.astro';
-import TestimonialsSection from '@components/sections/testimonials/TestimonialsSection.astro';
-import PricingSection from '@components/sections/pricing/PricingSection.astro';
+import '@styles/landing-page.css';
 
-import FAQ from '@components/sections/misc/FAQ.astro';
-import faqs from '@data/faqs.json';
-import features from '@data/features.json';
-import pricing from '@data/pricing.json';
-import featureImage from '../images/examples/white.png';
+import LandingPageLayout from '@/layouts/LandingPageLayout.astro';
+import { Image } from 'astro:assets';
+// Navbar
+import logoLight from './images/logo-light.png';
+import logoDark from './images/logo-dark.png';
 
-//
-import Insights from '../images/features/insights.png';
-import Intigration from '../images/features/intigration.png';
-import Scalable from '../images/features/scalable.png';
-import Scrapping from '../images/features/scalable.png';
-import UseCaseSection from '@/components/sections/use-case/useCaseSection.astro';
+// Home section
+import homeBackground from './images/home/home5-bg.png';
+import homeImage from './images/home/home-5.png';
+import userImage1 from './images/user/img-1.jpg';
+import userImage2 from './images/user/img-2.jpg';
+import userImage3 from './images/user/img-3.jpg';
 
-const avatarSrcs: Array<string> = [
-  'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80',
-  'https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80',
-  'https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80',
-  'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80',
-];
+//services
+import bombImage from './images/service/bomb.png';
 
-const useCases = [
-  {
-    title: 'Ecommerce',
-    description: 'Extract public data from any marketplace.',
-    api: 'Scraper API',
-    learnMoreLink: '#',
-    icon: '🛒',
-  },
-  {
-    title: 'Market Research',
-    description: 'Collect consumer and competitor data on autopilot.',
-    api: 'Scraper API',
-    learnMoreLink: '#',
-    icon: '📊',
-  },
-  {
-    title: 'SERP',
-    description: 'Get structured and parsed search data.',
-    api: 'Scraper API',
-    learnMoreLink: '#',
-    icon: '🔍',
-  },
-  {
-    title: 'Real Estate',
-    description: 'Automate property listing data collection.',
-    api: 'Scraper API',
-    learnMoreLink: '#',
-    icon: '🏡',
-  },
-];
+//features
+
+import phoneImage from './images/features/phone.png';
+import phoneImage2 from './images/features/phone2.png';
+
+//testimonials
+import img1 from './images/testi/img-1.png';
+import img2 from './images/testi/img-2.png';
+import img3 from './images/testi/img-3.png';
+import img4 from './images/testi/img-4.png';
+import userImg1 from './images/user/img-1.jpg';
+import userImg2 from './images/user/img-2.jpg';
+import userImg3 from './images/user/img-3.jpg';
+import userImg4 from './images/user/img-4.jpg';
+import ratingImg from './images/testi/rating-image.png';
+
+//slider
+import phoneFrameImg from './images/testi/phone-fream.png';
+import screenshot1 from './images/testi/ss/s-1.png';
+import screenshot2 from './images/testi/ss/s-2.png';
+import screenshot3 from './images/testi/ss/s-3.png';
+import screenshot4 from './images/testi/ss/s-4.png';
+import screenshot5 from './images/testi/ss/s-5.png';
+import screenshot6 from './images/testi/ss/s-6.png';
+
+//team
+import Teamimg1 from './images/team/img1.png';
+import Teamimg2 from './images/team/img2.png';
+import Teamimg3 from './images/team/img3.png';
+import Teamimg4 from './images/team/img4.png';
+
+//cta
+import appStoreImage from './images/img-appstore.png';
+import googlePlayImage from './images/img-googleplay.png';
+import ctaBgImage from './images/cta-bg.png';
+
+//footer
+import logoFooter from './images/logo-footer.png';
 ---
 
-<MainLayout>
-  <!-- <AnnouncementBanner
-    btnId="dismiss-button"
-    btnTitle="Explore new plugins"
-    url="https://app.crawlora.com?cta=announcement-banner"
-  /> -->
+<LandingPageLayout>
+  <a id="mode" class="mode-btn rounded-end text-white">
+    <i class="uil uil-brightness mode-dark mx-auto"></i>
+    <i class="uil uil-moon bx-spin mode-light"></i>
+  </a>
+  <!-- START  NAVBAR -->
+  <nav
+    class="navbar navbar-expand-lg fixed-top navbar-custom sticky-light sticky"
+    id="navbar"
+  >
+    <div class="container-fluid">
+      <!-- LOGO -->
+      <a class="navbar-brand logo text-uppercase" href="index-1.html">
+        <Image
+          src={logoLight}
+          class="logo-light"
+          alt="Logo Light"
+          height={30}
+        />
+        <Image src={logoDark} class="logo-dark" alt="Logo Dark" height={30} />
+      </a>
 
-  <HeroSection
-    title=`Find data at scale with <span class="text-yellow-500 dark:text-yellow-400">Crawlora</span>`
-    subTitle="Efficient web scraping made simple with Crawlora’s robust data extraction tools."
-    primaryBtn="Try for free"
-    primaryBtnURL="https://app.crawlora.com?cta=homepage-start-exploring"
-    secondaryBtn="Contact Sales Team"
-    secondaryBtnURL="https://form.jotform.com/241921441318047?cta=main_starter"
-    withReview={true}
-    avatars={avatarSrcs}
-    rating=`<span class="font-bold">4.8</span> / 5`
-    starCount={4}
-    reviews=`From Over <span class="font-bold">12.8k</span> Reviews`
-    alt="Crawlora: Advanced web crawling technology showcasing data extraction."
-  />
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="mdi mdi-menu"></span>
+      </button>
 
-  <ClientsSection
-    title="Powering the world's top data-driven teams"
-    subTitle="Experience the reliability chosen by industry giants."
-  />
+      <div class="navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto" id="navbar-navlist">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#service">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#features">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#pricing">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#app">Application</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#team">Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+        <div class="ms-auto">
+          <a href="#" class="btn bg-gradiant">Login</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- END NAVBAR -->
 
-  <FeaturesGeneral
-    title="Meeting Industry Demands"
-    subTitle="Crawlora is designed to address the growing demand for scalable and efficient data scraping solutions. In an era where data drives decision-making, our platform provides businesses with the tools to extract large-scale information quickly and accurately. By integrating powerful automation and cloud capabilities, Crawlora ensures you stay ahead of industry trends, meeting the needs of businesses that rely on real-time data for competitive advantage."
-    src={featureImage}
-    alt="crawlora in floating boxes"
-    features={features}
-  />
+  <!-- home section -->
+  <section
+    class="home-5"
+    id="home"
+    style={`background-image: url(${homeBackground.src})`}
+  >
+    <!-- start container -->
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="waav">
+            <span style="--a:1">W</span>
+            <span style="--a:2">E</span>
+            <span style="--a:3">L</span>
+            <span style="--a:4">C</span>
+            <span style="--a:5">O</span>
+            <span style="--a:6">M</span>
+            <span style="--a:7">E</span>
+          </div>
+          <h1 class="mt-3">Connecting all your storange together</h1>
+          <p class="text-muted mt-3">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+            voluptatibus aperiam distinctio rerum? Voluptates quos nulla,
+            voluptatem earum placeat ducimus nesciunt dolores.
+          </p>
 
-  <FeaturesNavs
-    title=`Customize <span class="text-yellow-500 dark:text-yellow-400">Crawlora</span>'s offerings to perfectly suit your data needs.`
-    tabs={[
-      {
-        heading: 'Custom Data finding Solutions',
-        content:
-          "Tailor Crawlora’s powerful crawl engine to meet your specific data needs, whether you're targeting niche data sources or large-scale extraction.",
-        svg: 'checkCircle',
-        src: Scrapping,
-        alt: 'A data extraction process in progress, with code and charts on a monitor',
-        first: true,
-      },
-      {
-        heading: 'Real-Time Insights',
-        content:
-          "Gain actionable insights with Crawlora's real-time data processing, allowing you to make faster, smarter business decisions.",
-        svg: 'checkCircle',
-        src: Insights,
-        alt: 'A live data dashboard displaying real-time analytics and charts',
-        second: true,
-      },
-      {
-        heading: 'Seamless Integration',
-        content:
-          'Integrate Crawlora effortlessly with your existing tools and platforms to automate workflows and enhance your data pipeline.',
-        svg: 'checkCircle',
-        src: Intigration,
-        alt: 'A visual representation of connected systems and APIs working together',
-      },
-      {
-        heading: 'Scalable Infrastructure',
-        content:
-          "Leverage Crawlora's cloud-based infrastructure to scale your data collection as your business grows, without compromising on performance.",
-        svg: 'checkCircle',
-        src: Scalable,
-        alt: 'A large cloud computing network with expanding nodes representing scalability',
-      },
-    ]}
-  />
+          <form class="mt-5">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter Email"
+                    aria-label="workspace foe anywhere"
+                    aria-describedby="basic-addon2"
+                  />
+                </div>
+              </div>
+              <div class="col-4 p-0">
+                <button class="btn btn-big btn-primary">Get Started</button>
+              </div>
+            </div>
+          </form>
 
-  <TestimonialsSection
-    title="Accelerate Your Web Crawling Power"
-    subTitle="At Crawlora, we streamline your data extraction process with quick setup and cutting-edge technology. Experience speed and efficiency redefined."
-    testimonials={[
-      {
-        content:
-          "Crawlora transformed how we handle web data. The setup was seamless, and their support is exceptional. We've seen an exponential boost in our web scraping performance!",
-        author: 'Jordan Lee',
-        role: 'Head of Data Operations | DataScape Ltd.',
-        avatarSrc:
-          'https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80',
-      },
-    ]}
-    statistics={[
-      {
-        count: '900k+',
-        description: 'websites crawled with enhanced data extraction speeds',
-      },
-      {
-        count: '50%',
-        description:
-          "increase in data processing efficiency with Crawlora's tools",
-      },
-      {
-        count: '20%',
-        description:
-          'reduction in operational costs for large-scale web crawling',
-      },
-      {
-        count: '3x',
-        description:
-          'faster extraction of actionable insights using our crawlers',
-      },
-    ]}
-  />
+          <div class="d-flex align-items-center mt-5">
+            <div class="flex-shrink-0">
+              <div class="more-profile d-flex">
+                <div class="avatar-sm top-child m-0">
+                  <img
+                    src={userImage1.src}
+                    alt="User 1"
+                    class="img-fluid avatar-sm"
+                  />
+                </div>
+                <div class="avatar-sm top-child">
+                  <img
+                    src={userImage2.src}
+                    alt="User 2"
+                    class="img-fluid avatar-sm"
+                  />
+                </div>
+                <div class="avatar-sm top-child">
+                  <img
+                    src={userImage3.src}
+                    alt="User 3"
+                    class="img-fluid avatar-sm"
+                  />
+                </div>
+                <div class="avatar-sm top-child">
+                  <p class="f-14 mb-0">99+</p>
+                </div>
+              </div>
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <h6 class="mb-0">99+ user</h6>
+              <p class="fw-semibold text-muted mb-0">
+                Connecting all your storages together
+              </p>
+            </div>
+          </div>
+        </div>
 
-  <PricingSection pricing={pricing} />
+        <div class="col-lg-6">
+          <img src={homeImage.src} alt="Home Image" class="img-fluid" />
+        </div>
+      </div>
+    </div>
+    <!-- end container -->
+  </section>
+  <!-- end home section -->
 
-  <FAQ title="Frequently<br />asked questions" faqs={faqs} />
+  <!-- service section -->
+  <section class="section service bg-light" id="service">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="title mb-5 text-center">
+            <h6 class="fw-bold text-primary mb-0">What We Do?</h6>
+            <h2 class="f-40">How can help you!</h2>
+            <div class="border-phone">
+              <p class="text-muted">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
+                eos inventore omnis aliquid rerum alias molestias.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <UseCaseSection />
-</MainLayout>
+      <div class="row justify-content-between">
+        <div class="col-lg-4">
+          <div class="service-box text-center">
+            <div
+              class="service-icon p-4"
+              style={`background-image: url(${bombImage.src}); background-repeat: no-repeat; background-position: center;`}
+            >
+              <i class="mdi mdi-security text-gradiant f-30"></i>
+            </div>
+
+            <div class="service-content mt-4">
+              <a href="#">
+                <h5 class="fw-bold">Fully Secured</h5>
+              </a>
+              <p class="text-muted">
+                Lorem ipsum dolor sit amet, adipiscing elit. Phasellus
+                hendrerit. Pellentesque aliquet nibh nec urna.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 pt-lg-0 pt-4">
+          <div class="service-box text-center shadow">
+            <div
+              class="service-icon p-4"
+              style={`background-image: url(${bombImage.src}); background-repeat: no-repeat; background-position: center;`}
+            >
+              <i class="mdi mdi-lightbulb-on text-gradiant f-30"></i>
+            </div>
+
+            <div class="service-content mt-4">
+              <a href="#">
+                <h5 class="fw-bold">Creative Idea</h5>
+              </a>
+              <p class="text-muted">
+                Lorem ipsum dolor sit amet, adipiscing elit. Phasellus
+                hendrerit. Pellentesque aliquet nibh nec urna.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 pt-lg-0 pt-4">
+          <div class="service-box text-center">
+            <div
+              class="service-icon p-4"
+              style={`background-image: url(${bombImage.src}); background-repeat: no-repeat; background-position: center;`}
+            >
+              <i class="mdi mdi-google-nearby text-gradiant f-30"></i>
+            </div>
+
+            <div class="service-content mt-4">
+              <a href="#">
+                <h5 class="fw-bold">Design & Branding</h5>
+              </a>
+              <p class="text-muted">
+                Lorem ipsum dolor sit amet, adipiscing elit. Phasellus
+                hendrerit. Pellentesque aliquet nibh nec urna.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end section -->
+
+  <!-- start features -->
+  <div class="section features" id="features">
+    <!-- start container -->
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="title mb-5 text-center">
+            <h6 class="fw-bold text-primary mb-0">AppTech Features</h6>
+            <h2 class="f-40">Features for our app</h2>
+            <p class="text-muted">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eos
+              inventore omnis aliquid rerum alias molestias.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <ul
+            class="nav nav-pills justify-content-center mb-3"
+            id="pills-tab"
+            role="tablist"
+          >
+            <li class="nav-item mb-3" role="presentation">
+              <button
+                class="nav-link active"
+                id="pills-home-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-home"
+                type="button"
+                role="tab"
+                aria-controls="pills-home"
+                aria-selected="true">Top Features</button
+              >
+            </li>
+            <li class="nav-item mb-3" role="presentation">
+              <button
+                class="nav-link"
+                id="pills-profile-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-profile"
+                type="button"
+                role="tab"
+                aria-controls="pills-profile"
+                aria-selected="false">Smart Features</button
+              >
+            </li>
+          </ul>
+          <div class="tab-content mt-5" id="pills-tabContent">
+            <div
+              class="tab-pane fade show active"
+              id="pills-home"
+              role="tabpanel"
+              aria-labelledby="pills-home-tab"
+            >
+              <div class="row align-items-center">
+                <div class="col-lg-4 order-lg-first order-2">
+                  <div class="features-item text-lg-end text-start">
+                    <div
+                      class="icon avatar-sm ms-lg-auto rounded-circle text-center"
+                    >
+                      <i class="mdi mdi-message-alert-outline f-24"></i>
+                    </div>
+                    <div class="content mt-3">
+                      <h5>Responsive Design</h5>
+                      <p>
+                        Vivamus ac nulla ultrices laoreet neque mollis mi morbi
+                        elementum.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="features-item text-lg-end mt-5 text-start">
+                    <div
+                      class="icon avatar-sm ms-lg-auto rounded-circle text-center"
+                    >
+                      <i class="mdi mdi-autorenew f-24"></i>
+                    </div>
+                    <div class="content mt-3">
+                      <h5>Cool Features</h5>
+                      <p>
+                        Vivamus ac nulla ultrices laoreet neque mollis mi morbi
+                        elementum.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="features-item text-lg-end mb-5 mt-5 text-start">
+                    <div
+                      class="icon avatar-sm ms-lg-auto rounded-circle text-center"
+                    >
+                      <i class="mdi mdi-eyedropper f-24"></i>
+                    </div>
+                    <div class="content mt-3">
+                      <h5>Lifetime Support</h5>
+                      <p>
+                        Vivamus ac nulla ultrices laoreet neque mollis mi morbi
+                        elementum.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <img
+                    src={phoneImage.src}
+                    alt="Phone Illustration"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="col-lg-4 order-last">
+                  <div class="features-item">
+                    <div class="icon avatar-sm rounded-circle text-center">
+                      <i class="mdi mdi-lifebuoy f-24"></i>
+                    </div>
+                    <div class="content mt-3">
+                      <h5>Stunning Design</h5>
+                      <p>
+                        Vivamus ac nulla ultrices laoreet neque mollis mi morbi
+                        elementum.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="features-item mt-5">
+                    <div class="icon avatar-sm rounded-circle text-center">
+                      <i class="mdi mdi-dropbox f-24"></i>
+                    </div>
+                    <div class="content mt-3">
+                      <h5>Best PSD Pack</h5>
+                      <p>
+                        Vivamus ac nulla ultrices laoreet neque mollis mi morbi
+                        elementum.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="features-item mt-5">
+                    <div class="icon avatar-sm rounded-circle text-center">
+                      <i class="mdi mdi-flask f-24"></i>
+                    </div>
+                    <div class="content mt-3">
+                      <h5>Creative Idea</h5>
+                      <p>
+                        Vivamus ac nulla ultrices laoreet neque mollis mi morbi
+                        elementum.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="pills-profile"
+              role="tabpanel"
+              aria-labelledby="pills-profile-tab"
+            >
+              <div class="row align-items-center">
+                <div class="col-lg-6">
+                  <img
+                    src={phoneImage2.src}
+                    alt="Smart Phone Illustration"
+                    class="img-fluid"
+                  />
+                </div>
+
+                <div class="col-lg-6">
+                  <h2 class="mb-4">Smart Features</h2>
+
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="features-box mt-4">
+                        <div class="d-flex">
+                          <div class="icon">
+                            <i class="mdi mdi-check-circle f-20 me-2"></i>
+                          </div>
+                          <div class="heading">
+                            <h6 class="mt-1">Fast Messaging</h6>
+                            <p class="text-muted">
+                              Soluta velit sint, esse quis tempora impedit
+                              corrupti in recusandae tenetur dignissimos
+                              voluptates..
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="features-box mt-4">
+                        <div class="d-flex">
+                          <div class="icon">
+                            <i class="mdi mdi-check-circle f-20 me-2"></i>
+                          </div>
+                          <div class="heading">
+                            <h6 class="mt-1">User Friendly</h6>
+                            <p class="text-muted">
+                              Amet repudiandae illo quasi enim iusto corporis
+                              ratione? Laudantium reprehenderit sint provident.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="features-box mt-4">
+                        <div class="d-flex">
+                          <div class="icon">
+                            <i class="mdi mdi-check-circle f-20 me-2"></i>
+                          </div>
+                          <div class="heading">
+                            <h6 class="mt-1">Minimal Interface</h6>
+                            <p class="text-muted">
+                              Repellat ad in autem, odio quos ex eum recusandae
+                              cupiditate assumenda nihil incidunt dolorem qui
+                              soluta.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="features-box mt-4">
+                        <div class="d-flex">
+                          <div class="icon">
+                            <i class="mdi mdi-check-circle f-20 me-2"></i>
+                          </div>
+                          <div class="heading">
+                            <h6 class="mt-1">Notification</h6>
+                            <p class="text-muted">
+                              Ipsam nisi quam velit maxime corrupti ut quos, ad
+                              eum laudantium voluptatibus, facilis numquam
+                              repellendus.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end container -->
+  </div>
+  <!-- end features -->
+
+  <!-- start testimonial -->
+  <section class="section bg-light testimonial" id="testimonial">
+    <!-- start container -->
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-4">
+          <div class="title">
+            <p class="text-primary fw-bold mb-0">
+              Client Testimonial <i class="mdi mdi-cellphone-iphone"></i>
+            </p>
+            <h3>What they think of us!</h3>
+            <p class="text-muted">
+              Morbi at erat et tortor tempor sodales non eu lacus Donec at
+              gravida nunc vitae volutpat. Morbi in sem quis dui placerat
+              ornare.
+            </p>
+            <button class="btn bg-gradiant">
+              Read More Testimonial <i class="mdi mdi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="testi-slider" id="testi-slider">
+            <div class="item">
+              <div class="testi-box position-relative overflow-hidden">
+                <div class="row align-items-center">
+                  <div class="col-md-5">
+                    <img
+                      src={img1.src}
+                      alt="Testimonial Image 1"
+                      class="img-fluid"
+                    />
+                  </div>
+                  <div class="col-md-7">
+                    <div class="p-4">
+                      <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0">
+                          <div class="avatar">
+                            <img
+                              src={userImg1.src}
+                              alt="User Image 1"
+                              class="img-fluid rounded-circle"
+                            />
+                          </div>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                          <p class="f-14 text-dark fw-bold mb-0">
+                            <span class="text-muted fw-normal">Review By </span>
+                            Freanki Fabel
+                          </p>
+                          <div class="date">
+                            <p class="text-muted f-14 mb-0">
+                              28 jan, 2021 <span>10:25 AM</span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mt-3">
+                        <h5 class="fw-bold">
+                          Build The App That Everyone Loves.
+                        </h5>
+                        <p class="text-muted f-14">
+                          Start working with Styza that can provide everything
+                          you need to generate awareness, drive traffic,
+                          connect.
+                        </p>
+                        <button class="btn btn-sm bg-gradiant">
+                          <i class="mdi mdi-plus f-16 align-middle"></i>
+                          Follow
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="back-image position-absolute bottom-0 end-0">
+                  <img
+                    src={ratingImg.src}
+                    alt="Rating Image"
+                    class="img-fluid"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- slider item -->
+
+            <div class="item">
+              <div class="testi-box position-relative overflow-hidden">
+                <div class="row align-items-center">
+                  <div class="col-md-5">
+                    <img
+                      src={img2.src}
+                      alt="Testimonial Image 2"
+                      class="img-fluid"
+                    />
+                  </div>
+                  <div class="col-md-7">
+                    <div class="p-4">
+                      <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0">
+                          <div class="avatar">
+                            <img
+                              src={userImg2.src}
+                              alt="User Image 2"
+                              class="img-fluid rounded-circle"
+                            />
+                          </div>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                          <p class="f-14 text-dark fw-bold mb-0">
+                            <span class="text-muted fw-normal">Review By </span>
+                            Freanki Fabel
+                          </p>
+                          <div class="date">
+                            <p class="text-muted f-14 mb-0">
+                              28 jan, 2021 <span>10:25 AM</span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mt-3">
+                        <h5 class="fw-bold">Easy and Perfect Solution</h5>
+                        <p class="text-muted f-14">
+                          Start working with Styza that can provide everything
+                          you need to generate awareness, drive traffic,
+                          connect.
+                        </p>
+                        <button class="btn btn-sm bg-gradiant">
+                          <i class="mdi mdi-plus f-16 align-middle"></i>
+                          Follow
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="back-image position-absolute bottom-0 end-0">
+                  <img
+                    src={ratingImg.src}
+                    alt="Rating Image"
+                    class="img-fluid"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- slider item -->
+            <div class="item">
+              <div class="testi-box position-relative overflow-hidden">
+                <div class="row align-items-center">
+                  <div class="col-md-5">
+                    <img
+                      src={img3.src}
+                      alt="Testimonial Image 3"
+                      class="img-fluid"
+                    />
+                  </div>
+                  <div class="col-md-7">
+                    <div class="p-4">
+                      <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0">
+                          <div class="avatar">
+                            <img
+                              src={userImg3.src}
+                              alt="User Image 3"
+                              class="img-fluid rounded-circle"
+                            />
+                          </div>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                          <p class="f-14 text-dark fw-bold mb-0">
+                            <span class="text-muted fw-normal">Review By </span>
+                            Freanki Fabel
+                          </p>
+                          <div class="date">
+                            <p class="text-muted f-14 mb-0">
+                              28 jan, 2021 <span>10:25 AM</span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mt-3">
+                        <h5 class="fw-bold">
+                          Build The App That Everyone Loves.
+                        </h5>
+                        <p class="text-muted f-14">
+                          Start working with Styza that can provide everything
+                          you need to generate awareness, drive traffic,
+                          connect.
+                        </p>
+                        <button class="btn btn-sm bg-gradiant">
+                          <i class="mdi mdi-plus f-16 align-middle"></i>
+                          Follow
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="back-image position-absolute bottom-0 end-0">
+                  <img
+                    src={ratingImg.src}
+                    alt="Rating Image"
+                    class="img-fluid"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- slider item -->
+            <div class="item">
+              <div class="testi-box position-relative overflow-hidden">
+                <div class="row align-items-center">
+                  <div class="col-md-5">
+                    <img
+                      src={img4.src}
+                      alt="Testimonial Image 4"
+                      class="img-fluid"
+                    />
+                  </div>
+                  <div class="col-md-7">
+                    <div class="p-4">
+                      <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0">
+                          <div class="avatar">
+                            <img
+                              src={userImg4.src}
+                              alt="User Image 4"
+                              class="img-fluid rounded-circle"
+                            />
+                          </div>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                          <p class="f-14 text-dark fw-bold mb-0">
+                            <span class="text-muted fw-normal">Review By </span>
+                            Freanki Fabel
+                          </p>
+                          <div class="date">
+                            <p class="text-muted f-14 mb-0">
+                              28 jan, 2021 <span>10:25 AM</span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mt-3">
+                        <h5 class="fw-bold">
+                          Build The App That Everyone Loves.
+                        </h5>
+                        <p class="text-muted f-14">
+                          Start working with Styza that can provide everything
+                          you need to generate awareness, drive traffic,
+                          connect.
+                        </p>
+                        <button class="btn btn-sm bg-gradiant">
+                          <i class="mdi mdi-plus f-16 align-middle"></i>
+                          Follow
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="back-image position-absolute bottom-0 end-0">
+                  <img
+                    src={ratingImg.src}
+                    alt="Rating Image"
+                    class="img-fluid"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end container -->
+  </section>
+  <!-- end testimonial -->
+
+  <!-- pricing section -->
+  <section class="section pricing" id="pricing">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="title mb-5 text-center">
+            <h6 class="fw-bold text-primary mb-0">What's Your Price!</h6>
+            <h2 class="f-40">Pricing plans!</h2>
+            <p class="text-muted">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eos
+              inventore omnis aliquid rerum alias molestias.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row align-items-center">
+        <div class="col-lg-4">
+          <div class="price-item overflow-hidden shadow-sm">
+            <div class="price-up-box active p-4">
+              <div class="badge bg-primary fw-normal f-14">Basic</div>
+              <div class="price-tag mt-2">
+                <h2 class="f-40 mb-0 text-white">
+                  <sup class="f-22 fw-normal">$</sup>09<sup
+                    class="f-16 fw-normal"
+                  >
+                    /month</sup
+                  >
+                </h2>
+              </div>
+              <p class="text-white-50 mb-1">17 to 19 user</p>
+              <p class="text-white-50 mb-0">
+                For most businesses that want to optimize web query.
+              </p>
+            </div>
+            <div class="border-3 border"></div>
+
+            <div class="price-down-box p-4">
+              <ul class="list-unstyled">
+                <li>
+                  <i
+                    class="mdi mdi-check-circle-outline f-20 text-primary me-2 align-middle"
+                  ></i>2 App and project
+                </li>
+                <li class="mt-2">
+                  <i
+                    class="mdi mdi-check-circle-outline f-20 text-primary me-2 align-middle"
+                  ></i>400 Gb/s storange
+                </li>
+                <li class="mt-2">
+                  <i
+                    class="mdi mdi-check-circle-outline f-20 text-primary me-2 align-middle"
+                  ></i>Free coustom domain
+                </li>
+                <li class="mt-2">
+                  <i
+                    class="mdi mdi-close-circle-outline f-20 text-danger me-2 align-middle"
+                  ></i>Chat Support
+                </li>
+                <li class="mt-2">
+                  <i
+                    class="mdi mdi-close-circle-outline f-20 text-danger me-2 align-middle"
+                  ></i>No transaction fees
+                </li>
+                <li class="mt-2">
+                  <i
+                    class="mdi mdi-close-circle-outline f-20 text-danger me-2 align-middle"
+                  ></i>Unlimited Storage
+                </li>
+              </ul>
+              <a href="#" class="btn btn-sm text-primary mt-3"
+                ><i class="mdi mdi-check-all me-2"></i>your plane</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="price-item mt-lg-0 mt-4 overflow-hidden shadow-sm">
+            <div class="topbar-header bg-primary py-2 text-center">
+              <h6 class="fw-normal mb-0 text-white">Recommended For You</h6>
+            </div>
+            <div class="price-up-box p-4">
+              <div class="badge bg-primary fw-normal f-14">Startup</div>
+              <div class="price-tag mt-2">
+                <h2 class="text-dark f-40 mb-0">
+                  <sup class="f-22 fw-normal">$</sup>19
+                  <sup class="f-16 fw-normal"> /month</sup>
+                </h2>
+              </div>
+              <p class="text-muted mb-1">20 to 40 user</p>
+              <p class="text-muted mb-0">
+                For most businesses that want to optimize web query.
+              </p>
+            </div>
+            <div class="border-3 border"></div>
+
+            <div class="price-down-box p-4">
+              <ul class="list-unstyled">
+                <li>
+                  <i
+                    class="mdi mdi-check-circle-outline f-20 text-primary me-2 align-middle"
+                  ></i>15 App and project
+                </li>
+                <li class="mt-2">
+                  <i
+                    class="mdi mdi-check-circle-outline f-20 text-primary me-2 align-middle"
+                  ></i>800 Gb/s storange
+                </li>
+                <li class="mt-2">
+                  <i
+                    class="mdi mdi-check-circle-outline f-20 text-primary me-2 align-middle"
+                  ></i>Free coustom domain
+                </li>
+                <li class="mt-2">
+                  <i
+                    class="mdi mdi-check-circle-outline f-20 text-primary me-2 align-middle"
+                  ></i>Chat Support
+                </li>
+                <li class="mt-2">
+                  <i
+                    class="mdi mdi-close-circle-outline f-20 text-danger me-2 align-middle"
+                  ></i>No transaction fees
+                </li>
+                <li class="mt-2">
+                  <i
+                    class="mdi mdi-close-circle-outline f-20 text-danger me-2 align-middle"
+                  ></i>Unlimited Storage
+                </li>
+              </ul>
+              <a href="#" class="btn btn-sm btn-primary mt-3"
+                ><i class="mdi mdi-check-all me-2"></i>Buy Now</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="price-item mt-lg-0 mt-4 overflow-hidden shadow-sm">
+            <div class="price-up-box p-4">
+              <div class="badge bg-primary fw-normal f-14">Enterprise</div>
+              <div class="price-tag mt-2">
+                <h2 class="text-dark f-40 mb-0">
+                  <sup class="f-22 fw-normal">$</sup>29<sup
+                    class="f-16 fw-normal"
+                  >
+                    /month</sup
+                  >
+                </h2>
+              </div>
+              <p class="text-muted mb-1">17 to 19 user</p>
+              <p class="text-muted mb-0">
+                For most businesses that want to optimize web query.
+              </p>
+            </div>
+            <div class="border-3 border"></div>
+
+            <div class="price-down-box p-4">
+              <ul class="list-unstyled">
+                <li>
+                  <i
+                    class="mdi mdi-check-circle-outline f-20 text-primary me-2 align-middle"
+                  ></i>Unlimited App and project
+                </li>
+                <li class="mt-2">
+                  <i
+                    class="mdi mdi-check-circle-outline f-20 text-primary me-2 align-middle"
+                  ></i>1000 Gb/s storange
+                </li>
+                <li class="mt-2">
+                  <i
+                    class="mdi mdi-check-circle-outline f-20 text-primary me-2 align-middle"
+                  ></i>Free coustom domain
+                </li>
+                <li class="mt-2">
+                  <i
+                    class="mdi mdi-check-circle-outline f-20 text-primary me-2 align-middle"
+                  ></i>Chat Support
+                </li>
+                <li class="mt-2">
+                  <i
+                    class="mdi mdi-check-circle-outline f-20 text-primary me-2 align-middle"
+                  ></i>No transaction fees
+                </li>
+                <li class="mt-2">
+                  <i
+                    class="mdi mdi-check-circle-outline f-20 text-primary me-2 align-middle"
+                  ></i>Unlimited Storage
+                </li>
+              </ul>
+              <a href="#" class="btn btn-sm btn-primary mt-3"
+                ><i class="mdi mdi-check-all me-2"></i>Buy Now</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end pricing -->
+
+  <!-- slider section -->
+  <section class="section app-slider bg-light" id="app">
+    <!-- start container -->
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="title mb-5 text-center">
+            <h6 class="fw-bold text-primary mb-0">App Screen!</h6>
+            <h2 class="f-40">Show our App Screenshots!</h2>
+            <p class="text-muted">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eos <br
+              />
+              inventore omnis aliquid rerum alias molestias.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="swiper-container">
+            <div class="fream-phone">
+              <img
+                src={phoneFrameImg.src}
+                alt="Phone Frame"
+                class="img-fluid"
+              />
+            </div>
+
+            <div class="swiper-wrapper">
+              <div class="swiper-slide border-radius">
+                <img
+                  src={screenshot1.src}
+                  alt="Screenshot 1"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="swiper-slide border-radius">
+                <img
+                  src={screenshot2.src}
+                  alt="Screenshot 2"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="swiper-slide border-radius">
+                <img
+                  src={screenshot3.src}
+                  alt="Screenshot 3"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="swiper-slide border-radius">
+                <img
+                  src={screenshot4.src}
+                  alt="Screenshot 4"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="swiper-slide border-radius">
+                <img
+                  src={screenshot5.src}
+                  alt="Screenshot 5"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="swiper-slide border-radius">
+                <img
+                  src={screenshot6.src}
+                  alt="Screenshot 6"
+                  class="img-fluid"
+                />
+              </div>
+            </div>
+
+            <!-- navigation buttons -->
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end container -->
+  </section>
+  <!-- end section -->
+
+  <!-- team section -->
+  <section class="section team" id="team">
+    <!-- start container -->
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="title mb-5 text-center">
+            <h6 class="fw-bold text-primary mb-0">Our Team!</h6>
+            <h2 class="f-40">We are a team!</h2>
+            <p class="text-muted">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eos <br
+              />
+              inventore omnis aliquid rerum alias molestias.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mt-4">
+        <div class="col-lg-3 col-md-6">
+          <div class="team-box text-end">
+            <div class="row justify-content-end">
+              <div class="col-lg-9 col-10">
+                <div class="team-image">
+                  <img src={Teamimg1.src} alt="Cody Fisher" class="img-fluid" />
+                </div>
+                <div class="team-icon">
+                  <div class="d-flex mt-2">
+                    <div class="social-icon facebook mx-2">
+                      <a href="#"> <i class="mdi mdi-facebook f-20"></i></a>
+                    </div>
+                    <div class="social-icon instagram mx-2">
+                      <a href="#"><i class="mdi mdi-instagram f-20"></i></a>
+                    </div>
+                    <div class="social-icon twitter mx-2">
+                      <a href="#"><i class="mdi mdi-twitter f-20"></i></a>
+                    </div>
+                    <div class="social-icon linkedin mx-2">
+                      <a href="#"><i class="mdi mdi-linkedin f-20"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-info position-absolute">
+              <h6>
+                Cody Fisher <span class="f-14 text-muted fw-normal">
+                  / Owner</span
+                >
+              </h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="team-box">
+            <div class="row justify-content-end">
+              <div class="col-lg-9 col-10">
+                <div class="team-image text-end">
+                  <img src={Teamimg4.src} alt="Emily Coper" class="img-fluid" />
+                </div>
+                <div class="team-icon">
+                  <div class="d-flex mt-2">
+                    <div class="social-icon facebook mx-2">
+                      <a href="#"> <i class="mdi mdi-facebook f-20"></i></a>
+                    </div>
+                    <div class="social-icon instagram mx-2">
+                      <a href="#"><i class="mdi mdi-instagram f-20"></i></a>
+                    </div>
+                    <div class="social-icon twitter mx-2">
+                      <a href="#"><i class="mdi mdi-twitter f-20"></i></a>
+                    </div>
+                    <div class="social-icon linkedin mx-2">
+                      <a href="#"><i class="mdi mdi-linkedin f-20"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-info position-absolute">
+              <h6>
+                Emily Coper <span class="f-14 text-muted fw-normal">
+                  / Designer</span
+                >
+              </h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="team-box">
+            <div class="row justify-content-end">
+              <div class="col-lg-9 col-10">
+                <div class="team-image text-end">
+                  <img src={Teamimg3.src} alt="Nick Obron" class="img-fluid" />
+                </div>
+                <div class="team-icon">
+                  <div class="d-flex mt-2">
+                    <div class="social-icon facebook mx-2">
+                      <a href="#"> <i class="mdi mdi-facebook f-20"></i></a>
+                    </div>
+                    <div class="social-icon instagram mx-2">
+                      <a href="#"><i class="mdi mdi-instagram f-20"></i></a>
+                    </div>
+                    <div class="social-icon twitter mx-2">
+                      <a href="#"><i class="mdi mdi-twitter f-20"></i></a>
+                    </div>
+                    <div class="social-icon linkedin mx-2">
+                      <a href="#"><i class="mdi mdi-linkedin f-20"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-info position-absolute">
+              <h6>
+                Nick Obron <span class="f-14 text-muted fw-normal">
+                  / Developer</span
+                >
+              </h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="team-box">
+            <div class="row justify-content-end">
+              <div class="col-lg-9 col-10">
+                <div class="team-image text-end">
+                  <img src={Teamimg2.src} alt="Simmy Roy" class="img-fluid" />
+                </div>
+                <div class="team-icon">
+                  <div class="d-flex mt-2">
+                    <div class="social-icon facebook mx-2">
+                      <a href="#"> <i class="mdi mdi-facebook f-20"></i></a>
+                    </div>
+                    <div class="social-icon instagram mx-2">
+                      <a href="#"><i class="mdi mdi-instagram f-20"></i></a>
+                    </div>
+                    <div class="social-icon twitter mx-2">
+                      <a href="#"><i class="mdi mdi-twitter f-20"></i></a>
+                    </div>
+                    <div class="social-icon linkedin mx-2">
+                      <a href="#"><i class="mdi mdi-linkedin f-20"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-info position-absolute">
+              <h6>
+                Simmy Roy <span class="f-14 text-muted fw-normal">
+                  / Manager</span
+                >
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end container -->
+  </section>
+  <!-- end section -->
+
+  <!-- cta section -->
+  <section class="section cta">
+    <div class="bg-overlay-gradiant"></div>
+    <!-- start container -->
+    <div class="position-relative container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="py-5">
+            <h1 class="display-4 text-white">
+              Build Your ideal workspace today.
+            </h1>
+            <p class="text-white-50 f-18 mt-3">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure
+              distinctio vero facilis numquam sapiente! Eaque inventore eveniet
+              repellendus quod maiores nulla.
+            </p>
+            <div class="d-flex mt-4">
+              <div class="app-store">
+                <a href="#">
+                  <img
+                    src={appStoreImage.src}
+                    alt="App Store"
+                    class="img-fluid"
+                  />
+                </a>
+              </div>
+              <div class="googleplay">
+                <a href="#">
+                  <img
+                    src={googlePlayImage.src}
+                    alt="Google Play"
+                    class="img-fluid ms-3"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="cta-phone-image">
+            <img src={ctaBgImage.src} alt="CTA Background" class="img-fluid" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end container -->
+  </section>
+  <!-- end section -->
+
+  <!-- contact section -->
+  <section class="section contact overflow-hidden" id="contact">
+    <!-- start container -->
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="title mb-5 text-center">
+            <h6 class="fw-bold text-primary mb-0">Contact Us</h6>
+            <h2 class="f-40">Get In Touch!</h2>
+            <p class="text-muted">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eos <br
+              />
+              inventore omnis aliquid rerum alias molestias.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row align-items-center">
+        <div class="col-lg-5">
+          <div class="contact-box">
+            <div class="mb-4">
+              <h4 class="fw-semibold mb-1">Need Support !</h4>
+              <p class="text-muted">
+                Contact us for a quote , help to join the them.
+              </p>
+            </div>
+
+            <div class="custom-form mt-4">
+              <form
+                method="post"
+                name="myForm"
+                onsubmit="return validateForm()"
+              >
+                <p id="error-msg" style="opacity: 1;">
+                  <!-- <div class="alert alert-warning">*Please enter a Name*</div> -->
+                </p>
+
+                <div id="simple-msg"></div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <input
+                        name="name"
+                        id="name"
+                        type="text"
+                        class="form-control contact-form"
+                        placeholder="Your name"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <input
+                        name="email"
+                        id="email"
+                        type="email"
+                        class="form-control contact-form"
+                        placeholder="Your email"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="form-group mt-2">
+                      <input
+                        type="text"
+                        class="form-control contact-form"
+                        id="subject"
+                        placeholder="Your Subject.."
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="form-group mt-2">
+                      <textarea
+                        name="comments"
+                        id="comments"
+                        rows="4"
+                        class="form-control contact-form h-auto"
+                        placeholder="Your message..."></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="row my-2">
+                  <div class="col-lg-12 d-grid">
+                    <input
+                      type="submit"
+                      id="submit"
+                      name="send"
+                      class="submitBnt btn btn-rounded btn-primary"
+                      value="Send Message"
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="m-5">
+            <div class="position-relative">
+              <div class="contact-map">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d29754.94142818836!2d72.88699279999999!3d21.217263799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1641286801478!5m2!1sen!2sin"
+                  width="550"
+                  height="450"
+                  style="border:0;"
+                  allowfullscreen=""
+                  loading="lazy"></iframe>
+              </div>
+              <div class="map-shape"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <div class="d-flex align-items-center">
+            <div class="flex-shrink-0">
+              <i class="mdi mdi-google-maps f-50 text-primary"></i>
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <h5 class="mb-1">Location</h5>
+              <p class="f-14 text-muted mb-0">2276 Lynn Ogden Lane Beaumont</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="d-flex align-items-center mt-lg-0 mt-4">
+            <div class="flex-shrink-0">
+              <i class="mdi mdi-email f-50 text-primary"></i>
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <h5 class="mb-1">Email</h5>
+              <p class="f-14 text-muted mb-0">Email: FredVWeaver@rhyta.com</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="d-flex align-items-center mt-lg-0 mt-4">
+            <div class="flex-shrink-0">
+              <i class="mdi mdi-phone f-50 text-primary"></i>
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <h5 class="mb-1">Phone</h5>
+              <p class="f-14 text-muted mb-0">2276 Lynn Ogden Lane Beaumont</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end container -->
+  </section>
+  <!-- end section -->
+
+  <!-- footer section -->
+  <section class="section footer bg-dark overflow-hidden">
+    <div class="bg-arrow"></div>
+    <!-- container -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <a class="navbar-brand logo text-uppercase" href="index-1.html">
+            <Image
+              src={logoFooter}
+              class="logo-light"
+              alt="Logo Light"
+              height={30}
+            />
+          </a>
+          <p class="text-white-50 mb-0 mt-2">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae,
+            deserunt expedita! Id sit dicta quidem aperiam aut ad debitis
+            numquam .
+          </p>
+
+          <div class="footer-icon mt-4">
+            <div class="d-flex align-items-center">
+              <a
+                href="#"
+                class="avatar-sm me-2 text-center"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                data-bs-title="Facebook"
+              >
+                <i class="mdi mdi-facebook f-24 text-primary align-middle"></i>
+              </a>
+              <a
+                href="#"
+                class="avatar-sm mx-2 text-center"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                data-bs-title="Twitter"
+              >
+                <i class="mdi mdi-twitter f-24 text-primary align-middle"></i>
+              </a>
+              <a
+                href="#"
+                class="avatar-sm mx-2 text-center"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                data-bs-title="Googleplay"
+              >
+                <i class="mdi mdi-google-play f-24 text-primary align-middle"
+                ></i>
+              </a>
+              <a
+                href="#"
+                class="avatar-sm mx-2 text-center"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                data-bs-title="Linkedin"
+              >
+                <i class="mdi mdi-linkedin f-24 text-primary align-middle"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="mt-lg-0 mt-4 text-start">
+            <h5 class="fw-bold text-white">Product</h5>
+            <ul class="footer-item list-unstyled footer-link mt-3">
+              <li><a href="#">Features</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Get App</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="text-start">
+            <h5 class="fw-bold text-white">Policies</h5>
+            <ul class="footer-item list-unstyled footer-link mt-3">
+              <li><a href="#">Security & Provciy</a></li>
+              <li><a href="#">Marketplace</a></li>
+              <li><a href="#">Term & Condition</a></li>
+              <li><a href="#">Collection</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <h5 class="text-white">Subscribe</h5>
+          <div class="input-group my-4">
+            <input
+              type="text"
+              class="form-control p-3"
+              placeholder="subscribe"
+              aria-label="subscribe"
+              aria-describedby="basic-addon2"
+            />
+            <a
+              href="#"
+              class="input-group-text bg-primary px-4 text-white"
+              id="basic-addon2">Go</a
+            >
+          </div>
+          <p class="text-white-50 mb-0">
+            publishes will show up in your Subscriptions feed. You may also
+            start.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- end container -->
+  </section>
+
+  <section class="bottom-footer py-4">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <p class="text-muted mb-0 text-center">
+            ©
+            <script>
+              document.write(String(new Date().getFullYear()));
+            </script> Styza. Design with <i class="mdi mdi-heart text-danger"
+            ></i>
+            by <a
+              href="https://store.themesdesign.in/"
+              target="_blank"
+              class="text-muted">Themesdesign.</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end footer -->
+
+  <!-- Style switcher -->
+  <div
+    class="style-switcher"
+    id="style-switcher"
+    onclick="toggleSwitcher()"
+    style="left: -189px;"
+  >
+    <div>
+      <h6>Select your color</h6>
+      <ul class="pattern list-unstyled mb-0">
+        <li>
+          <a
+            class="color1"
+            href="javascript: void(0);"
+            onclick="setColor('default')"></a>
+        </li>
+        <li>
+          <a
+            class="color2"
+            href="javascript: void(0);"
+            onclick="setColor('blue')"></a>
+        </li>
+        <li>
+          <a
+            class="color3"
+            href="javascript: void(0);"
+            onclick="setColor('warning')"></a>
+        </li>
+      </ul>
+    </div>
+    <!-- <div class="bottom">
+      <a href="javascript: void(0);" class="settings rounded-end"
+        ><i
+          class="uil uil-setting text-white"
+          style="display: inline; line-height: 46px;"></i></a
+      >
+    </div> -->
+  </div>
+</LandingPageLayout>
+
+<script>
+  import { tns } from 'tiny-slider';
+
+  function windowScroll(): void {
+    const navbar = document.getElementById('navbar');
+    if (navbar) {
+      if (
+        document.body.scrollTop >= 50 ||
+        document.documentElement.scrollTop >= 50
+      ) {
+        navbar.classList.add('nav-sticky');
+      } else {
+        navbar.classList.remove('nav-sticky');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', (ev: Event) => {
+    ev.preventDefault();
+    windowScroll();
+  });
+
+  /********************* light-dark js ************************/
+  const bodyElem = document.body;
+
+  if (bodyElem.getAttribute('data-bs-theme') === 'dark') {
+    sessionStorage.setItem('data-mode', 'dark');
+  } else if (bodyElem.getAttribute('data-bs-theme') === 'light') {
+    sessionStorage.setItem('data-mode', 'light');
+  }
+
+  const dataMode = sessionStorage.getItem('data-mode');
+  if (dataMode) {
+    bodyElem.setAttribute('data-bs-theme', dataMode);
+    toggleBtn(1);
+  } else if (dataMode === null) {
+    bodyElem.setAttribute('data-bs-theme', 'light');
+  }
+
+  function toggleBtn(r: number): void {
+    const dataTheme = bodyElem.getAttribute('data-bs-theme');
+    let themeSwitch: boolean;
+
+    if (dataTheme === 'light') {
+      themeSwitch = true;
+    } else {
+      themeSwitch = false;
+    }
+
+    if (r) {
+      themeSwitch = !themeSwitch;
+    }
+
+    if (themeSwitch) {
+      document.body.setAttribute('data-bs-theme', 'dark');
+      sessionStorage.setItem('data-mode', 'dark');
+    } else {
+      document.body.setAttribute('data-bs-theme', 'light');
+      sessionStorage.setItem('data-mode', 'light');
+    }
+  }
+  window.addEventListener('click', (event: any) => {
+    if (event.target) {
+      const isModeChangebutton = ['mode-light', 'mode-dark'].some(
+        (item: string) => event?.target?.classList.contains(item)
+      );
+      if (isModeChangebutton) {
+        toggleBtn(0);
+      }
+    }
+  });
+
+  /********************* Swicher js ************************/
+
+  function toggleSwitcher(): void {
+    const switcher = document.getElementById('style-switcher');
+    if (switcher) {
+      if (switcher.style.left === '-189px') {
+        switcher.style.left = '0px';
+      } else {
+        switcher.style.left = '-189px';
+      }
+    }
+  }
+
+  function setColor(theme: string): void {
+    const colorOpt = document.getElementById('color-opt') as HTMLLinkElement;
+    if (colorOpt) {
+      colorOpt.href = './css/colors/' + theme + '.css';
+    }
+    toggleSwitcher();
+  }
+
+  // ********** tiny slider ** testi **
+
+  const slider = tns({
+    container: '.testi-slider',
+    loop: true,
+    autoplay: false,
+    mouseDrag: true,
+    controls: false,
+    navPosition: 'bottom',
+    nav: true,
+    autoplayTimeout: 5000,
+    speed: 900,
+    center: false,
+    animateIn: 'fadeIn',
+    animateOut: 'fadeOut',
+    controlsText: ['&#8592;', '&#8594;'],
+    autoplayButtonOutput: false,
+    gutter: 30,
+    responsive: {
+      992: {
+        gutter: 30,
+        items: 1.2,
+      },
+    },
+  });
+
+  // ********* swiper slider ** app Slider **
+
+  import Swiper from 'swiper';
+
+  new Swiper('.swiper-container', {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    centeredSlides: true,
+    speed: 5000,
+    autoplay: {
+      delay: 5000,
+    },
+    breakpoints: {
+      1920: {
+        slidesPerView: 5,
+        spaceBetween: 50,
+      },
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+      768: {
+        slidesPerView: 1,
+        spaceBetween: 30,
+      },
+    },
+  });
+
+  // Contact Form
+  // function validateForm(): boolean {
+  //   const name = (document.forms['myForm']['name'] as HTMLInputElement).value;
+  //   const email = (document.forms['myForm']['email'] as HTMLInputElement).value;
+  //   const subject = (document.forms['myForm']['subject'] as HTMLInputElement)
+  //     .value;
+  //   const comments = (
+  //     document.forms['myForm']['comments'] as HTMLTextAreaElement
+  //   ).value;
+  //   const errorMsg = document.getElementById('error-msg');
+
+  //   if (errorMsg) {
+  //     errorMsg.style.opacity = '0';
+  //     errorMsg.innerHTML = '';
+  //   }
+
+  //   if (name === '' || name == null) {
+  //     errorMsg!.innerHTML =
+  //       "<div class='alert alert-warning'>*Please enter a Name*</div>";
+  //     fadeIn();
+  //     return false;
+  //   }
+  //   if (email === '' || email == null) {
+  //     errorMsg!.innerHTML =
+  //       "<div class='alert alert-warning'>*Please enter an Email*</div>";
+  //     fadeIn();
+  //     return false;
+  //   }
+  //   if (subject === '' || subject == null) {
+  //     errorMsg!.innerHTML =
+  //       "<div class='alert alert-warning'>*Please enter a Subject*</div>";
+  //     fadeIn();
+  //     return false;
+  //   }
+  //   if (comments === '' || comments == null) {
+  //     errorMsg!.innerHTML =
+  //       "<div class='alert alert-warning'>*Please enter Comments*</div>";
+  //     fadeIn();
+  //     return false;
+  //   }
+
+  //   const xhttp = new XMLHttpRequest();
+  //   xhttp.onreadystatechange = function () {
+  //     if (this.readyState === 4 && this.status === 200) {
+  //       document.getElementById('simple-msg')!.innerHTML = this.responseText;
+  //       (document.forms['myForm']['name'] as HTMLInputElement).value = '';
+  //       (document.forms['myForm']['email'] as HTMLInputElement).value = '';
+  //       (document.forms['myForm']['subject'] as HTMLInputElement).value = '';
+  //       (document.forms['myForm']['comments'] as HTMLTextAreaElement).value =
+  //         '';
+  //     }
+  //   };
+  //   xhttp.open('POST', 'php/contact.php', true);
+  //   xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  //   xhttp.send(
+  //     'name=' +
+  //       encodeURIComponent(name) +
+  //       '&email=' +
+  //       encodeURIComponent(email) +
+  //       '&subject=' +
+  //       encodeURIComponent(subject) +
+  //       '&comments=' +
+  //       encodeURIComponent(comments)
+  //   );
+  //   return false;
+  // }
+
+  // function fadeIn(): void {
+  //   const fade = document.getElementById('error-msg');
+  //   if (fade) {
+  //     let opacity = 0;
+  //     const intervalID = setInterval(function () {
+  //       if (opacity < 1) {
+  //         opacity += 0.5;
+  //         fade.style.opacity = opacity.toString();
+  //       } else {
+  //         clearInterval(intervalID);
+  //       }
+  //     }, 200);
+  //   }
+  // }
+</script>
+<script
+  src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+></script>
+<script>
+  import * as bootstrap from 'bootstrap';
+
+  const tooltipTriggerList = [].slice.call(
+    document.querySelectorAll('[data-bs-toggle="tooltip"]')
+  );
+  const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
+</script>
